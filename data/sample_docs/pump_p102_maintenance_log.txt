@@ -1,0 +1,43 @@
+DOCUMENT ID: MAINT-P102-HIST
+TITLE: Equipment Maintenance History - Centrifugal Pump P-102
+CATEGORY: maintenance_record
+EQUIPMENT_TAG: P-102
+DATE_GENERATED: 2024-06-30
+
+--- EQUIPMENT DETAILS ---
+Tag: P-102
+Description: Unit 3 Redundant Feed Pump
+Manufacturer: Grundfos
+Model: CR95-4
+Install Date: 2018-05-15
+Role: 100% Redundant standby for P-101
+
+--- WORK ORDER HISTORY ---
+
+WO# 2021-0811
+Date: 2021-08-15
+Type: Preventative Maintenance
+Description: Annual inspection and alignment check. Laser alignment performed. Soft foot corrected on motor front right mount. Vibration baseline established at 1.8 mm/s.
+
+WO# 2022-1105
+Date: 2022-11-20
+Type: Corrective Maintenance
+Description: Mechanical seal replacement. Operator reported process fluid dripping from seal gland. Replaced with OEM cartridge seal kit. Verified cooling flush line was clear. No bearing damage noted.
+
+WO# 2023-0544
+Date: 2023-05-10
+Type: Preventative Maintenance
+Description: Routine bearing replacement (scheduled). Replaced Drive End (DE) and Non-Drive End (NDE) bearings with SKF 6312 series per OEM manual. 
+
+WO# 2024-0199
+Date: 2024-04-05
+Type: Preventative Maintenance
+Description: Quarterly lube oil change. Oil analysis showed normal wear metals, no water contamination.
+
+WO# 2024-0268
+Date: 2024-06-25
+Type: Corrective Maintenance
+Description: P-102 brought online after P-101 failure. Minor seal drip observed (approx 5 drops/minute). Placed drip pan. Monitoring closely. 
+
+--- ANALYSIS NOTES ---
+Unlike P-101, P-102 has not experienced any catastrophic bearing failures. The scheduled replacement in 2023 occurred after 5 years of mostly standby operation. The current seal drip on P-102 needs to be addressed in the next turnaround, but does not prevent operation.

@@ -1,0 +1,111 @@
+DOCUMENT ID: LLB-2023-001
+TITLE: Lessons Learned Bulletin — Recurring Pump Seal Failures Due to Dry Running
+CATEGORY: incident_report
+ISSUE_DATE: 2023-12-15
+ISSUED_BY: HSE Department — Root Cause Analysis Team
+DISTRIBUTION: All Operations, Maintenance, and Engineering personnel
+CLASSIFICATION: SAFETY CRITICAL — Mandatory reading for all pump operators
+
+--- EXECUTIVE SUMMARY ---
+Between January 2023 and March 2024, three separate centrifugal pump seal failures occurred across different plant units, all caused by the same root cause: dry running during startup. This bulletin summarizes the incidents, identifies the systemic failure, and describes the corrective actions implemented. All personnel involved in pump startup operations must acknowledge reading this bulletin.
+
+--- INCIDENT SUMMARY ---
+
+INCIDENT 1: IR-2023-012
+Date: 14-February-2023
+Equipment: P-201 (Unit 2 Process Pump)
+Manufacturer: Flowserve | Model: MK3 80/50
+Failure: Mechanical seal catastrophic failure during startup
+Description: During a planned restart after a 3-day maintenance shutdown, the operator started P-201 without verifying that the pump casing was fully primed. The pump ran dry for approximately 45 seconds before the operator noticed low discharge pressure and hit the emergency stop. By that time, the carbon-faced mechanical seal had failed due to thermal shock — seal faces reached an estimated 300°C without the cooling effect of the process fluid.
+Damage: Seal destroyed, shaft sleeve scored, 2 days of production loss.
+Cost: ₹4,50,000 (seal replacement + shaft sleeve + lost production)
+
+INCIDENT 2: IR-2023-089
+Date: 18-August-2023
+Equipment: P-104 (Unit 1 Transfer Pump)
+Manufacturer: KSB | Model: Etanorm 100-80-200
+Failure: Mechanical seal failure during restart after power restoration
+Description: Following a 20-minute plant-wide power interruption, auto-restart logic re-energized P-104 immediately when power was restored. The pump's suction vessel had partially drained during the outage, and P-104 restarted with insufficient NPSH (Net Positive Suction Head). The pump cavitated severely for 2 minutes before a field operator isolated it. The mechanical seal failed due to combined dry running and cavitation damage.
+Damage: Seal destroyed, impeller eye erosion, bearing damage from cavitation-induced vibration.
+Cost: ₹6,80,000 (seal + impeller + bearings + lost production)
+
+INCIDENT 3: IR-2024-031
+Date: 05-March-2024
+Equipment: P-303 (Unit 3 Auxiliary Pump)
+Manufacturer: Grundfos | Model: NB 80-200
+Failure: Seal leak developing into full failure during operator shift change
+Description: P-303 was started by the outgoing shift operator at 05:45, just before shift handover at 06:00. The operator did not complete the startup checklist (SOP-045 Step 3: verify priming) because they were rushing to hand over to the incoming shift. The incoming operator noticed a seal leak at 06:30 but assumed it was a pre-existing minor drip. By 08:00, the seal had failed completely, spraying process fluid onto the pump skid. The area was isolated and cleaned up — no injuries.
+Damage: Seal destroyed, contamination cleanup required, environmental near-miss report filed.
+Cost: ₹3,20,000 (seal + cleanup + environmental reporting)
+
+--- ROOT CAUSE ANALYSIS (SYSTEMIC) ---
+
+All three incidents share one root cause: DRY RUNNING DURING STARTUP.
+
+The 5-Why analysis applied across all three incidents:
+
+Why 1: Why did the seals fail?
+→ Thermal shock from dry running (no liquid cooling of seal faces).
+
+Why 2: Why did the pumps run dry?
+→ Pump casings were not properly primed before motor start.
+
+Why 3: Why were pumps not primed?
+→ Incident 1: Operator skipped priming step. Incident 2: Auto-restart logic did not include priming verification. Incident 3: Operator rushing before shift handover.
+
+Why 4: Why was the priming step skippable?
+→ The existing startup procedure (SOP-045) listed priming as a step, but there was no physical interlock or mandatory sign-off to verify it was completed before the motor could be started.
+
+Why 5: Why was there no interlock?
+→ The original pump control system design (2016) did not include a priming verification interlock. The risk assessment at the time categorized dry running as "LOW" likelihood, which was incorrect based on actual operating history.
+
+Contributing Factors:
+- Shift handover pressure (Incident 3) — operators rushing to complete tasks before handover
+- Auto-restart logic without pre-start checks (Incident 2) — DCS programming gap
+- Lack of enforcement of startup checklist (all three incidents)
+
+--- CORRECTIVE ACTIONS IMPLEMENTED ---
+
+CA-01: PROCEDURE UPDATE
+Action: SOP-045 (Centrifugal Pump Startup Procedure) revised to Rev 4.0
+Change: Step 3 (Priming) now includes a mandatory signature box. The pump startup authorization form cannot be submitted to the control room without the priming verification signature.
+Completion Date: 01-Oct-2023
+Verified By: L. Fernandez, Operations Supervisor
+
+CA-02: HARDWARE INTERLOCK
+Action: Low-level switch (LSL) installed on suction nozzle of all 8 critical pumps (P-101, P-102, P-104, P-201, P-202, P-303, CWP-01, CWP-02).
+Change: Motor start circuit now requires LSL to confirm liquid presence at suction. If LSL is not satisfied, motor contactor will not close. This interlock can only be bypassed with a formal MOC (Management of Change) approval.
+Completion Date: 15-Nov-2023
+Verified By: A. Venkatesh, Electrical Engineer
+
+CA-03: AUTO-RESTART LOGIC MODIFICATION
+Action: DCS auto-restart logic for all pumps modified to include a 60-second delay and LSL verification before re-energizing after power restoration.
+Change: Prevents immediate restart into dry or partially-drained conditions.
+Completion Date: 20-Nov-2023
+Verified By: DCS Programming Team
+
+CA-04: TRAINING
+Action: Mandatory refresher training conducted for all 42 pump operators across all shifts.
+Content: Dry running hazards, updated SOP-045, interlock explanation, case studies from all 3 incidents.
+Completion Date: 30-Nov-2023
+Verified By: Training Department records
+
+CA-05: SHIFT HANDOVER PROTOCOL
+Action: Updated shift handover SOP to include a "no new starts within 15 minutes of handover" rule for non-emergency situations.
+Change: Prevents the scenario where an operator rushes a startup just before handing over.
+Completion Date: 01-Dec-2023
+Verified By: Operations Manager
+
+--- EFFECTIVENESS VERIFICATION ---
+Since implementation of all corrective actions (December 2023), there have been ZERO pump seal failures due to dry running as of June 2024. The LSL interlock has successfully prevented 3 attempted dry starts (logged in DCS event historian), confirming the interlock is functioning as designed.
+
+--- CROSS-REFERENCES ---
+- IR-2023-012: P-201 Seal Failure Investigation Report
+- IR-2023-089: P-104 Seal Failure Investigation Report  
+- IR-2024-031: P-303 Seal Failure Investigation Report
+- SOP-045 Rev 4.0: Centrifugal Pump Startup Procedure (updated)
+- MOC-2023-045: Management of Change — Pump Suction Interlock Installation
+- OISD-116 Section 4.5: Recommendations for Rotating Equipment Safeguards
+
+--- ACKNOWLEDGMENT ---
+All personnel must sign the acknowledgment sheet (Form HSE-ACK-LLB-001) confirming they have read and understood this bulletin. Signed sheets must be returned to the HSE Department by 31-Jan-2024.

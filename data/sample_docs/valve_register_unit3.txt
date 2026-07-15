@@ -1,0 +1,134 @@
+DOCUMENT ID: VR-UNIT3-2024
+TITLE: Gate Valve Inspection Register — Unit 3 Process Plant
+CATEGORY: inspection_report
+DATE: 2024-06-30
+LOCATION: Unit 3 — Process Section, Pump Bay, Heat Exchanger Bay, Tank Farm
+
+--- REGISTER OVERVIEW ---
+This register tracks the physical condition and inspection compliance of all gate valves in Unit 3. Inspections are performed per OISD-116 Section 5.3 requirements and internal procedure PROC-INS-012. All valves are forged carbon steel body (ASTM A105) with stellite-faced trim unless noted otherwise.
+
+Inspection Authority: Bureau of Indian Standards (BIS) Third Party Inspector
+Internal Responsible: R. Sharma, Inspection Engineer
+Frequency: Annual visual + operational check; 5-yearly detailed NDT
+
+--- VALVE INSPECTION DATA ---
+
+TAG: V-101
+Type: Gate Valve (Rising Stem)
+Size: 6" (150 NB) | Rating: Class 300
+Service: P-101 Suction Isolation
+Last Inspection: 12-Mar-2024 | Next Due: 12-Mar-2025
+Inspector: R. Sharma
+Condition: GOOD
+Defects: None. Stem greased, packing in good condition. Handwheel operates freely (4 turns open to close).
+
+TAG: V-102
+Type: Gate Valve (Rising Stem)
+Size: 6" (150 NB) | Rating: Class 300
+Service: P-101 Discharge Isolation
+Last Inspection: 12-Mar-2024 | Next Due: 12-Mar-2025
+Inspector: R. Sharma
+Condition: GOOD
+Defects: Minor paint peeling on yoke. No operational issue. Marked for repainting during next turnaround.
+
+TAG: V-103
+Type: Gate Valve (Rising Stem)
+Size: 4" (100 NB) | Rating: Class 150
+Service: P-102 Suction Isolation
+Last Inspection: 15-Jan-2024 | Next Due: 15-Jan-2025
+Inspector: R. Sharma
+Condition: GOOD
+Defects: None. Full stroke test satisfactory.
+
+TAG: V-104
+Type: Gate Valve (Non-Rising Stem)
+Size: 4" (100 NB) | Rating: Class 150
+Service: P-102 Discharge Isolation
+Last Inspection: 15-Jan-2024 | Next Due: 15-Jan-2025
+Inspector: R. Sharma
+Condition: FAIR
+Defects: Slight stiffness during operation. Stem lubrication performed on site. Re-check in 3 months recommended.
+
+TAG: V-105
+Type: Gate Valve (Rising Stem)
+Size: 8" (200 NB) | Rating: Class 300
+Service: HX-301 Shell Side Inlet
+Last Inspection: 08-Nov-2023 | Next Due: 08-Nov-2024
+Inspector: K. Patel
+Condition: GOOD
+Defects: None.
+
+TAG: V-106
+Type: Gate Valve (Rising Stem)
+Size: 8" (200 NB) | Rating: Class 300
+Service: HX-301 Shell Side Outlet
+Last Inspection: 08-Nov-2023 | Next Due: 08-Nov-2024
+Inspector: K. Patel
+Condition: GOOD
+Defects: None.
+
+TAG: V-107
+Type: Gate Valve (Non-Rising Stem)
+Size: 3" (80 NB) | Rating: Class 150
+Service: Cooling Water Supply to P-101 Seal Flush
+Last Inspection: 20-Jun-2023 | Next Due: 20-Jun-2024
+Inspector: R. Sharma
+Condition: PAST DUE — Inspection overdue by 10 days as of 30-Jun-2024
+Defects: Previous inspection noted minor body erosion on downstream side. NDT recommended but not yet scheduled. This valve is critical for P-101 seal cooling — if it fails closed, seal will run dry.
+
+TAG: V-108
+Type: Gate Valve (Rising Stem)
+Size: 2" (50 NB) | Rating: Class 800
+Service: Chemical Injection to Cooling Tower CT-101
+Last Inspection: 14-Apr-2023 | Next Due: 14-Apr-2024
+Inspector: K. Patel
+Condition: PAST DUE — Inspection overdue by 77 days as of 30-Jun-2024
+Defects: Bonnet gasket seepage noted in previous inspection. Recommended for gasket replacement. Work order raised (WO-2024-0188) but not yet executed due to chemical dosing system running continuously.
+
+TAG: V-109
+Type: Gate Valve (Rising Stem)
+Size: 6" (150 NB) | Rating: Class 300
+Service: V-201 Inlet Isolation
+Last Inspection: 22-Feb-2024 | Next Due: 22-Feb-2025
+Inspector: R. Sharma
+Condition: FAIR
+Defects: External corrosion on body (consistent with CUI findings on V-201 itself). Recommend insulation strip and body NDT during next shutdown.
+
+TAG: V-110
+Type: Gate Valve (Non-Rising Stem)
+Size: 10" (250 NB) | Rating: Class 150
+Service: Main Process Header Isolation — Unit 3
+Last Inspection: 05-Dec-2022 | Next Due: 05-Dec-2023
+Inspector: External (BIS Third Party)
+Condition: PAST DUE — Inspection overdue by 208 days as of 30-Jun-2024
+Defects: Third-party inspection certificate EXPIRED. Valve is on the critical path for Unit 3 emergency isolation. This represents a regulatory non-compliance with Factory Act Section 28 and OISD-116 Section 5.3.2.
+
+TAG: V-111
+Type: Gate Valve (Rising Stem)
+Size: 4" (100 NB) | Rating: Class 300
+Service: C-201 Compressor Discharge
+Last Inspection: 10-May-2024 | Next Due: 10-May-2025
+Inspector: R. Sharma
+Condition: GOOD
+Defects: None. Full stroke test passed. Seat tightness verified by pressure test.
+
+TAG: V-112
+Type: Gate Valve (Rising Stem)
+Size: 3" (80 NB) | Rating: Class 150
+Service: Flare Header Branch — Pump Bay
+Last Inspection: 10-May-2024 | Next Due: 10-May-2025
+Inspector: R. Sharma
+Condition: GOOD
+Defects: None.
+
+--- SUMMARY ---
+Total Valves in Register: 12
+Condition Good: 8
+Condition Fair: 2
+Condition Past Due: 3 (V-107, V-108, V-110)
+
+CRITICAL NOTE: V-110 has an expired third-party inspection certificate and is on the critical emergency isolation path for Unit 3. This must be escalated to plant management immediately per OISD-116 Section 5.3.2 requirements.
+
+Prepared by: R. Sharma, Inspection Engineer
+Reviewed by: S. Krishnamurthy, Maintenance Manager
+Date: 30-Jun-2024

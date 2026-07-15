@@ -1,0 +1,104 @@
+MAINTENANCE WORK ORDER LOG
+========================
+Plant: Petrochemical Refinery Unit-3
+Equipment: Centrifugal Pump P-101
+Location: Unit-3, Ground Floor, Bay-7
+
+================================================================
+Work Order: WO# 2023-0456
+Date: 15/01/2023
+Type: Preventive Maintenance
+Assigned To: Rajesh Kumar (Mechanical Technician, Cert: API-510)
+
+Description:
+Annual preventive maintenance on Pump P-101 (Grundfos CR 95-3).
+Scope includes bearing inspection, seal check, alignment verification.
+
+Work Performed:
+1. Dismantled pump casing and inspected internals
+2. Replaced both DE and NDE bearings (SKF 6310-2Z)
+3. Replaced mechanical seal (Grundfos OEM Part# 96455086)
+4. Shaft alignment performed using laser alignment tool
+5. Vibration baseline recorded: 2.1 mm/s (within acceptable range <4.5 mm/s)
+6. Discharge pressure verified: 4.2 bar (nominal: 4.0-4.5 bar)
+7. Motor current draw: 18.5A (rated: 22A)
+
+Parts Used:
+- SKF 6310-2Z Bearing x 2
+- Grundfos Mechanical Seal Kit 96455086 x 1
+- Gasket set P-101-GK-03 x 1
+- Shell Tellus S2 VX 46 lubricant: 2.5 liters
+
+Total Downtime: 8 hours
+Status: COMPLETED
+
+Remarks: Bearings showed moderate wear (expected at 14 months service).
+OEM recommends bearing replacement every 12 months at current load conditions.
+Next PM due: January 2024
+
+================================================================
+Work Order: WO# 2023-0892
+Date: 18/07/2023
+Type: Corrective Maintenance
+Assigned To: Suresh Patel (Senior Technician)
+
+Description:
+Pump P-101 reported minor leak at discharge flange.
+Operator noticed small drip during routine rounds.
+
+Work Performed:
+1. Isolated pump per LOTO procedure SP-045
+2. Depressurized and drained pump
+3. Inspected discharge flange gasket — found gasket degradation
+4. Replaced gasket with spiral wound gasket (SS316/Graphite)
+5. Re-torqued bolts to 85 Nm per OEM specification
+6. Hydro-tested at 6.3 bar (1.5x operating pressure)
+7. Returned to service, no leak observed
+
+Parts Used:
+- Spiral Wound Gasket DN80 (SS316/Graphite) x 1
+
+Total Downtime: 4 hours
+Status: COMPLETED
+
+================================================================
+Work Order: WO# 2024-0234
+Date: 12/06/2024
+Type: Condition Monitoring
+Assigned To: Amit Singh (Vibration Analyst)
+
+Description:
+Quarterly vibration analysis on P-101 and associated equipment.
+
+Findings:
+1. Overall vibration level: 5.8 mm/s (ELEVATED — threshold: 4.5 mm/s)
+2. Dominant frequency at 1x RPM — indicates possible imbalance or misalignment
+3. Bearing frequency signatures: elevated BPF (Ball Pass Frequency)
+4. Temperature: Bearing housing DE side: 72°C (normal <65°C)
+5. Temperature: Bearing housing NDE side: 68°C (borderline)
+
+Assessment: AMBER — Trending towards failure
+Recommendation: Schedule bearing replacement within 30 days.
+Note: Last bearing replacement was 18 months ago (WO# 2023-0456).
+OEM bearing life at current load: 12 months.
+Bearings are 6 months overdue for replacement.
+
+================================================================
+Work Order: WO# 2024-0267
+Date: 25/06/2024
+Type: Emergency Call
+Assigned To: Rajesh Kumar
+
+Description:
+Operator reports high vibration alarm on P-101.
+Vibration level: 7.2 mm/s. Bearing temperature: 78°C.
+Pump producing unusual noise — metallic grinding sound.
+
+Immediate Actions Taken:
+1. Notified shift supervisor
+2. Started standby pump P-102
+3. Isolated P-101 per emergency LOTO
+4. Awaiting maintenance team for investigation
+
+Status: OPEN — Pending investigation
+Priority: HIGH

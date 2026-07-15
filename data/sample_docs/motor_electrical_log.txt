@@ -1,0 +1,125 @@
+DOCUMENT ID: ELEC-MAINT-2024-Q2
+TITLE: Electrical Maintenance Log — Motor Condition Monitoring Report Q2 2024
+CATEGORY: maintenance_record
+DATE: 2024-06-28
+PREPARED_BY: V. Subramaniam, Electrical Supervisor
+REVIEWED_BY: A. Venkatesh, Electrical Engineer
+
+--- SCOPE ---
+This report covers electrical condition monitoring of all motors in the Unit 3 pumping system and associated equipment. Testing was performed as part of the quarterly predictive maintenance program in accordance with IEEE 43-2013 (Insulation Resistance Testing) and IS 325:1996 (Three-Phase Induction Motors).
+
+--- MOTOR CONDITION DATA ---
+
+MOTOR TAG: M-101
+Coupled To: P-101 (Centrifugal Feed Pump)
+Rating: 75 kW, 415V, 3-Phase, 50 Hz, 2960 RPM
+Frame: 280M | Insulation Class: F (155°C)
+Manufacturer: Crompton Greaves | Year: 2018
+
+Insulation Resistance (Megger Test @ 500V DC):
+  Phase U-E: 185 MΩ (Previous: 320 MΩ — DECLINING TREND)
+  Phase V-E: 210 MΩ (Previous: 340 MΩ — DECLINING TREND)
+  Phase W-E: 195 MΩ (Previous: 310 MΩ — DECLINING TREND)
+  Polarization Index (PI): 2.1 (Minimum acceptable: 2.0 — BORDERLINE)
+  Assessment: MARGINAL. IR values have dropped 40% in 6 months. Possible moisture ingress or winding contamination. Recommend thermal imaging and surge comparison test within 30 days.
+
+Winding Temperature (during P-101 operation at 85% load):
+  Phase U: 128°C
+  Phase V: 132°C
+  Phase W: 141°C (WARNING — approaching Class F limit of 155°C)
+  Assessment: Phase W winding temperature is 9°C higher than Phase U. This asymmetry suggests a potential inter-turn fault developing in Phase W, or a rotor eccentricity issue. Note: This elevated winding temperature CORRELATES with the high vibration observed on P-101 — mechanical vibration from bearing degradation can cause rotor eccentricity, which increases winding temperature non-uniformly.
+
+Current Draw vs Nameplate:
+  Nameplate FLA: 128A
+  Measured (at 85% load): 118A (Phase U), 119A (Phase V), 124A (Phase W)
+  Assessment: Phase W current imbalance of 4.2% exceeds the 3% threshold per NEMA MG-1. Consistent with elevated winding temperature finding.
+
+Bearing Vibration (Motor Bearings):
+  Drive End (DE): 4.8 mm/s (WARNING — above 4.5 mm/s alarm threshold)
+  Non-Drive End (NDE): 3.1 mm/s (Normal)
+  Assessment: DE bearing vibration is elevated. This may be transmitted vibration from P-101's failing pump bearings through the coupling, or the motor DE bearing itself may be degrading. Coupling alignment should be verified after P-101 bearing replacement.
+
+Power Factor: 0.82 (at 85% load) — Normal for this motor type and loading.
+
+Last Predictive Maintenance: 12-Mar-2024 (Thermography + Vibration)
+Next Scheduled: 12-Sep-2024
+
+RECOMMENDATION FOR M-101: HIGH PRIORITY. Motor should be removed for workshop testing (surge comparison, core loss test) when P-101 is taken down for bearing replacement. The declining IR and winding temperature asymmetry could lead to a winding failure if left unaddressed. Budget estimate for rewinding if required: ₹2,50,000.
+
+---
+
+MOTOR TAG: M-102
+Coupled To: P-102 (Redundant Feed Pump)
+Rating: 75 kW, 415V, 3-Phase, 50 Hz, 2960 RPM
+Frame: 280M | Insulation Class: F (155°C)
+Manufacturer: Crompton Greaves | Year: 2018
+
+Insulation Resistance (Megger Test @ 500V DC):
+  Phase U-E: 520 MΩ
+  Phase V-E: 490 MΩ
+  Phase W-E: 510 MΩ
+  Polarization Index (PI): 3.8
+  Assessment: GOOD. Values stable over last 4 quarters.
+
+Winding Temperature (during P-102 operation at 80% load):
+  Phase U: 108°C
+  Phase V: 110°C
+  Phase W: 112°C
+  Assessment: NORMAL. Balanced and well within Class F limits.
+
+Current Draw: 112A (U), 113A (V), 114A (W) — balanced, normal.
+
+Bearing Vibration:
+  DE: 2.1 mm/s (Normal)
+  NDE: 1.8 mm/s (Normal)
+
+Power Factor: 0.81 — Normal.
+
+Last Predictive Maintenance: 12-Mar-2024
+Next Scheduled: 12-Sep-2024
+
+RECOMMENDATION FOR M-102: ROUTINE. Motor in good condition. Continue quarterly monitoring.
+
+---
+
+MOTOR TAG: M-201
+Coupled To: C-201 (Reciprocating Compressor)
+Rating: 150 kW, 415V, 3-Phase, 50 Hz, 1480 RPM
+Frame: 315L | Insulation Class: H (180°C)
+Manufacturer: ABB | Year: 2016
+
+Insulation Resistance (Megger Test @ 1000V DC):
+  Phase U-E: 380 MΩ
+  Phase V-E: 350 MΩ
+  Phase W-E: 390 MΩ
+  Polarization Index (PI): 3.2
+  Assessment: GOOD.
+
+Winding Temperature (at 90% load):
+  Phase U: 135°C
+  Phase V: 138°C
+  Phase W: 136°C
+  Assessment: NORMAL. Class H insulation provides adequate margin.
+
+Current Draw:
+  Nameplate FLA: 248A
+  Measured (at 90% load): 230A (U), 232A (V), 229A (W) — balanced, normal.
+
+Bearing Vibration:
+  DE: 3.2 mm/s (Normal)
+  NDE: 2.8 mm/s (Normal)
+
+Power Factor: 0.84 — Normal for this frame size and loading.
+
+Last Predictive Maintenance: 15-Apr-2024
+Next Scheduled: 15-Oct-2024
+
+RECOMMENDATION FOR M-201: ROUTINE. Motor in good condition.
+
+--- OVERALL SUMMARY ---
+Motors Tested: 3
+Status: M-101 MARGINAL (linked to P-101 issue), M-102 GOOD, M-201 GOOD
+Priority Actions:
+  1. M-101: Schedule workshop testing concurrent with P-101 bearing job
+  2. M-101: Perform surge comparison test before restart
+  3. All motors: Next quarterly PdM round due Sep 2024

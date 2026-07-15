@@ -1,0 +1,139 @@
+GRUNDFOS CR 95 SERIES — OPERATION AND MAINTENANCE MANUAL
+========================================================
+Model: CR 95-3 (Vertical Multistage Centrifugal Pump)
+Serial Number Range: 98-CR95-xxxx
+Document: OEM-MAN-GF-CR95-REV3
+Date: March 2021
+
+================================================================
+SECTION 1: GENERAL SPECIFICATIONS
+================================================================
+
+1.1 Performance Data
+- Flow Rate: 95 m³/hr (rated)
+- Head: 32 meters (at rated flow)
+- Speed: 2950 RPM (50 Hz supply)
+- Motor: 22 kW, 3-phase, 415V
+- Discharge Pressure: 4.0-4.5 bar (rated)
+- Maximum Operating Pressure: 16 bar
+- Maximum Operating Temperature: 120°C
+
+1.2 Materials of Construction
+- Pump Casing: Cast Iron EN-GJL-200
+- Impeller: Stainless Steel AISI 304
+- Shaft: Stainless Steel AISI 431
+- Bearings: SKF 6310-2Z (DE and NDE)
+- Mechanical Seal: Cartridge type, Silicon Carbide/Carbon
+
+================================================================
+SECTION 2: INSTALLATION REQUIREMENTS
+================================================================
+
+2.1 Foundation
+- Level concrete pad, minimum 150mm thick
+- Anti-vibration mounts recommended for installations above 2nd floor
+- Alignment tolerance: 0.05mm (angular), 0.08mm (parallel)
+
+2.2 Piping
+- Suction pipe: DN100, minimum straight length 5D before pump
+- Discharge pipe: DN80, non-return valve required within 2D
+- Maximum suction lift: 7m (NPSH required: 2.8m)
+
+================================================================
+SECTION 3: PREVENTIVE MAINTENANCE SCHEDULE
+================================================================
+
+3.1 Daily Checks (Operator)
+- Visual check for leaks at seals and flanges
+- Check bearing temperature (normal: <65°C, alarm: 75°C, trip: 85°C)
+- Check vibration (normal: <4.5 mm/s, alarm: 7.0 mm/s, trip: 11.0 mm/s)
+- Verify discharge pressure is within 4.0-4.5 bar
+- Check motor current (rated: 22A, alarm: >25A)
+
+3.2 Monthly Checks
+- Grease bearing housings (Shell Gadus S2 V220 AD 2, 15g per housing)
+- Check coupling alignment
+- Inspect foundation bolts
+- Clean cooling fins on motor
+
+3.3 Quarterly Checks
+- Vibration spectrum analysis (required per OISD-116)
+- Oil analysis on bearing lubrication
+- Thermographic survey of motor and bearings
+- Check control panel and protection devices
+
+3.4 Annual Maintenance (12-Month Interval — CRITICAL)
+- Replace DE and NDE bearings (SKF 6310-2Z)
+  WARNING: Bearing life at rated load is 12 months.
+  Operating beyond 12 months significantly increases failure risk.
+- Inspect mechanical seal, replace if wear exceeds 2mm
+- Inspect impeller for erosion/corrosion
+- Full shaft alignment verification
+- Hydrostatic test at 1.5x rated pressure
+- Update maintenance log with all findings
+
+================================================================
+SECTION 4: FAILURE MODES AND TROUBLESHOOTING
+================================================================
+
+4.1 High Vibration
+Possible Causes:
+a) Bearing wear or damage — Check bearing frequencies in spectrum
+b) Shaft misalignment — Laser alignment required
+c) Impeller imbalance — Remove and dynamically balance
+d) Cavitation — Check NPSH available vs required
+e) Foundation looseness — Inspect and re-torque anchor bolts
+
+4.2 High Bearing Temperature
+Possible Causes:
+a) Insufficient lubrication — Re-grease per schedule
+b) Bearing wear — Replace bearings (see 3.4)
+c) Misalignment — Realign pump-motor
+d) Overloading — Check motor current vs rated
+e) Ambient temperature effects — Ensure adequate ventilation
+
+WARNING: If bearing temperature exceeds 85°C, STOP THE PUMP IMMEDIATELY.
+Continued operation will result in catastrophic bearing failure and
+potential shaft seizure.
+
+4.3 Seal Failure
+Possible Causes:
+a) Dry running (no liquid in pump) — MOST COMMON CAUSE
+b) Abrasive particles in fluid
+c) Thermal shock
+d) Incorrect installation
+e) Seal face wear beyond limit
+
+4.4 Loss of Performance (Low Flow/Pressure)
+Possible Causes:
+a) Impeller wear/erosion
+b) Air entrainment in suction
+c) Blocked suction strainer
+d) Worn wear rings
+e) Incorrect impeller rotation direction
+
+================================================================
+SECTION 5: SPARE PARTS LIST
+================================================================
+
+5.1 Critical Spares (Recommended Stock)
+- SKF 6310-2Z Bearing: 4 nos (2 sets)
+- Mechanical Seal Kit (Part# 96455086): 2 nos
+- Impeller (Part# 96455102): 1 no
+- Shaft Sleeve (Part# 96455098): 2 nos
+- O-Ring Kit (Part# 96455110): 5 nos
+- Gasket Set (Part# P-101-GK-03): 5 nos
+
+5.2 Consumables
+- Shell Gadus S2 V220 AD 2 grease: 1 kg per year
+- Shell Tellus S2 VX 46 lubricant: 5 liters per year
+
+================================================================
+SECTION 6: WARRANTY AND SUPPORT
+================================================================
+
+Warranty: 24 months from installation or 18 months from dispatch
+Technical Support: support.india@grundfos.com
+Emergency Hotline: 1800-200-7777
+
+NOTE: Warranty is void if maintenance schedule in Section 3 is not followed.

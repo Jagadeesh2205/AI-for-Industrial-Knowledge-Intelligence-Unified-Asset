@@ -1,0 +1,95 @@
+OISD-116: FIRE PROTECTION FACILITIES FOR PETROLEUM
+REFINERIES AND OIL/GAS PROCESSING PLANTS
+(Relevant Extracts for Compliance Assessment)
+================================================================
+
+Oil Industry Safety Directorate (OISD)
+Ministry of Petroleum and Natural Gas
+Government of India
+
+================================================================
+SECTION 4: INSPECTION AND MAINTENANCE
+================================================================
+
+4.1 General Requirements
+All fire protection systems and safety-critical equipment shall be
+inspected and maintained as per the schedules specified herein.
+Records of all inspections shall be maintained for a minimum of 10 years.
+
+4.2 Inspection of Static Equipment (Pressure Vessels, Storage Tanks)
+4.2.1 External visual inspection: Quarterly
+4.2.2 Ultrasonic thickness measurement: Annually
+4.2.3 Internal inspection: Every 3 years or at shutdown, whichever is earlier
+4.2.4 Corrosion Under Insulation (CUI) inspection:
+      - All insulated vessels operating between 50°C and 175°C: Annual CUI inspection
+      - Vessels with known CUI history: Quarterly monitoring
+      - Method: UT from external, or insulation removal at suspect areas
+4.2.5 Fitness for Service assessment required when:
+      - Wall thickness reaches 80% of retirement thickness
+      - Any single reading below minimum required thickness
+      - Corrosion rate exceeds 0.25mm/year
+
+4.3 Inspection of Rotating Equipment
+4.3.1 Vibration monitoring: Monthly for critical, quarterly for general
+4.3.2 Bearing temperature monitoring: Daily (manual or continuous)
+4.3.3 Oil/lubricant analysis: Quarterly
+4.3.4 Performance monitoring (flow, pressure, current): Continuous
+4.3.5 Alignment check: After every maintenance intervention
+
+4.4 Documentation Requirements
+4.4.1 Inspection records shall include:
+      - Equipment tag number and description
+      - Date of inspection and name of inspector
+      - Type of inspection performed
+      - Findings with measurements
+      - Comparison with previous readings
+      - Recommendations and due dates
+4.4.2 Non-compliance findings shall be reported to:
+      - Plant Manager within 24 hours (Critical)
+      - Plant Manager within 7 days (Major)
+      - Documented in next quarterly report (Minor)
+
+================================================================
+SECTION 5: FIRE PROTECTION SYSTEMS
+================================================================
+
+5.1 Fire Water System
+5.1.1 Fire water pumps shall be tested weekly
+5.1.2 Fire water network pressure test: Annually
+5.1.3 Fire hydrants: Semi-annual inspection and flow test
+5.1.4 Minimum fire water storage: 4 hours at maximum demand rate
+
+5.2 Fire Detection and Alarm
+5.2.1 Smoke/heat detectors: Monthly functional test
+5.2.2 Manual call points: Quarterly test
+5.2.3 Alarm panel: Daily check of status
+5.2.4 Complete loop test: Annually
+
+5.3 Fixed Fire Suppression
+5.3.1 Foam systems: Annual foam compound testing
+5.3.2 Sprinkler systems: Quarterly valve inspection
+5.3.3 Gas suppression systems: Annual cylinder weighing
+
+================================================================
+SECTION 7: SAFETY DISTANCES
+================================================================
+
+7.1 Minimum distances between equipment:
+- Pump house to process unit: 15 meters
+- Flare to process unit: 90 meters (based on radiation study)
+- Storage tank to process unit: 30 meters
+- Control room to process unit: 30 meters
+
+================================================================
+SECTION 9: EMERGENCY RESPONSE
+================================================================
+
+9.1 Emergency response plan shall be reviewed annually
+9.2 Mock drills: Minimum 2 per year (1 announced, 1 unannounced)
+9.3 Mutual aid agreements with neighboring facilities required
+9.4 Emergency communication system shall have battery backup for 4 hours
+
+================================================================
+NOTE: This is an extract of relevant sections for compliance
+assessment purposes. Full standard available from OISD website.
+Document Reference: OISD-STD-116, Edition 3, 2020

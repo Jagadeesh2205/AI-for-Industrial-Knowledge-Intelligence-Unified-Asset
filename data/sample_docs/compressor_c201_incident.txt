@@ -1,0 +1,58 @@
+INCIDENT REPORT — COMPRESSOR C-201 BEARING FAILURE
+===================================================
+Report Number: IR-2022-031
+Date of Incident: 08/04/2022
+Equipment: Reciprocating Compressor C-201 (Dresser-Rand)
+Location: Unit-3, Compressor House
+
+================================================================
+SUMMARY
+================================================================
+
+Compressor C-201 experienced main bearing failure during normal operation.
+The failure was traced to the use of non-OEM bearings installed during
+the previous maintenance cycle (PM in January 2022).
+
+The failure pattern was similar to Pump P-101 failures:
+- Elevated vibration trending over 3 months
+- Bearing temperature rise from 55°C to 82°C over 2 weeks
+- Final failure: bearing seizure and automatic trip
+
+Key difference: C-201 has an automatic trip system at 85°C which
+prevented catastrophic damage. P-101 did not have this feature at the time.
+
+================================================================
+ROOT CAUSE
+================================================================
+
+Primary: Non-OEM bearing (local manufacturer) used during PM
+- Bearing metallurgy was softer than OEM specification
+- Surface finish was rougher, leading to accelerated wear
+- Service life: 3 months (vs OEM rated 18 months for C-201)
+
+Contributing: Procurement policy allowed lowest-cost vendor for bearings
+- No specification verification process for critical spares
+
+================================================================
+CORRECTIVE ACTIONS
+================================================================
+
+1. All non-OEM bearings in C-201 replaced with Dresser-Rand OEM bearings
+2. Policy updated: Critical rotating equipment must use OEM-specified bearings
+3. Incoming quality inspection added for all bearing purchases
+4. C-201 automatic trip system verified and calibrated
+5. RECOMMENDATION: Install automatic bearing temperature trip on P-101
+   (Currently P-101 only has alarm, no automatic trip)
+
+================================================================
+CROSS-REFERENCE
+================================================================
+
+This incident is related to P-101 incident IR-2022-047 (September 2022).
+Both incidents share the same root cause: non-OEM bearings.
+Lessons from this C-201 incident were not effectively communicated
+to prevent the later P-101 failure — identified as a systemic gap
+in lesson-learned communication.
+
+================================================================
+Investigated By: Suresh Patel (Maintenance Manager)

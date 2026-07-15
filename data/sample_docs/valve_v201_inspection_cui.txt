@@ -1,0 +1,40 @@
+DOCUMENT ID: NDT-2024-06-V201
+TITLE: Non-Destructive Testing (NDT) Inspection Report - V-201
+CATEGORY: inspection_report
+EQUIPMENT_TAG: V-201
+DATE: 2024-06-15
+
+--- 1. INSPECTION DETAILS ---
+Equipment: V-201 (Unit-3 Control Valve)
+Service: Hydrocarbon Gas
+Insulation Type: Mineral Wool with Aluminum Jacketing
+Reason for Inspection: Follow-up on operator observation of external rust on jacketing (O-LOG-2024-06). Suspected Corrosion Under Insulation (CUI).
+Inspector: R. Davies (Level II NDT)
+Method: Pulsed Eddy Current (PEC) and Visual (after partial stripping)
+
+--- 2. FINDINGS ---
+2.1 Visual Inspection
+The aluminum jacketing on the lower body of valve V-201 showed water staining and minor pitting. The caulking around the valve stem protrusion was degraded, allowing water ingress during washdowns. 
+Upon stripping a 150mm section of insulation, severe localized corrosion and scale build-up were observed on the carbon steel valve body.
+
+2.2 PEC Wall Thickness Measurements
+Nominal Wall Thickness: 12.5 mm
+Minimum Acceptable Thickness (Tmin): 8.5 mm
+
+Measurements at lower body (suspect area):
+- Point 1: 9.2 mm
+- Point 2: 7.8 mm (FAIL - below Tmin)
+- Point 3: 8.1 mm (FAIL - below Tmin)
+- Point 4: 9.5 mm
+
+Average metal loss in the affected area is approximately 35%. 
+
+--- 3. COMPLIANCE ASSESSMENT ---
+This finding represents a significant compliance gap with API 570 (Piping Inspection Code) and OISD-116.
+Condition: AMBER/RED - Immediate action required. The localized thinning compromises the pressure containment envelope of V-201.
+
+--- 4. RECOMMENDATIONS ---
+1. Immediate: De-rate the line pressure for V-201 by 20% to increase safety margin.
+2. Short Term (within 7 days): Schedule a replacement of the V-201 valve body during the upcoming mini-turnaround. 
+3. Long Term: Revise the insulation design for V-201 to use cellular glass instead of mineral wool, and apply a high-temperature epoxy coating (e.g., TSA - Thermal Sprayed Aluminum) to prevent future CUI.
+4. Fleet-wide: Inspect all other insulated control valves in Unit-3 using the same NDT method within the next 30 days.

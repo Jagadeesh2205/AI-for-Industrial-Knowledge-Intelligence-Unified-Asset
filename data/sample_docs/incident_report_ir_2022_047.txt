@@ -1,0 +1,129 @@
+INCIDENT INVESTIGATION REPORT
+============================
+Report Number: IR-2022-047
+Date of Incident: 14/09/2022
+Date of Report: 28/09/2022
+Classification: Near Miss / Equipment Failure
+
+================================================================
+1. INCIDENT SUMMARY
+================================================================
+
+Equipment: Centrifugal Pump P-101 (Grundfos CR 95-3)
+Location: Unit-3, Ground Floor, Bay-7
+Time of Incident: 02:45 AM (Night Shift)
+
+Description:
+Pump P-101 experienced a catastrophic bearing failure during normal operation.
+The failure resulted in shaft seizure, mechanical seal damage, and an
+uncontrolled leak of process fluid (hot water at 85°C) from the seal area.
+
+Consequences:
+- Equipment damage: Both bearings destroyed, mechanical seal damaged, shaft scored
+- Process impact: Unit-3 process upset for 6 hours (switched to standby P-102)
+- Safety: No personnel injuries (area was unoccupied at time of failure)
+- Environmental: ~50 liters of hot water leaked, contained by bund area
+- Financial: Estimated repair cost ₹4.5 lakhs + production loss ₹12 lakhs
+
+================================================================
+2. TIMELINE OF EVENTS
+================================================================
+
+Date/Time            Event
+---------            -----
+10/09/2022 08:00     Quarterly vibration reading: 5.2 mm/s (elevated)
+10/09/2022 08:30     Vibration analyst recommends monitoring (no action taken)
+12/09/2022 14:00     Operator reports unusual noise from P-101
+12/09/2022 14:30     Shift supervisor notes observation in logbook
+13/09/2022 06:00     Morning shift finds vibration at 6.8 mm/s
+13/09/2022 10:00     Maintenance planner schedules repair for next week
+14/09/2022 02:30     Vibration alarm triggered: 11.2 mm/s
+14/09/2022 02:35     Bearing temperature alarm: 92°C
+14/09/2022 02:40     Operator attempts to start standby pump P-102
+14/09/2022 02:45     P-101 shaft seizure — pump stops abruptly
+14/09/2022 02:50     Seal failure — hot water leak begins
+14/09/2022 03:00     P-102 started, P-101 isolated per emergency procedure
+14/09/2022 03:30     Leak contained, area barricaded
+
+================================================================
+3. ROOT CAUSE ANALYSIS (5-WHY METHOD)
+================================================================
+
+WHY 1: Why did the pump fail?
+→ Catastrophic bearing failure (both DE and NDE bearings)
+
+WHY 2: Why did the bearings fail?
+→ Bearings were operated beyond their rated life.
+  Last replacement: March 2022 (6 months prior).
+  BUT: Bearings had been installed refurbished (not new OEM).
+  Refurbished bearing life: ~6 months (vs 12 months for new).
+
+WHY 3: Why were refurbished bearings used?
+→ OEM bearings were out of stock at time of last PM.
+  Procurement approved local refurbished alternative to avoid extended downtime.
+
+WHY 4: Why was the elevated vibration not acted upon?
+→ Vibration reading of 5.2 mm/s was flagged as "monitor" not "action required."
+  The alarm threshold was set at 7.0 mm/s per OEM manual.
+  However, the trend from 2.1 mm/s (baseline) to 5.2 mm/s in 4 months
+  indicated accelerated degradation that was not analyzed.
+
+WHY 5: Why was the trend not analyzed?
+→ No automated trending system. Vibration data collected on paper forms.
+  No comparison with previous readings during analysis.
+  Vibration analyst works on contract basis, visits quarterly.
+
+================================================================
+4. ROOT CAUSES IDENTIFIED
+================================================================
+
+RC-1 (PRIMARY): Use of non-OEM refurbished bearings with shorter service life
+RC-2 (CONTRIBUTING): Lack of vibration trend analysis capability
+RC-3 (CONTRIBUTING): Delay in acting on elevated vibration readings
+RC-4 (SYSTEMIC): No spare parts inventory management for critical equipment
+
+================================================================
+5. CORRECTIVE ACTIONS
+================================================================
+
+CA-1: Replace all bearings in P-101 with new OEM SKF 6310-2Z bearings
+      Responsible: Rajesh Kumar | Due: 30/09/2022 | Status: COMPLETED
+
+CA-2: Establish minimum stock policy for critical spares
+      - P-101 bearings: minimum 2 sets always in stock
+      - Mechanical seal: minimum 1 set
+      Responsible: Stores Manager | Due: 31/10/2022 | Status: COMPLETED
+
+CA-3: Implement vibration trending software
+      Responsible: Reliability Engineer | Due: 31/12/2022 | Status: IN PROGRESS
+
+CA-4: Review and update vibration alarm thresholds
+      - Add intermediate warning at 4.5 mm/s
+      - Mandate immediate action at 6.0 mm/s
+      Responsible: Maintenance Manager | Due: 15/10/2022 | Status: COMPLETED
+
+CA-5: Prohibit use of non-OEM bearings for critical equipment
+      Responsible: Engineering Manager | Due: 15/10/2022 | Status: COMPLETED
+
+================================================================
+6. LESSONS LEARNED
+================================================================
+
+1. Vibration TREND is more important than absolute value. A reading of
+   5.2 mm/s may be below alarm, but a rise from 2.1 to 5.2 in 4 months
+   is a critical degradation signal.
+
+2. Non-OEM spare parts for critical rotating equipment introduce
+   unpredictable failure modes and shorter service life.
+
+3. Paper-based condition monitoring data prevents effective trending.
+   Digital systems are essential for predictive maintenance.
+
+4. Night shift failures are particularly dangerous as response capability
+   is limited. Critical equipment should have automated protection trips.
+
+================================================================
+
+Investigated By: Dr. Priya Sharma (Reliability Engineering Manager)
+Approved By: K. Venkataraman (Plant Manager)
+Distribution: All shift supervisors, Maintenance department, Safety department

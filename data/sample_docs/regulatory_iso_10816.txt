@@ -1,0 +1,39 @@
+DOCUMENT ID: ISO-10816-3-EXTRACT
+TITLE: ISO 10816-3 Mechanical vibration - Evaluation of machine vibration by measurements on non-rotating parts
+CATEGORY: regulatory
+DATE: 2009-01-15
+
+--- 1. SCOPE ---
+This document provides extracts from ISO 10816-3 for the evaluation of mechanical vibration of industrial machines with nominal power above 15 kW and operating speeds between 120 r/min and 15,000 r/min when measured in situ.
+
+--- 2. MACHINE CLASSES ---
+Pumps (centrifugal, mixed flow, or axial) are classified based on their driver power:
+- Class I: Individual parts of engines and machines, integrally connected with the complete machine in its normal operating condition (e.g., electric motors up to 15 kW).
+- Class II: Medium-sized machines (typically electrical motors with 15 kW to 75 kW output).
+- Class III: Large prime movers and other large machines with rotating masses mounted on rigid and heavy foundations which are relatively stiff in the direction of vibration measurement (e.g., pumps > 75 kW like P-101 and P-102).
+- Class IV: Large prime movers and other large machines mounted on foundations which are relatively soft in the direction of vibration measurement.
+
+--- 3. EVALUATION ZONES FOR VELOCITY (RMS mm/s) ---
+For Class III machines (Rigid support):
+- Zone A (Newly commissioned): < 2.3 mm/s
+- Zone B (Unrestricted long-term operation): 2.3 to 4.5 mm/s
+- Zone C (Limited operation): 4.5 to 7.1 mm/s
+- Zone D (Damage expected - MUST SHUT DOWN): > 7.1 mm/s
+
+For Class II machines (Rigid support):
+- Zone A: < 1.4 mm/s
+- Zone B: 1.4 to 2.8 mm/s
+- Zone C: 2.8 to 4.5 mm/s
+- Zone D: > 4.5 mm/s
+
+--- 4. ACTION THRESHOLDS ---
+4.1 ALARM LIMIT
+The ALARM limit indicates that a significant change has occurred. Operation may continue for a limited period while investigations are carried out to identify the reason for the change and determine any required remedial action.
+For Class III machines, ALARM is typically set at 4.5 mm/s (boundary of Zone B and C).
+
+4.2 TRIP LIMIT
+The TRIP limit specifies the magnitude of vibration beyond which further operation of the machine may cause damage. If the TRIP limit is exceeded, immediate action should be taken to reduce the vibration or the machine should be shut down.
+For Class III machines, TRIP is typically set at 7.1 mm/s (boundary of Zone C and D).
+
+--- 5. MAINTENANCE DIRECTIVES ---
+Any centrifugal pump (such as P-101, P-102) exceeding the TRIP limit of 7.1 mm/s must be isolated immediately using standard LOTO procedures. Root cause analysis (RCA) must be performed before the equipment can be returned to service. Continuous operation in Zone D is strictly prohibited.

@@ -1,0 +1,118 @@
+INSPECTION REPORT — Q1 2024
+============================
+Report No: IR-2024-Q1-003
+Plant: Petrochemical Refinery Unit-3
+Inspection Period: January — March 2024
+Inspected By: M. Krishnamurthy (NDT Level II, ASNT Certified)
+
+================================================================
+1. EXECUTIVE SUMMARY
+================================================================
+
+This report covers the quarterly inspection of critical equipment
+in Unit-3 as required per OISD-116 and plant inspection schedule.
+
+Total Equipment Inspected: 12
+Findings Requiring Action: 4
+Critical Findings: 1
+
+================================================================
+2. INSPECTION FINDINGS
+================================================================
+
+2.1 Pump P-101 (Centrifugal Pump, Grundfos CR 95-3)
+    Inspection Type: Visual + Ultrasonic Thickness
+    
+    Findings:
+    a) Discharge piping (6" CS, ASTM A106 Gr B):
+       - Minimum thickness: 5.2mm (nominal: 7.11mm)
+       - Corrosion rate: 0.15mm/year
+       - Remaining life: 7.5 years (acceptable)
+    
+    b) Suction piping bend:
+       - Thickness: 5.8mm (nominal: 7.11mm)
+       - Erosion pattern noted on outer radius
+       - Corrosion rate: 0.20mm/year
+       - Remaining life: 5.5 years (monitor)
+    
+    c) Foundation bolts:
+       - 2 of 4 foundation bolts show minor surface corrosion
+       - Recommendation: Wire brush and apply protective coating
+    
+    d) Pump casing:
+       - No visible cracks or damage
+       - Paint deterioration noted — repaint recommended
+    
+    Status: ACCEPTABLE with monitoring
+
+2.2 Heat Exchanger HX-301 (Shell & Tube)
+    Inspection Type: Eddy Current + UT
+    
+    Findings:
+    a) Tube bundle: 3 tubes plugged (of 248 total) — within 2% limit
+    b) Shell thickness: 11.5mm (nominal: 12.7mm) — acceptable
+    c) Tube sheet: No defects detected
+    d) Gasket: Minor weeping at channel end — replace at next turnaround
+    
+    Status: ACCEPTABLE
+
+2.3 Compressor C-201 (Reciprocating, Dresser-Rand)
+    Inspection Type: Visual + Vibration Analysis
+    
+    Findings:
+    a) Vibration levels within acceptable range (3.2 mm/s)
+    b) Suction valve: Minor pitting observed — monitor
+    c) Discharge valve: Good condition
+    d) Piston rod runout: 0.02mm (limit: 0.05mm) — acceptable
+    e) Bearing temperature: 58°C (limit: 75°C) — normal
+    
+    Status: ACCEPTABLE
+
+    NOTE: Similar bearing failure to P-101 incident (IR-2022-047) 
+    occurred on C-201 in April 2022 when non-OEM bearings were used.
+    Since switching to OEM bearings, no issues reported.
+
+2.4 Vessel V-201 (Pressure Vessel, Carbon Steel)
+    Inspection Type: UT Thickness + MPI
+    
+    Findings:
+    a) Shell thickness: 18.2mm (nominal: 20mm, retirement: 14mm)
+    b) Nozzle N1 (inlet): Corrosion under insulation (CUI) detected
+       - Thickness reduced to 8.5mm (nominal: 11mm)
+       - CRITICAL: Repair required before next quarter
+    c) Internal inspection: Minor pitting on bottom head
+    
+    Status: CRITICAL — CUI repair required
+
+================================================================
+3. COMPLIANCE STATUS
+================================================================
+
+OISD-116 Section 4.2 (Inspection of Static Equipment):
+- V-201 CUI finding requires immediate attention
+- Inspection frequency for V-201 to be increased to quarterly
+- All other equipment meets OISD-116 inspection requirements
+
+OISD-116 Section 5.1 (Rotating Equipment Inspection):
+- P-101 vibration monitoring is current
+- However, bearing replacement overdue (see maintenance records)
+- C-201 in good condition
+
+Recommendation: Conduct OISD-116 compliance audit focused on
+Section 4.2 requirements for all vessels with external insulation.
+
+================================================================
+4. NEXT INSPECTION SCHEDULE
+================================================================
+
+Equipment     Next Inspection    Type
+---------     ---------------    ----
+P-101         Q2 2024            Vibration + UT
+HX-301        Annual (Q1 2025)   Full internal
+C-201         Q2 2024            Vibration
+V-201         IMMEDIATE          CUI repair + recheck
+
+================================================================
+Prepared By: M. Krishnamurthy
+Reviewed By: Dr. Priya Sharma (Reliability Engineering Manager)
+Approved By: S. Raghunathan (Chief Inspector)

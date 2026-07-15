@@ -1,0 +1,139 @@
+STANDARD OPERATING PROCEDURE
+============================
+Document: SP-045 (Rev 3)
+Title: LOCKOUT-TAGOUT (LOTO) Procedure for Rotating Equipment
+Effective Date: 01/04/2023
+Next Review: 01/04/2024
+Approved By: K. Venkataraman (Plant Manager)
+
+================================================================
+1. PURPOSE
+================================================================
+
+This procedure establishes the minimum requirements for the lockout/tagout
+of energy sources for rotating equipment maintenance in Unit-3.
+Compliance with this procedure is mandatory per Factory Act 1948,
+Section 21 and OISD-STD-105.
+
+================================================================
+2. SCOPE
+================================================================
+
+Applies to all rotating equipment including:
+- Centrifugal pumps (P-101, P-102, P-103, P-201, P-202)
+- Compressors (C-201, C-202)
+- Blowers (B-101, B-102)
+- Agitators (AG-101, AG-201)
+
+================================================================
+3. RESPONSIBILITIES
+================================================================
+
+3.1 Authorized Person (Maintenance Technician)
+- Applies lockout/tagout devices
+- Verifies zero energy state
+- Performs maintenance work
+
+3.2 Affected Person (Operator)
+- Notifies when equipment is ready for isolation
+- Confirms equipment status before restart
+
+3.3 Permit Issuer (Shift Supervisor)
+- Issues Permit to Work (PTW)
+- Verifies LOTO application
+- Authorizes removal of LOTO after work completion
+
+================================================================
+4. PROCEDURE — LOCKOUT APPLICATION
+================================================================
+
+Step 1: NOTIFICATION
+- Notify all affected operators and adjacent work areas
+- Obtain Permit to Work (PTW) from Shift Supervisor
+- Verify standby equipment is available and operational
+
+Step 2: EQUIPMENT SHUTDOWN
+- Bring equipment to normal shutdown condition
+- Follow equipment-specific shutdown procedure
+- For P-101: Close discharge valve V-101-D, then suction valve V-101-S
+- Allow 5 minutes for system to depressurize
+
+Step 3: ISOLATION
+- Isolate electrical supply at MCC (Motor Control Center) Panel-7
+- Apply lock with personal padlock and danger tag
+- Isolate suction and discharge block valves
+- Apply chain locks on isolation valves
+- Drain pump casing if required (open drain valve DV-101)
+
+Step 4: VERIFICATION
+- Attempt to start equipment from local panel (must not start)
+- Verify zero pressure on discharge gauge
+- Verify zero voltage at motor terminals using multimeter
+- Verify mechanical isolation (shaft does not rotate by hand — for pumps only if safe)
+
+Step 5: DOCUMENTATION
+- Record all lockout points on PTW form
+- Take photograph of LOTO arrangement
+- Inform control room of isolation status
+
+================================================================
+5. PROCEDURE — LOCKOUT REMOVAL
+================================================================
+
+Step 1: WORK COMPLETION VERIFICATION
+- Verify all tools and materials removed from equipment
+- Verify all guards and safety devices reinstalled
+- Verify all personnel clear of equipment
+
+Step 2: RESTORATION
+- Remove drain connections and close drain valve DV-101
+- Open suction valve V-101-S
+- Slowly open discharge valve V-101-D (to prevent water hammer)
+
+Step 3: LOCKOUT REMOVAL
+- Only the authorized person who applied the lock may remove it
+- Remove personal padlock and danger tag
+- Re-energize electrical supply at MCC
+
+Step 4: STARTUP
+- Follow equipment-specific startup procedure
+- For P-101: Prime pump, start, verify discharge pressure 4.0-4.5 bar
+- Monitor vibration and temperature for 30 minutes after startup
+- Record startup parameters on PTW form
+
+Step 5: PTW CLOSURE
+- Return PTW to Shift Supervisor with all signatures
+- Update maintenance log
+
+================================================================
+6. EMERGENCY PROCEDURES
+================================================================
+
+6.1 In case of fire or gas leak during LOTO work:
+- STOP all work immediately
+- Do NOT remove LOTO devices
+- Evacuate to assembly point AP-3
+- Notify control room on emergency channel
+
+6.2 If lock owner is unavailable:
+- Plant Manager authorization required for lock removal
+- Two witnesses must be present
+- Equipment must be verified safe before lock removal
+- Document in incident log
+
+================================================================
+7. REFERENCES
+================================================================
+
+- Factory Act 1948, Section 21 (Fencing of Machinery)
+- OISD-STD-105 (Work Permit System)
+- OISD-116 (Fire Protection for Oil and Gas Installations)
+- IS-3646 (Code of Practice for Interior Illumination)
+- Plant Emergency Response Plan ERP-2023
+
+================================================================
+REVISION HISTORY
+================================================================
+Rev 1 (01/04/2021): Initial release
+Rev 2 (01/04/2022): Added compressors to scope
+Rev 3 (01/04/2023): Updated emergency procedures per audit finding AF-2022-18

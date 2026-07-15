@@ -1,0 +1,88 @@
+DOCUMENT ID: HSE-AUDIT-2024
+TITLE: Internal HSE Audit Report — Annual Audit 2024
+CATEGORY: inspection_report
+DATE: 2024-06-20
+AUDIT_PERIOD: 01-Jan-2024 to 15-Jun-2024
+LOCATION: Unit 3 — Process Plant, Pump Bay, Tank Farm, Utilities
+
+--- AUDIT DETAILS ---
+Audit Type: Annual Internal Health, Safety & Environment (HSE) Audit
+Audit Standard: OISD-GDN-206 (Guidelines for Safety Audits), Factory Act 1948 Sections 7A, 28, 36
+Lead Auditor: Dr. M. Anand, Head — HSE Department
+Co-Auditors: S. Krishnamurthy (Maintenance), L. Fernandez (Operations), K. Patel (Inspection)
+Audit Duration: 17-Jun-2024 to 20-Jun-2024
+
+--- EXECUTIVE SUMMARY ---
+The annual HSE audit of Unit 3 identified 6 Non-Conformance Reports (NCRs) across maintenance, inspection, safety, and fire protection areas. Two findings are classified as CRITICAL, requiring immediate corrective action. Three findings are MAJOR, requiring action within 30 days. One finding is MINOR.
+
+Overall Compliance Score: 72% (Target: 85%)
+Previous Year Score: 81%
+Trend: DECLINING — This decline is primarily attributable to deferred maintenance on critical rotating equipment and an expired third-party inspection certificate.
+
+--- NON-CONFORMANCE REPORTS ---
+
+NCR-2024-01
+Severity: CRITICAL
+Area: Maintenance — Rotating Equipment
+Finding: Centrifugal pump P-101 bearing inspection is overdue. The OEM manual (Grundfos CR95) specifies bearing replacement every 12 months at current loading conditions. The last bearing replacement was performed approximately 18 months ago. Additionally, condition monitoring data from June 12, 2024 showed vibration levels at 5.8 mm/s (exceeding the 4.5 mm/s alarm threshold per ISO 10816-3 Zone C). Despite this, the recommended bearing replacement was not scheduled within the 30-day window as advised in WO# 2024-0234. On June 25, 2024, P-101 experienced a high-vibration trip at 7.2 mm/s with bearing temperature at 78°C.
+Regulation Reference: OISD-116 Section 4.2 — Condition monitoring follow-up actions must be implemented within the recommended timeframe.
+Corrective Action Required: Complete P-101 bearing replacement, root cause analysis, and update PM schedule to enforce 12-month bearing replacement interval.
+Target Close Date: 15-Jul-2024
+Responsible Person: S. Krishnamurthy, Maintenance Manager
+Status: OPEN
+
+NCR-2024-02
+Severity: MAJOR
+Area: Inspection — Corrosion Management
+Finding: Corrosion Under Insulation (CUI) identified on control valve V-201 during Q1 2024 inspection (NDT Report NDT-2024-06-V201) has not been addressed. The NDT report measured wall thickness as low as 7.8 mm against a minimum acceptable thickness (Tmin) of 8.5 mm. The recommended actions (de-rate pressure, schedule valve body replacement) have not been implemented as of the audit date, 63 days after the report was issued.
+Regulation Reference: API 570 Section 7.2 — Corrosion findings below Tmin require immediate engineering assessment and action plan.
+Corrective Action Required: Implement pressure de-rating immediately. Schedule V-201 replacement during next mini-turnaround.
+Target Close Date: 20-Jul-2024
+Responsible Person: R. Sharma, Inspection Engineer
+Status: OPEN
+
+NCR-2024-03
+Severity: MAJOR
+Area: Safety — LOTO Compliance
+Finding: Lock-Out Tag-Out (LOTO) procedure (SP-045) laminated copy was not available at the M-101 motor control centre (MCC). While the procedure exists in the document management system, field copies at point-of-use are mandatory per the plant's LOTO policy (PROC-LOTO-001, Section 3.2). During the emergency isolation of P-101 on June 25, 2024, the operator had to rely on memory rather than the posted procedure.
+Regulation Reference: Factory Act 1948 Section 28 — Employer must provide safe means of operating machinery with adequate written instructions accessible at point-of-use.
+Corrective Action Required: Print and laminate SP-045 at all MCC locations. Conduct verification walkdown.
+Target Close Date: 30-Jun-2024 (IMMEDIATE)
+Responsible Person: L. Fernandez, Operations Supervisor
+Status: OPEN
+
+NCR-2024-04
+Severity: MINOR
+Area: Safety — Emergency Equipment
+Finding: Emergency shower and eyewash station at the Chemical Dosing Area (adjacent to CT-101) has not been function-tested in 2024. Weekly testing is required per ANSI Z358.1-2014 and internal procedure PROC-EM-008. Test records from January to June 2024 are missing from the safety logbook.
+Regulation Reference: ANSI Z358.1-2014 Section 5 — Weekly activation testing and annual comprehensive inspection.
+Corrective Action Required: Perform immediate function test. Resume weekly testing schedule. Backfill logbook with findings.
+Target Close Date: 25-Jun-2024
+Responsible Person: L. Fernandez, Operations Supervisor
+Status: OPEN
+
+NCR-2024-05
+Severity: MINOR
+Area: Administration — Contractor Safety
+Finding: Contractor safety induction records for Q2 2024 are incomplete. Of 14 contractors who entered Unit 3 during April-June 2024, only 9 have signed safety induction forms on file. Five contractors (names: Raj Kumar, S. Desai, P. Yadav, V. Singh, T. Abraham) are missing induction documentation.
+Regulation Reference: Factory Act 1948 Section 7A — Occupier must ensure all persons in the factory premises are adequately informed of safety hazards.
+Corrective Action Required: Locate missing records or re-induct the 5 contractors. Update the gate-entry system to prevent entry without completed induction.
+Target Close Date: 10-Jul-2024
+Responsible Person: Security & Administration Office
+Status: OPEN
+
+NCR-2024-06
+Severity: CRITICAL
+Area: Fire Protection
+Finding: One ABC-type dry chemical powder fire extinguisher (10 kg, Tag: FE-PB-03) at Pump Bay B has an expired hydrostatic test date. The extinguisher was last tested in June 2019 (5-year cycle — due June 2024). Additionally, the pressure gauge on this extinguisher reads in the "RED" zone, indicating it is not operational. Pump Bay B houses P-101, P-102, and their associated motors — all classified as fire risk Zone 1.
+Regulation Reference: IS 2190:2010 — Fire extinguishers must be hydrostatically tested every 5 years. Factory Act 1948 Section 36(b) — Adequate firefighting equipment must be maintained at all times.
+Corrective Action Required: Replace FE-PB-03 immediately with a tested, charged extinguisher. Send FE-PB-03 for hydrostatic test and recharge.
+Target Close Date: 22-Jun-2024 (IMMEDIATE)
+Responsible Person: Fire & Safety Officer
+Status: OPEN
+
+--- AUDIT CONCLUSION ---
+The 2024 annual audit reveals a concerning decline in compliance, primarily driven by deferred maintenance on P-101 (NCR-01) and inadequate follow-up on inspection findings for V-201 (NCR-02). The two CRITICAL findings (NCR-01 and NCR-06) require immediate management attention. A follow-up audit is recommended within 60 days to verify closure of all NCRs.
+
+Next Audit: Follow-up audit scheduled for 20-Aug-2024
+Distribution: Plant Manager, Maintenance Manager, Operations Manager, HSE Department, Regulatory Compliance File

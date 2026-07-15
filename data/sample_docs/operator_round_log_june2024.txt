@@ -1,0 +1,38 @@
+DOCUMENT ID: OLOG-2024-06
+TITLE: Unit-3 Daily Operator Rounds Log - June 2024
+CATEGORY: general
+DATE: 2024-06-30
+
+--- WEEK OF JUNE 10, 2024 ---
+06/10/2024 - 08:00 | Operator: S. Jenkins
+- P-101: Normal operation. Vibration seems slightly higher than usual by touch, but no alarms.
+- P-102: Standby.
+- HX-301: Normal.
+- V-201: Minor surface rust noted on outer insulation jacket. Needs NDT inspection for CUI.
+
+06/12/2024 - 14:00 | Operator: T. Vance
+- Condition Monitoring team on site performing quarterly vibration analysis. 
+- P-101: Flagged by CM team for elevated BPF (Ball Pass Frequency). Recommended work order for bearing replacement.
+
+--- WEEK OF JUNE 17, 2024 ---
+06/18/2024 - 08:00 | Operator: S. Jenkins
+- P-101: Audible whine developing from the Non-Drive End (NDE). Bearing housing feels warmer than normal. Logged observation in shift handover.
+- P-102: Standby. Lube oil levels verified.
+
+06/21/2024 - 16:00 | Operator: L. Chang
+- P-101: DCS shows vibration trending upwards (currently 5.2 mm/s). This is in the "Limited Operation" zone. Shift supervisor notified. Operations plans to switch to P-102 this weekend.
+
+--- WEEK OF JUNE 24, 2024 ---
+06/24/2024 - 09:00 | Operator: S. Jenkins
+- P-101: High Vibration ALARM triggered in DCS at 6.1 mm/s. Acknowledged alarm. We are preparing to swap to P-102, but P-102 has a minor seal leak being evaluated. 
+
+06/25/2024 - 02:15 | Operator: T. Vance
+- P-101: High-High (TRIP) Vibration alarm triggered at 7.2 mm/s. Bearing temperature spiked to 78°C. Metallic grinding noise heard locally. 
+- 02:20: Emergency shutdown initiated. LOTO procedure SP-045 executed.
+- 02:45: Switched flow to redundant pump P-102. P-102 operating normally despite minor seal drip.
+- 03:00: Generated emergency work order WO-2024-0267 for P-101 investigation.
+
+06/26/2024 - 08:00 | Operator: S. Jenkins
+- P-101: Out of service (LOTO). Maintenance team starting teardown.
+- P-102: Running normally. Flow rate nominal.
+- C-201: Compressor running normally following yesterday's trip system calibration.

@@ -1,0 +1,89 @@
+DOCUMENT ID: SOP-CWT-001
+TITLE: Standard Operating Procedure — Cooling Water Treatment System
+CATEGORY: operating_procedure
+REVISION: Rev 3.0 | Date: 2024-01-15
+PREPARED_BY: Chemical Engineering Department
+APPROVED_BY: P. Raghavan, Plant Manager
+
+--- 1. PURPOSE ---
+This procedure defines the standard operating instructions for the Unit 3 Cooling Water Treatment (CWT) system. It covers startup, normal operation monitoring, chemical dosing, shutdown, and troubleshooting. Proper cooling water treatment is essential to prevent scaling, corrosion, and biological fouling in heat exchangers (HX-301, HX-302), pump seal flush systems (P-101, P-102), and the cooling tower (CT-101).
+
+Compliance Reference: This procedure supports compliance with OISD-116 Section 6.4 (Cooling Water System Integrity) and IS 6153:1989 (Criteria for Treatment of Water for Cooling Towers).
+
+--- 2. SCOPE ---
+This SOP applies to the following equipment:
+- CT-101: Induced Draft Cooling Tower (FRP construction, 500 m³/hr capacity)
+- CWP-01: Cooling Water Circulation Pump (centrifugal, 200 m³/hr at 3.5 bar)
+- CWP-02: Standby Cooling Water Pump (identical to CWP-01)
+- HX-301: Process Heat Exchanger (shell-and-tube, carbon steel shell, CuNi tubes)
+- HX-302: Auxiliary Heat Exchanger (plate type, SS 316)
+- CDP-01: Chemical Dosing Pump — Scale Inhibitor (phosphonate-based)
+- CDP-02: Chemical Dosing Pump — Biocide (sodium hypochlorite)
+- CDP-03: Chemical Dosing Pump — Corrosion Inhibitor (molybdate-based)
+- V-108: Chemical Injection Isolation Valve (note: currently overdue for inspection per valve register)
+
+--- 3. NORMAL OPERATING PARAMETERS ---
+
+Parameter                    | Target Range        | Alarm Low  | Alarm High | Action
+-----------------------------|---------------------|------------|------------|------------------
+pH                           | 7.0 — 8.5           | 6.5        | 9.0        | Adjust acid/alkali dosing
+Conductivity                 | < 2500 µS/cm        | —          | 3000       | Increase blowdown
+TDS (Total Dissolved Solids)  | < 1500 ppm          | —          | 2000       | Increase blowdown
+Calcium Hardness             | 150 — 350 ppm       | 100        | 400        | Adjust softener
+Langelier Saturation Index   | -0.5 to +0.5        | -1.0       | +1.0       | Adjust treatment
+Free Chlorine (after biocide)| 0.5 — 1.0 ppm       | 0.2        | 2.0        | Adjust CDP-02
+Cycles of Concentration      | 3.0 — 5.0           | —          | 6.0        | Increase blowdown
+Iron (as Fe)                 | < 1.0 ppm           | —          | 2.0        | Investigate source
+Silica (as SiO₂)            | < 150 ppm           | —          | 180        | Increase blowdown
+Return Water Temperature     | < 42°C              | —          | 45°C       | Check CT-101 fans
+
+--- 4. STARTUP PROCEDURE ---
+
+Prerequisites:
+- Cooling tower basin level verified at minimum 60% capacity
+- All blowdown valves in correct position (V-CT-BD-01 OPEN 25%)
+- Chemical dosing tanks verified minimum 50% level
+- Electrical supply confirmed for CWP-01/02 and CT-101 fans
+
+Step 1: Open cooling tower basin outlet valve V-CT-01 fully.
+Step 2: Verify suction strainer on CWP-01 is clean (ΔP < 0.5 bar across strainer).
+Step 3: Open CWP-01 suction valve. Close discharge valve.
+Step 4: Start CWP-01 motor. Monitor amperage — should reach stable value within 10 seconds.
+Step 5: Slowly open CWP-01 discharge valve while monitoring discharge pressure (target: 3.5 bar).
+Step 6: Verify flow on FI-CW-01 (target: 180-200 m³/hr).
+Step 7: Start CT-101 fans (all 4 cells) — confirm fan rotation direction and amperage.
+Step 8: Start chemical dosing pumps CDP-01, CDP-02, CDP-03 in sequence.
+Step 9: Wait 30 minutes. Take water sample and verify all parameters are within normal range.
+Step 10: Log startup time, initial readings, and operator name in CWT logbook.
+
+--- 5. SHUTDOWN PROCEDURE ---
+
+Step 1: Stop chemical dosing pumps CDP-01, CDP-02, CDP-03.
+Step 2: Stop CT-101 fans.
+Step 3: Close CWP-01 discharge valve slowly (over 30 seconds to avoid water hammer).
+Step 4: Stop CWP-01 motor.
+Step 5: If shutdown exceeds 72 hours: drain system and apply lay-up preservation treatment per IS 10221.
+
+--- 6. TROUBLESHOOTING ---
+
+Symptom                          | Probable Cause                        | Action
+---------------------------------|---------------------------------------|----------------------------------
+pH dropping below 6.5            | Acid overdose or CO₂ absorption       | Stop acid dosing, check CDP calibration
+Conductivity rising above 3000   | Insufficient blowdown                 | Increase blowdown rate, check valve
+White scale on HX tubes          | Calcium carbonate scaling              | Increase scale inhibitor dosing (CDP-01)
+Green/brown slime in tower basin | Biological growth                     | Shock dose biocide (5 ppm free Cl₂)
+Return water temp > 45°C         | CT-101 fan failure or high ambient    | Check fan motors, increase makeup water
+Low circulation pressure         | Strainer blockage or pump issue       | Clean strainer, check CWP-01 performance
+Iron > 2 ppm in circulating water| Corrosion in carbon steel piping      | Increase corrosion inhibitor (CDP-03)
+
+--- 7. SAFETY NOTES ---
+- Sodium hypochlorite is a strong oxidizer. Always wear PPE (goggles, gloves, apron) when handling.
+- Never mix biocide chemicals with acid — produces toxic chlorine gas.
+- The cooling water system operates at 3.5 bar — always follow permit-to-work for any maintenance.
+- LOTO required for any work on CWP-01/02 per Safety Procedure SP-045.
+
+--- 8. REFERENCES ---
+- OISD-116 Section 6.4: Cooling Water System Integrity Requirements
+- IS 6153:1989: Criteria for Treatment of Water for Cooling Towers
+- IS 10221: Guidelines for Preservation of Idle Equipment
+- SP-045: Lock-Out Tag-Out Procedure for Rotating Equipment

@@ -1,0 +1,48 @@
+DOCUMENT ID: PROC-RCA-001
+TITLE: Standard Operating Procedure: Root Cause Analysis (RCA) Methodology
+CATEGORY: operating_procedure
+DATE: 2023-01-10
+
+--- 1. PURPOSE ---
+This procedure defines the standard methodology for conducting Root Cause Analysis (RCA) on equipment failures, safety incidents, and environmental excursions at the facility.
+
+--- 2. TRIGGER CRITERIA ---
+An RCA must be initiated within 48 hours for any event meeting one or more of the following criteria:
+- Equipment failure leading to production loss > $50,000.
+- Any rotating equipment failure requiring replacement of major components (e.g., bearings, shafts, impellers).
+- Any safety incident requiring medical treatment.
+- Any environmental release exceeding reportable quantities.
+- Repeated failures of the same equipment tag (3 or more times in a 12-month period).
+
+--- 3. APPROVED METHODOLOGIES ---
+The facility uses a combined approach for RCA:
+
+3.1 The 5-Whys (Initial Analysis)
+Used to quickly drill down from the symptom to the fundamental cause.
+Example: 
+Symptom: Pump stopped.
+Why 1? Motor tripped on overload.
+Why 2? Shaft seized.
+Why 3? Bearing failed.
+Why 4? Lack of lubrication.
+Why 5? Lube oil pump failed. (Root Cause)
+
+3.2 Ishikawa (Fishbone) Diagram (Deep Dive)
+Used when the 5-Whys is insufficient or when multiple contributing factors are suspected. The analysis must cover the 6 Ms:
+- Man (Personnel, training, human error)
+- Machine (Equipment, design, maintenance)
+- Material (Raw materials, consumables like lube oil)
+- Method (Procedures, processes)
+- Measurement (Sensors, calibration, monitoring)
+- Mother Nature (Environment, ambient conditions)
+
+--- 4. DOCUMENTATION AND TRACKING ---
+All RCAs must be documented using the standard RCA Template (Form F-RCA-01). 
+Corrective and Preventative Actions (CAPAs) derived from the RCA must be entered into the CMMS (Computerized Maintenance Management System) and tracked to completion.
+
+--- 5. SPECIFIC DIRECTIVES FOR ROTATING EQUIPMENT ---
+For rotating equipment (compressors, centrifugal pumps, turbines), the RCA must explicitly investigate:
+- Alignment records (laser alignment vs. dial indicator)
+- Vibration history and spectral analysis (1x, 2x, BPF frequencies)
+- Lubrication analysis (oil viscosity, particulate count, water content)
+- OEM manual recommendations for preventative maintenance intervals.

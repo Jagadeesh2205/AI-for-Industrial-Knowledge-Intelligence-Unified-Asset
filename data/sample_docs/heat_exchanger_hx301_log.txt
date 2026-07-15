@@ -1,0 +1,51 @@
+HEAT EXCHANGER HX-301 MAINTENANCE LOG
+=====================================
+Equipment: Shell & Tube Heat Exchanger HX-301
+Location: Unit-3, First Floor
+Service: Process cooling water
+
+================================================================
+Work Order: WO# 2023-0612
+Date: 22/03/2023
+Type: Annual Turnaround Maintenance
+Assigned To: Technical Team (Lead: Suresh Patel)
+
+Work Performed:
+1. Opened channel end covers for tube inspection
+2. Hydrojet cleaning of all 248 tubes
+3. Eddy current testing — found 3 tubes with >40% wall loss
+4. Plugged 3 defective tubes (total plugged: 3 of 248 = 1.2%)
+5. Replaced channel end gasket (spiral wound, SS316/PTFE)
+6. Shell side cleaned and inspected — minor fouling only
+7. Hydro-tested shell side at 12 bar (design: 10 bar)
+8. Hydro-tested tube side at 8 bar (design: 6 bar)
+
+Findings:
+- Tube degradation rate is accelerating (last year: 1 tube plugged)
+- Root cause: Cooling water quality — chloride content elevated
+- Recommendation: Install online chloride monitoring on cooling water
+- Next turnaround: Consider full tube bundle replacement if >5% plugged
+
+Parts Used:
+- Spiral wound gasket (DN400) x 2
+- Tube plugs (25mm OD) x 3
+
+Total Downtime: 36 hours
+Status: COMPLETED
+
+================================================================
+Work Order: WO# 2024-0089
+Date: 15/02/2024
+Type: Corrective
+Assigned To: Amit Singh
+
+Description:
+Minor leak reported at channel end cover flange.
+Temperature differential across HX-301 reducing — possible fouling.
+
+Work Performed:
+1. Attempted online bolt re-torquing — leak reduced but not eliminated
+2. Scheduled for proper repair at next available window
+3. Process adjusted to compensate for reduced heat transfer
+
+Status: DEFERRED — Scheduled for Q2 turnaround
