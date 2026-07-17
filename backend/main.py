@@ -162,11 +162,11 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# CORS
+# CORS — allow all for deployment (demo platform, no auth required)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=CORS_ORIGINS + ["*"],  # Allow all for development
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
