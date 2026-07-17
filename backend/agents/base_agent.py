@@ -37,15 +37,12 @@ class BaseAgent:
 
         if self.provider == "gemini":
             try:
-                import google.generativeai as genai
+                from google import genai
                 if not GEMINI_API_KEY:
                     raise ValueError("GEMINI_API_KEY is not set")
-                genai.configure(api_key=GEMINI_API_KEY)
-                self._client = genai.GenerativeModel(
-                    model_name=LLM_MODELS["gemini"],
-                    system_instruction=None,  # set per-request
-                )
-                print(f"✓ Gemini client initialized with model {LLM_MODELS['gemini']}")
+                # New google-genai SDK — client created per-request in _stream_gemini
+                self._client = True  # marker that gemini is available
+                print(f"✓ Gemini client ready with model {LLM_MODELS['gemini']}")
             except Exception as e:
                 print(f"Gemini init error: {e}. Falling back to mock.")
                 self.provider = "mock"
@@ -127,33 +124,26 @@ Remember to cite sources for every factual claim using the format shown in the c
         return messages
 
     async def _stream_gemini(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
-        """Stream response from Gemini using google-generativeai SDK (run sync iterator in executor)."""
+        """Stream response from Gemini using new google-genai SDK."""
         import asyncio
         import queue
         import threading
         try:
-            # Ensure client is initialized
-            self._get_client()
-            if self.provider != "gemini" or self._client is None:
+            if not GEMINI_API_KEY:
                 async for token in self._stream_mock(messages[-1]["content"], ""):
                     yield token
                 return
 
-            import google.generativeai as genai
+            from google import genai
+            from google.genai import types
 
-            # Build chat history and final user message
+            # Build history (all but last message)
             history = []
             for msg in messages[:-1]:
                 role = "user" if msg["role"] == "user" else "model"
-                history.append({"role": role, "parts": [msg["content"]]})
+                history.append(types.Content(role=role, parts=[types.Part(text=msg["content"])]))
 
             last_msg = messages[-1]["content"]
-
-            # Create a model with system instruction for this request
-            model = genai.GenerativeModel(
-                model_name=LLM_MODELS["gemini"],
-                system_instruction=system_prompt,
-            )
 
             # Use a queue to bridge sync iteration → async yield
             token_queue: queue.Queue = queue.Queue()
@@ -161,16 +151,18 @@ Remember to cite sources for every factual claim using the format shown in the c
 
             def run_stream():
                 try:
-                    chat = model.start_chat(history=history)
-                    response = chat.send_message(
-                        last_msg,
-                        stream=True,
-                        generation_config={
-                            "max_output_tokens": 8192,
-                            "temperature": 0.3,
-                        },
+                    client = genai.Client(api_key=GEMINI_API_KEY)
+                    chat = client.chats.create(
+                        model=LLM_MODELS["gemini"],
+                        history=history,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system_prompt,
+                            max_output_tokens=8192,
+                            temperature=0.3,
+                        ),
                     )
-                    for chunk in response:
+                    stream = chat.send_message_stream(last_msg)
+                    for chunk in stream:
                         if chunk.text:
                             token_queue.put(chunk.text)
                 except Exception as exc:
@@ -190,6 +182,7 @@ Remember to cite sources for every factual claim using the format shown in the c
 
         except Exception as e:
             yield f"\n\n⚠️ LLM Error: {str(e)}\n\nPlease check your API key configuration."
+
 
     async def _stream_openai(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
         """Stream response from OpenAI."""
