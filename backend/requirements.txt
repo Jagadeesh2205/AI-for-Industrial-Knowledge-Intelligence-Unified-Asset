@@ -10,7 +10,7 @@ openpyxl==3.1.5
 python-docx==1.1.2
 
 # NLP & Entity Extraction
-spacy==3.8.4
+spacy>=3.7,<4
 
 # Vector Store
 chromadb==0.6.3
