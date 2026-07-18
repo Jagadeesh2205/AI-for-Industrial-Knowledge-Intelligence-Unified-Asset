@@ -5,6 +5,7 @@ Pipeline: classify → parse → chunk → extract entities → store vectors �
 Returns indexing statistics for each document processed.
 """
 
+import re
 import uuid
 from pathlib import Path
 from typing import Optional
@@ -157,6 +158,7 @@ class Indexer:
         personnel = set()
         regulations = set()
         failure_modes = set()
+        parameters = set()
 
         # Compliance status is derived from the evidence document type:
         #   inspection/maintenance records  -> GREEN (documented compliance evidence)
@@ -209,7 +211,10 @@ class Indexer:
                     edges_created += 1
 
             elif entity.entity_type == "REGULATION":
-                code = entity.text.upper()
+                # Normalize so "OISD 116" / "OISD-STD-116" / "OISD-116"
+                # and "API 570" / "API-570" merge to one node each
+                code = re.sub(r'\s+', '-', entity.text.upper().strip())
+                code = code.replace("OISD-STD-", "OISD-")
                 if code not in regulations:
                     regulations.add(code)
                     reg_node_id = f"regulation:{code.lower().replace(' ', '_')}"
@@ -238,6 +243,29 @@ class Indexer:
                                 "evidence_doc": filename,
                                 "evidence_type": doc_category,
                             }
+                        )
+                        edges_created += 1
+
+            elif entity.entity_type == "PROCESS_PARAM":
+                # Only named parameters ("vibration: 4.5 mm/s") become nodes;
+                # bare readings ("4.2 bar") are too noisy for the graph
+                param_text = entity.text.strip()
+                if not re.search(r'[A-Za-z]{3,}\s*[=:]', param_text):
+                    continue
+                param_name = re.split(r'[=:]', param_text)[0].strip().lower()
+                param_value = param_text.split(":", 1)[-1].split("=", 1)[-1].strip()
+                if param_name not in parameters:
+                    parameters.add(param_name)
+                    param_node_id = f"parameter:{doc_id[:8]}:{param_name.replace(' ', '_')}"
+                    self.graph_store.add_entity(param_node_id, "Parameter", {
+                        "name": param_name,
+                        "value": param_value,
+                    })
+                    nodes_created += 1
+                    # Link the parameter to every equipment in this document
+                    for tag in all_equipment_tags:
+                        self.graph_store.add_relationship(
+                            f"equipment:{tag}", param_node_id, "HAS_PARAMETER"
                         )
                         edges_created += 1
 
@@ -292,21 +320,29 @@ class Indexer:
         """Guess equipment type from tag prefix."""
         prefix_map = {
             "P": "pump",
-            "V": "vessel",
+            "CWP": "pump",
+            "V": "valve",
+            "DV": "valve",
+            "MOV": "valve",
+            "PSV": "relief_valve",
+            "PRV": "relief_valve",
             "HX": "heat_exchanger",
             "E": "heat_exchanger",
             "C": "compressor",
+            "CT": "cooling_tower",
             "T": "tank",
+            "TK": "tank",
             "R": "reactor",
             "D": "drum",
             "F": "filter",
-            "B": "boiler",
+            "B": "blower",
+            "AG": "agitator",
             "G": "generator",
             "M": "motor",
+            "EM": "motor",
         }
-        
+
         # Extract prefix (letters before the dash)
-        import re
         match = re.match(r'^([A-Z]+)', tag)
         if match:
             prefix = match.group(1)

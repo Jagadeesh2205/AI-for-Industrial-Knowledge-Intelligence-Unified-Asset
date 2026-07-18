@@ -31,20 +31,24 @@ class Entity:
 
 PATTERNS = {
     "EQUIPMENT_TAG": [
-        r'\b([A-Z]{1,4}-\d{3,4}[A-Z]?)\b',           # P-101, HX-301A, V-201
-        r'\b(TAG[:\s]+[A-Z0-9-]+)\b',                   # TAG: P-101
+        # Negative lookbehind: don't match sub-parts of longer codes like
+        # PROC-EM-008, OISD-STD-105, SOP-CWT-001
+        r'(?<![A-Za-z0-9-])([A-Z]{1,4}-\d{2,4}[A-Z]?)\b',  # P-101, HX-301A, V-201
     ],
     "PROCESS_PARAM": [
-        r'\b((?:pressure|temperature|flow\s*rate|speed|rpm|vibration|level)\s*[=:]\s*[\d.]+\s*(?:bar|psi|°[CF]|m3/hr|rpm|mm/s|%)?)\b',
+        r'\b((?:discharge\s+|suction\s+|inlet\s+|outlet\s+|return\s+water\s+)?'
+        r'(?:pressure|temperature|flow\s*rate|speed|rpm|vibration|level|current\s+draw)'
+        r'\s*[=:]\s*[\d.]+\s*(?:bar|psi|°[CF]|m3/hr|m³/hr|rpm|mm/s|A|%)?)\b',
         r'\b([\d.]+\s*(?:bar|psi|°C|°F|m3/hr|m³/hr|rpm|mm/s|kg/cm2|MPa))\b',
     ],
     "REGULATION": [
-        r'\b(OISD[-\s]*\d{3})\b',                       # OISD-116
+        r'\b(OISD[-\s]*(?:STD[-\s]*|GDN[-\s]*)?\d{3})\b',  # OISD-116, OISD-STD-105
         r'\b(IS[-\s]*\d{4,5})\b',                        # IS-2148
         r'\b(PESO\s+[A-Za-z\s]+)\b',                     # PESO regulation
         r'\b(Factory\s+Act\s+\d{4})\b',                  # Factory Act 1948
         r'\b(ASME\s+[A-Z]+\s*\d*)\b',                    # ASME standards
-        r'\b(API\s+\d{3,4})\b',                           # API standards
+        r'\b(API[-\s]+\d{3,4})\b',                        # API 570, API-510
+        r'\b(ANSI\s+[A-Z]?\d+(?:\.\d+)?(?:-\d{4})?)\b',  # ANSI Z358.1-2014
     ],
     "FAILURE_MODE": [
         r'\b(seal\s+failure|bearing\s+(?:failure|wear|damage)|corrosion|erosion|'
@@ -66,7 +70,78 @@ PATTERNS = {
         r'\b(\d{4}[-/]\d{1,2}[-/]\d{1,2})\b',            # 2024-03-15
         r'\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},?\s+\d{4})\b',
     ],
+    # Names appearing after explicit role labels — high precision.
+    # Label match is case-insensitive (PREPARED_BY:), name part is not.
+    "PERSONNEL": [
+        r'(?i:(?:Prepared|Reviewed|Approved|Verified|Investigated|Reported|'
+        r'Inspected|Witnessed|Authored)[_\s]?By)[:\s]+((?:Dr\.|Mr\.|Ms\.|Mrs\.)?\s*[A-Z][A-Za-z.\- ]{2,40})',
+        r'(?i:Operator|Technician|Engineer|Supervisor|Inspector|Auditor|'
+        r'Lead\s+Auditor|Responsible\s+Person|Assigned\s+To|Lead)[:\s]+'
+        r'((?:Dr\.|Mr\.|Ms\.|Mrs\.)?\s*[A-Z][A-Za-z.\- ]{2,40})',
+    ],
 }
+
+# ── Validation: keep noisy regex/NER matches out of the knowledge graph ──
+
+# Real plant equipment prefixes (P-101 pump, HX-301 exchanger, CT-101
+# cooling tower...). Report numbers (IR-2022), procedures (SOP-045,
+# EM-008), standards (OISD-116, API-510) and month codes (DEC-2023)
+# must NOT become Equipment nodes.
+ALLOWED_EQUIPMENT_PREFIXES = {
+    "P", "V", "HX", "E", "C", "CT", "CWP", "T", "TK", "R", "D", "F",
+    "B", "G", "M", "K", "AG", "DV", "MOV", "PSV", "PRV", "ESV",
+    "FV", "PV", "TV", "LV", "CV", "EM",  # EM = electrical motor
+}
+# ...except these prefixes when the tag is really a doc/procedure code
+_TAG_RE = re.compile(r'^([A-Z]{1,4})-(\d{2,4})([A-Z]?)$')
+
+# Role/department words — a "name" containing one is not a person
+_NON_PERSON_WORDS = {
+    "manager", "engineer", "engineering", "supervisor", "technician",
+    "operator", "operations", "inspector", "inspection", "auditor",
+    "team", "department", "dept", "records", "record", "training",
+    "maintenance", "reliability", "chief", "plant", "safety", "quality",
+    "hse", "dcs", "management", "committee", "section", "unit", "shift",
+    "board", "authority", "services", "systems", "limited", "ltd",
+    "pvt", "inc", "corp", "corporation", "company", "industries",
+    "internal", "external", "responsible", "person", "log", "logs",
+    "rounds", "report", "review", "audit", "daily", "weekly", "monthly",
+    "january", "february", "march", "april", "may", "june", "july",
+    "august", "september", "october", "november", "december",
+    "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "oct",
+    "nov", "dec",
+}
+
+_NAME_TOKEN = re.compile(r"^(?:[A-Z][a-z]+|[A-Z]\.|Dr\.|Mr\.|Ms\.|Mrs\.)$")
+
+
+def is_valid_equipment_tag(tag: str) -> bool:
+    """True only for tags that look like real plant equipment."""
+    m = _TAG_RE.match(tag.strip().upper())
+    if not m:
+        return False
+    prefix, num = m.group(1), int(m.group(2))
+    if prefix not in ALLOWED_EQUIPMENT_PREFIXES:
+        return False
+    if 1900 <= num <= 2099:  # year-like → report/date code, not equipment
+        return False
+    return True
+
+
+def is_valid_person_name(name: str) -> bool:
+    """True for plausible human names: 'Rajesh Kumar', 'S. Jenkins',
+    'Dr. Priya Sharma'. Rejects orgs, roles, acronyms, doc titles."""
+    name = name.strip()
+    if not (3 <= len(name) <= 40):
+        return False
+    if any(ch.isdigit() for ch in name):
+        return False
+    tokens = name.replace("-", " ").split()
+    if not (2 <= len(tokens) <= 4):
+        return False
+    if any(t.lower().rstrip(".,") in _NON_PERSON_WORDS for t in tokens):
+        return False
+    return all(_NAME_TOKEN.match(t) for t in tokens)
 
 
 class IndustrialNER:
@@ -121,20 +196,31 @@ class IndustrialNER:
     def _regex_extract(self, text: str) -> list[Entity]:
         """Extract entities using regex patterns."""
         entities = []
-        
+
         for entity_type, patterns in PATTERNS.items():
             for pattern in patterns:
-                for match in re.finditer(pattern, text, re.IGNORECASE):
+                # Equipment tags and personnel are case-sensitive patterns;
+                # matching them case-insensitively creates junk (e.g. "in-2024")
+                flags = 0 if entity_type in ("EQUIPMENT_TAG", "PERSONNEL") else re.IGNORECASE
+                for match in re.finditer(pattern, text, flags):
                     entity_text = match.group(1) if match.lastindex else match.group(0)
+                    entity_text = entity_text.strip()
+
+                    # Validation gates — precision over recall for graph quality
+                    if entity_type == "EQUIPMENT_TAG" and not is_valid_equipment_tag(entity_text):
+                        continue
+                    if entity_type == "PERSONNEL" and not is_valid_person_name(entity_text):
+                        continue
+
                     entities.append(Entity(
-                        text=entity_text.strip(),
+                        text=entity_text,
                         entity_type=entity_type,
                         start=match.start(),
                         end=match.end(),
                         confidence=0.9,
                         source="regex",
                     ))
-        
+
         return entities
 
     def _spacy_extract(self, text: str) -> list[Entity]:
@@ -142,32 +228,37 @@ class IndustrialNER:
         nlp = self._get_spacy()
         if nlp is None:
             return []
-        
+
         # Limit text length for spaCy (performance)
         doc = nlp(text[:10000])
-        
-        # Map spaCy labels to our entity types
+
+        # Map spaCy labels to our entity types.
+        # NOTE: ORG is intentionally NOT mapped — companies/standards bodies
+        # were flooding the graph with hundreds of fake Person nodes.
         label_map = {
             "PERSON": "PERSONNEL",
-            "ORG": "PERSONNEL",  # Organizations involved
             "DATE": "DATE_EVENT",
             "GPE": "LOCATION",
             "LOC": "LOCATION",
         }
-        
+
         entities = []
         for ent in doc.ents:
             mapped_type = label_map.get(ent.label_)
-            if mapped_type:
-                entities.append(Entity(
-                    text=ent.text,
-                    entity_type=mapped_type,
-                    start=ent.start_char,
-                    end=ent.end_char,
-                    confidence=0.75,
-                    source="spacy",
-                ))
-        
+            if not mapped_type:
+                continue
+            # spaCy PERSON is noisy on industrial text — validate names
+            if mapped_type == "PERSONNEL" and not is_valid_person_name(ent.text):
+                continue
+            entities.append(Entity(
+                text=ent.text,
+                entity_type=mapped_type,
+                start=ent.start_char,
+                end=ent.end_char,
+                confidence=0.75,
+                source="spacy",
+            ))
+
         return entities
 
     def _deduplicate(self, entities: list[Entity]) -> list[Entity]:
@@ -188,7 +279,9 @@ class IndustrialNER:
         for pattern in PATTERNS["EQUIPMENT_TAG"]:
             for match in re.finditer(pattern, text):
                 tag = match.group(1) if match.lastindex else match.group(0)
-                tags.add(tag.strip().upper())
+                tag = tag.strip().upper()
+                if is_valid_equipment_tag(tag):
+                    tags.add(tag)
         return sorted(tags)
 
     def extract_regulations(self, text: str) -> list[str]:
