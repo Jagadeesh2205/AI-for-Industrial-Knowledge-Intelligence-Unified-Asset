@@ -110,6 +110,14 @@ _NON_PERSON_WORDS = {
     "august", "september", "october", "november", "december",
     "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "oct",
     "nov", "dec",
+    # Industrial/domain words spaCy mislabels as PERSON
+    "pump", "pumps", "compressor", "valve", "motor", "bearing", "seal",
+    "cooling", "tower", "house", "floor", "bay", "header", "flare",
+    "branch", "centrifugal", "condition", "monitoring", "running",
+    "dry", "deep", "dive", "dissolved", "solids", "ground", "drive",
+    "end", "short", "term", "replaced", "saturation", "index",
+    "langelier", "exchanger", "heat", "vibration", "corrosion",
+    "pressure", "temperature", "discharge", "suction", "impeller",
 }
 
 _NAME_TOKEN = re.compile(r"^(?:[A-Z][a-z]+|[A-Z]\.|Dr\.|Mr\.|Ms\.|Mrs\.)$")
@@ -132,6 +140,8 @@ def is_valid_person_name(name: str) -> bool:
     """True for plausible human names: 'Rajesh Kumar', 'S. Jenkins',
     'Dr. Priya Sharma'. Rejects orgs, roles, acronyms, doc titles."""
     name = name.strip()
+    if "\n" in name or "\r" in name:
+        return False
     if not (3 <= len(name) <= 40):
         return False
     if any(ch.isdigit() for ch in name):
