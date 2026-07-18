@@ -253,6 +253,47 @@ class GraphStore:
         
         return gaps
 
+    def get_compliance_summary(self) -> list[dict]:
+        """
+        Per-regulation compliance rollup for the compliance matrix UI.
+        Status = worst status across all equipment subject to the regulation
+        (RED > AMBER > GREEN).
+        """
+        severity = {"GREEN": 0, "AMBER": 1, "RED": 2, "UNKNOWN": 1}
+        summary = {}
+
+        for node_id, data in self.graph.nodes(data=True):
+            if data.get("type") != "Regulation":
+                continue
+
+            code = data.get("code", node_id)
+            equipment = []
+            worst = "GREEN"
+            for predecessor in self.graph.predecessors(node_id):
+                edge_data = dict(self.graph[predecessor][node_id])
+                if edge_data.get("relation") != "SUBJECT_TO":
+                    continue
+                status = edge_data.get("compliance_status", "UNKNOWN")
+                equip_data = dict(self.graph.nodes[predecessor])
+                equipment.append({
+                    "tag": equip_data.get("tag", predecessor),
+                    "status": status,
+                    "evidence_doc": edge_data.get("evidence_doc", ""),
+                })
+                if severity.get(status, 1) > severity.get(worst, 0):
+                    worst = status
+
+            summary[code] = {
+                "code": code,
+                "title": data.get("title", code),
+                "status": worst if equipment else "AMBER",
+                "equipment_count": len(equipment),
+                "equipment": equipment,
+                "gap_count": sum(1 for e in equipment if e["status"] != "GREEN"),
+            }
+
+        return sorted(summary.values(), key=lambda r: r["code"])
+
     def get_expert_knowledge(self, person_name: str) -> dict:
         """Find all documents authored by a person and equipment they're certified for."""
         result = {"documents": [], "equipment": [], "person": None}

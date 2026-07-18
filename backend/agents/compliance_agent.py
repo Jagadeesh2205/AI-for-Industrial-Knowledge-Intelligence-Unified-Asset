@@ -10,6 +10,7 @@ Supports:
 """
 
 from backend.agents.base_agent import BaseAgent
+from backend.agents.expert_copilot import ExpertCopilot
 from backend.retrieval.hybrid_retriever import HybridRetriever
 from typing import AsyncGenerator
 
@@ -53,8 +54,9 @@ class ComplianceAgent(BaseAgent):
         self.system_prompt = COMPLIANCE_AGENT_SYSTEM
 
     async def check_compliance(self, regulation: str = "", scope: str = "",
-                                query: str = "", 
-                                chat_history: list = None) -> AsyncGenerator[str, None]:
+                                query: str = "",
+                                chat_history: list = None,
+                                meta_out: dict = None) -> AsyncGenerator[str, None]:
         """
         Run compliance analysis.
         """
@@ -63,10 +65,15 @@ class ComplianceAgent(BaseAgent):
                         f"Identify all gaps and required actions. {query}")
         else:
             full_query = query or "Provide a general compliance overview for the facility."
-        
+
         retrieval_result = self.retriever.retrieve(full_query, top_k=10, agent_type="compliance")
         context = self.retriever.format_context_for_llm(retrieval_result["chunks"])
-        
+
+        if meta_out is not None:
+            meta_out["sources"] = ExpertCopilot._chunks_to_sources(retrieval_result["chunks"])
+            meta_out["intent_type"] = retrieval_result["intent"].type
+            meta_out["total_sources"] = retrieval_result["total_sources"]
+
         async for token in self.stream_response(full_query, context, self.system_prompt, chat_history):
             yield token
 

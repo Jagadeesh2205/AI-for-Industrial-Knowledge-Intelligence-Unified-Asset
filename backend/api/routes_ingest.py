@@ -48,7 +48,9 @@ async def ingest_documents(
     
     saved_paths = []
     for file in files:
-        filepath = job_dir / file.filename
+        # Sanitize filename — prevent path traversal (e.g. "../../evil")
+        safe_name = Path(file.filename or "upload").name
+        filepath = job_dir / safe_name
         with open(filepath, "wb") as f:
             content = await file.read()
             f.write(content)
@@ -96,21 +98,26 @@ async def get_ingest_status(job_id: str):
 async def process_documents(job_id: str, file_paths: list[str]):
     """Background task: process each document through the indexing pipeline."""
     from backend.main import get_indexer
-    
+    from backend.activity import log_event
+
     indexer = get_indexer()
     job = ingest_jobs[job_id]
-    
+
     for filepath in file_paths:
         try:
             doc_id = str(uuid.uuid4())
             result = indexer.index_document(filepath, doc_id)
             job["results"].append(result)
             job["processed_files"] += 1
+            log_event("INGEST", f"Indexed {Path(filepath).name}: "
+                      f"{result.get('chunks_created', 0)} chunks, "
+                      f"{result.get('entities_extracted', 0)} entities")
         except Exception as e:
             job["errors"].append({
                 "file": Path(filepath).name,
                 "error": str(e),
             })
             job["processed_files"] += 1
-    
+            log_event("ERROR", f"Failed to index {Path(filepath).name}")
+
     job["status"] = "completed" if not job["errors"] else "completed_with_errors"

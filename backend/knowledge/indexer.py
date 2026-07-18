@@ -81,6 +81,11 @@ class Indexer:
             chunks = self.chunker.chunk_document(
                 parsed_doc, doc_id, classification["doc_category"]
             )
+            # Attach human-readable document title to every chunk so
+            # citations show the filename instead of a truncated UUID
+            doc_title = parsed_doc.get("metadata", {}).get("title") or filename
+            for chunk in chunks:
+                chunk["doc_title"] = doc_title
             result["chunks_created"] = len(chunks)
 
             # Step 3: Extract entities from full text
@@ -142,10 +147,28 @@ class Indexer:
         nodes_created += 1
 
         # 2. Add entity nodes and edges
+        # Pre-collect all equipment tags so regulation/failure links are not
+        # dependent on the order entities appear in the list
+        all_equipment_tags = {
+            e.text.upper() for e in entities if e.entity_type == "EQUIPMENT_TAG"
+        }
+
         equipment_tags = set()
         personnel = set()
         regulations = set()
         failure_modes = set()
+
+        # Compliance status is derived from the evidence document type:
+        #   inspection/maintenance records  -> GREEN (documented compliance evidence)
+        #   incident reports / audits       -> RED   (documented non-compliance/incident)
+        #   anything else (manuals, regs)   -> AMBER (requirement known, no evidence)
+        doc_category = classification["doc_category"]
+        if doc_category in ("inspection_report", "maintenance_record"):
+            compliance_status = "GREEN"
+        elif doc_category == "incident_report" or "audit" in filename.lower():
+            compliance_status = "RED"
+        else:
+            compliance_status = "AMBER"
 
         for entity in entities:
             if entity.entity_type == "EQUIPMENT_TAG":
@@ -190,18 +213,31 @@ class Indexer:
                 if code not in regulations:
                     regulations.add(code)
                     reg_node_id = f"regulation:{code.lower().replace(' ', '_')}"
-                    
+
                     self.graph_store.add_entity(reg_node_id, "Regulation", {
                         "code": code,
                         "title": code,
                     })
                     nodes_created += 1
-                    
-                    # Equipment → Regulation edges (for each equipment in this doc)
-                    for tag in equipment_tags:
+
+                    # Equipment → Regulation edges (all equipment in this doc,
+                    # regardless of the order entities were extracted)
+                    for tag in all_equipment_tags:
+                        equip_node = f"equipment:{tag}"
+                        # Worst-status-wins across documents: RED > AMBER > GREEN
+                        severity = {"GREEN": 0, "AMBER": 1, "RED": 2}
+                        existing = self.graph_store.graph.get_edge_data(equip_node, reg_node_id) or {}
+                        existing_status = existing.get("compliance_status", "GREEN")
+                        final_status = compliance_status
+                        if severity.get(existing_status, 0) > severity.get(final_status, 0):
+                            final_status = existing_status
                         self.graph_store.add_relationship(
-                            f"equipment:{tag}", reg_node_id,
-                            "SUBJECT_TO", {"compliance_status": "AMBER"}
+                            equip_node, reg_node_id,
+                            "SUBJECT_TO", {
+                                "compliance_status": final_status,
+                                "evidence_doc": filename,
+                                "evidence_type": doc_category,
+                            }
                         )
                         edges_created += 1
 
@@ -230,12 +266,19 @@ class Indexer:
                     )
                     edges_created += 1
                     
-                    # Link equipment to event
-                    for tag in equipment_tags:
-                        self.graph_store.add_relationship(
-                            f"equipment:{tag}", event_node_id, "EXPERIENCED"
-                        )
-                        edges_created += 1
+                    # Link equipment to event — but only for documents that
+                    # record actual events (maintenance/incident/inspection).
+                    # OEM manuals and regulations merely *describe* failure
+                    # modes; linking those falsely marks every equipment in
+                    # the manual as having experienced the failure.
+                    event_doc_types = {"maintenance_record", "incident_report",
+                                       "inspection_report", "operating_procedure"}
+                    if doc_category in event_doc_types:
+                        for tag in all_equipment_tags:
+                            self.graph_store.add_relationship(
+                                f"equipment:{tag}", event_node_id, "EXPERIENCED"
+                            )
+                            edges_created += 1
                     
                     # Event documented in document
                     self.graph_store.add_relationship(

@@ -6,6 +6,7 @@ Supports filtered search by doc_id, doc_type, equipment_tag.
 """
 
 import os
+import time
 import chromadb
 from chromadb.config import Settings
 from chromadb.api.types import EmbeddingFunction, Documents, Embeddings
@@ -14,34 +15,72 @@ from typing import Optional
 from backend.config import CHROMA_COLLECTION_NAME, VECTOR_PERSIST_DIR, VECTOR_SEARCH_TOP_K
 
 
+class EmbeddingError(Exception):
+    """Raised when embeddings cannot be produced. Never silently degrade to
+    zero vectors — a zero vector poisons the index (chunks become unsearchable
+    while indexing appears to 'succeed')."""
+
+
 class GeminiEmbeddingFunction(EmbeddingFunction):
-    """Use Gemini API for embeddings instead of local ONNX models to save RAM."""
+    """Use Gemini API for embeddings instead of local ONNX models to save RAM.
 
-    def __call__(self, input: Documents) -> Embeddings:
-        import os
-        from google import genai
+    - Reuses a single genai.Client across calls (no per-call HTTP setup).
+    - Retries transient failures (429 rate limits, 5xx) with exponential backoff.
+    - Raises EmbeddingError on persistent failure instead of returning zero
+      vectors, so callers can fail loudly / retry the document.
+    """
 
-        api_key = os.getenv("GEMINI_API_KEY")
-        if not api_key:
-            # Return zero vectors as fallback (won't match anything well)
-            return [[0.0] * 768 for _ in input]
+    _client = None  # shared across instances
 
-        client = genai.Client(api_key=api_key)
-        all_embeddings = []
+    # Free-tier friendly: smaller batches, retry hard on rate limits
+    BATCH_SIZE = 25
+    MAX_RETRIES = 6
+    BASE_DELAY = 2.0  # seconds; doubles each retry (2, 4, 8, 16, 32, 64)
 
-        # Batch in groups of 100 (API limit)
-        batch_size = 100
-        for i in range(0, len(input), batch_size):
-            batch = input[i : i + batch_size]
+    @classmethod
+    def _get_client(cls):
+        if cls._client is None:
+            from google import genai
+            api_key = os.getenv("GEMINI_API_KEY", "")
+            if not api_key:
+                raise EmbeddingError(
+                    "GEMINI_API_KEY is not set — cannot generate embeddings. "
+                    "Set it in the environment (Render dashboard / .env)."
+                )
+            cls._client = genai.Client(api_key=api_key)
+        return cls._client
+
+    def _embed_batch_with_retry(self, batch: list[str]) -> list[list[float]]:
+        client = self._get_client()
+        last_err = None
+        for attempt in range(self.MAX_RETRIES):
             try:
                 res = client.models.embed_content(
                     model="gemini-embedding-2", contents=batch
                 )
-                all_embeddings.extend([e.values for e in res.embeddings])
+                return [e.values for e in res.embeddings]
             except Exception as e:
-                print(f"Embedding error: {e}")
-                all_embeddings.extend([[0.0] * 768 for _ in batch])
+                last_err = e
+                msg = str(e)
+                # Retry on rate limits / transient server errors
+                retryable = any(s in msg for s in ("429", "RESOURCE_EXHAUSTED", "500", "503", "UNAVAILABLE", "DEADLINE"))
+                if not retryable and attempt >= 1:
+                    break  # non-transient error, don't burn retries
+                delay = self.BASE_DELAY * (2 ** attempt)
+                print(f"[GeminiEmbedding] attempt {attempt + 1}/{self.MAX_RETRIES} failed ({msg[:120]}) — retrying in {delay:.0f}s")
+                time.sleep(delay)
+        raise EmbeddingError(f"Embedding failed after {self.MAX_RETRIES} attempts: {last_err}")
 
+    def __call__(self, input: Documents) -> Embeddings:
+        all_embeddings = []
+        for i in range(0, len(input), self.BATCH_SIZE):
+            batch = list(input[i : i + self.BATCH_SIZE])
+            embeddings = self._embed_batch_with_retry(batch)
+            all_embeddings.extend(embeddings)
+            print(f"[GeminiEmbedding] OK: {len(batch)} texts embedded (dim={len(embeddings[0])})")
+            # Gentle pacing between batches to stay under free-tier RPM limits
+            if i + self.BATCH_SIZE < len(input):
+                time.sleep(0.5)
         return all_embeddings
 
 
@@ -65,11 +104,17 @@ class VectorStore:
         else:
             self.client = chromadb.PersistentClient(path=self.persist_dir)
 
-        # Always delete and recreate the collection to avoid dimension mismatch
-        # from any previously stored ONNX embeddings (768-dim vs Gemini 3072-dim)
+        # Only clear the collection if its embedding dimension doesn't match
+        # Gemini's 3072-dim output (e.g. leftover 768-dim ONNX embeddings).
+        # Unconditional wiping destroyed user-uploaded documents on every boot.
         try:
-            self.client.delete_collection(name=self.collection_name)
-            print(f"[VectorStore] Cleared old collection '{self.collection_name}'")
+            existing = self.client.get_collection(name=self.collection_name)
+            peek = existing.peek(limit=1)
+            embs = peek.get("embeddings")
+            has_embeddings = embs is not None and len(embs) > 0
+            if has_embeddings and len(embs[0]) != 3072:
+                self.client.delete_collection(name=self.collection_name)
+                print(f"[VectorStore] Dimension mismatch ({len(embs[0])} != 3072) — recreated collection")
         except Exception:
             pass  # Collection didn't exist yet — that's fine
 
@@ -99,6 +144,7 @@ class VectorStore:
         for chunk in chunks:
             metadata = {
                 "doc_id": chunk.get("doc_id", ""),
+                "doc_title": chunk.get("doc_title", ""),
                 "doc_category": chunk.get("doc_category", ""),
                 "page_num": chunk.get("page_num", 0),
                 "section_path": chunk.get("section_path", ""),

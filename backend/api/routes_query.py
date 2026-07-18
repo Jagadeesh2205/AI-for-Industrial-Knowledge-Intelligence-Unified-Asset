@@ -37,10 +37,12 @@ class QueryResponse(BaseModel):
 async def query(request: QueryRequest):
     """Single-shot query endpoint (non-streaming)."""
     from backend.main import get_agents
-    
+    from backend.activity import log_event
+
     start_time = time.time()
     agents = get_agents()
     session_id = request.session_id or str(uuid.uuid4())
+    log_event("QUERY", f"[{request.agent}] {request.query[:80]}")
 
     try:
         if request.agent == "maintenance":
@@ -109,11 +111,14 @@ async def chat_websocket(websocket: WebSocket, session_id: str):
                 continue
 
             from backend.main import get_agents
+            from backend.activity import log_event
             agents = get_agents()
+            log_event("QUERY", f"[{agent_type}] {query[:80]}")
 
             # Stream response
             start_time = time.time()
             full_response = ""
+            meta = {}  # populated by the agent with sources/intent
 
             try:
                 if agent_type == "maintenance":
@@ -122,18 +127,21 @@ async def chat_websocket(websocket: WebSocket, session_id: str):
                         symptoms=message.get("symptoms", ""),
                         query=query,
                         chat_history=chat_history,
+                        meta_out=meta,
                     )
                 elif agent_type == "compliance":
                     stream = agents["compliance"].check_compliance(
                         regulation=message.get("regulation", ""),
                         query=query,
                         chat_history=chat_history,
+                        meta_out=meta,
                     )
                 else:
                     stream = agents["copilot"].answer(
                         query=query,
                         chat_history=chat_history,
                         field_mode=field_mode,
+                        meta_out=meta,
                     )
 
                 async for token in stream:
@@ -144,11 +152,14 @@ async def chat_websocket(websocket: WebSocket, session_id: str):
                     })
 
                 elapsed_ms = int((time.time() - start_time) * 1000)
-                
+
                 await websocket.send_json({
                     "type": "done",
                     "content": "",
                     "response_time_ms": elapsed_ms,
+                    "sources": meta.get("sources", []),
+                    "intent_type": meta.get("intent_type", ""),
+                    "total_sources": meta.get("total_sources", 0),
                 })
 
                 # Update chat history

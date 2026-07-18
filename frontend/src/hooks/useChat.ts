@@ -1,7 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { API_BASE, WS_BASE, generateId } from '../config';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-const WS_BASE = API_BASE.replace('http', 'ws');
 const HISTORY_KEY = 'plant_brain_chat_history';
 const MAX_SESSIONS = 50;
 
@@ -77,7 +76,7 @@ export function useChat(externalSessionId?: string) {
   const [currentAgent, setCurrentAgent] = useState('copilot');
   const wsRef = useRef<WebSocket | null>(null);
   const streamRef = useRef('');
-  const sessionIdRef = useRef(externalSessionId || crypto.randomUUID());
+  const sessionIdRef = useRef(externalSessionId || generateId());
   const messagesRef = useRef<ChatMessage[]>([]);
 
   // Keep messagesRef in sync with state
@@ -101,6 +100,7 @@ export function useChat(externalSessionId?: string) {
           role: 'assistant',
           content: finalContent,
           timestamp: new Date(),
+          sources: data.sources,
           responseTimeMs: data.response_time_ms,
         };
         setMessages((prev) => {
@@ -221,6 +221,9 @@ export function useChat(externalSessionId?: string) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query, agent, field_mode: fieldMode }),
           });
+          if (!resp.ok) {
+            throw new Error(`Server responded ${resp.status}`);
+          }
           const data = await resp.json();
           const assistantMsg: ChatMessage = {
             role: 'assistant',
@@ -238,7 +241,9 @@ export function useChat(externalSessionId?: string) {
         } catch (err) {
           const errMsg: ChatMessage = {
             role: 'assistant',
-            content: '⚠️ Unable to connect to the server. Make sure the backend is running on port 8000.',
+            content:
+              '⏳ The backend server appears to be waking up (free-tier hosting sleeps after inactivity). ' +
+              'This can take up to a minute — please try your question again shortly.',
             timestamp: new Date(),
           };
           setMessages((prev) => [...prev, errMsg]);
@@ -255,7 +260,7 @@ export function useChat(externalSessionId?: string) {
       persistSession(messagesRef.current);
     }
     // Reset to new session
-    sessionIdRef.current = crypto.randomUUID();
+    sessionIdRef.current = generateId();
     setMessages([]);
     setCurrentStream('');
     streamRef.current = '';

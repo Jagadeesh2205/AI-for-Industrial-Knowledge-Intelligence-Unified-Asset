@@ -38,13 +38,15 @@ class BaseAgent:
         if self.provider == "gemini":
             try:
                 from google import genai
-                if not GEMINI_API_KEY:
-                    raise ValueError("GEMINI_API_KEY is not set")
+                import os
+                api_key = os.getenv("GEMINI_API_KEY", "")
+                if not api_key:
+                    raise ValueError("GEMINI_API_KEY environment variable is not set")
                 # New google-genai SDK — client created per-request in _stream_gemini
                 self._client = True  # marker that gemini is available
-                print(f"✓ Gemini client ready with model {LLM_MODELS['gemini']}")
+                print(f"[Agent] Gemini provider ready (model={LLM_MODELS['gemini']})")
             except Exception as e:
-                print(f"Gemini init error: {e}. Falling back to mock.")
+                print(f"[Agent] Gemini init error: {e}. Falling back to mock.")
                 self.provider = "mock"
                 
         elif self.provider == "openai":
@@ -126,12 +128,15 @@ Remember to cite sources for every factual claim using the format shown in the c
     async def _stream_gemini(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
         """Stream response from Gemini using new google-genai SDK."""
         import asyncio
+        import os
         import queue
         import threading
         try:
-            if not GEMINI_API_KEY:
-                async for token in self._stream_mock(messages[-1]["content"], ""):
-                    yield token
+            api_key = os.getenv("GEMINI_API_KEY", "")
+            if not api_key:
+                yield ("⚠️ **Gemini API key not configured.**\n\n"
+                       "Please set `GEMINI_API_KEY` in your Render environment variables "
+                       "and redeploy the backend.")
                 return
 
             from google import genai
@@ -151,7 +156,7 @@ Remember to cite sources for every factual claim using the format shown in the c
 
             def run_stream():
                 try:
-                    client = genai.Client(api_key=GEMINI_API_KEY)
+                    client = genai.Client(api_key=api_key)
                     chat = client.chats.create(
                         model=LLM_MODELS["gemini"],
                         history=history,

@@ -9,6 +9,7 @@ Specialized in:
 """
 
 from backend.agents.base_agent import BaseAgent
+from backend.agents.expert_copilot import ExpertCopilot
 from backend.retrieval.hybrid_retriever import HybridRetriever
 from typing import AsyncGenerator
 
@@ -49,7 +50,8 @@ class MaintenanceAgent(BaseAgent):
         self.system_prompt = MAINTENANCE_AGENT_SYSTEM
 
     async def analyze(self, equipment_tag: str = "", symptoms: str = "",
-                      query: str = "", chat_history: list = None) -> AsyncGenerator[str, None]:
+                      query: str = "", chat_history: list = None,
+                      meta_out: dict = None) -> AsyncGenerator[str, None]:
         """
         Perform RCA analysis for equipment issues.
         """
@@ -59,11 +61,16 @@ class MaintenanceAgent(BaseAgent):
                         f"Perform a root cause analysis. {query}")
         else:
             full_query = query or "Provide a general maintenance analysis."
-        
+
         # Retrieve context with focus on maintenance data
         retrieval_result = self.retriever.retrieve(full_query, top_k=10, agent_type="maintenance")
         context = self.retriever.format_context_for_llm(retrieval_result["chunks"])
-        
+
+        if meta_out is not None:
+            meta_out["sources"] = ExpertCopilot._chunks_to_sources(retrieval_result["chunks"])
+            meta_out["intent_type"] = retrieval_result["intent"].type
+            meta_out["total_sources"] = retrieval_result["total_sources"]
+
         # Stream response
         async for token in self.stream_response(full_query, context, self.system_prompt, chat_history):
             yield token
@@ -89,12 +96,5 @@ class MaintenanceAgent(BaseAgent):
             "equipment_tag": equipment_tag,
             "symptoms": symptoms,
             "citations": citations,
-            "sources": [
-                {
-                    "doc_id": chunk.doc_id,
-                    "doc_type": chunk.doc_type,
-                    "relevance": chunk.relevance_score,
-                }
-                for chunk in retrieval_result["chunks"]
-            ],
+            "sources": ExpertCopilot._chunks_to_sources(retrieval_result["chunks"]),
         }

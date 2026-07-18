@@ -89,7 +89,16 @@ def get_agents():
 
 
 def load_sample_docs():
-    """Index sample documents on every startup (required for Render ephemeral storage)."""
+    """Index sample documents on startup.
+
+    - Uses deterministic doc IDs (uuid5 of filename) so re-runs update the
+      same graph nodes instead of accumulating duplicates.
+    - Skips docs whose chunks are already in the vector store (saves Gemini
+      API quota on local restarts; on Render the ephemeral store is empty,
+      so everything re-indexes).
+    """
+    import uuid as _uuid
+
     sample_dir = SAMPLE_DOCS_DIR
     if not sample_dir.exists():
         print(f"⚠ Sample docs dir not found: {sample_dir}")
@@ -104,11 +113,17 @@ def load_sample_docs():
 
     print(f"📄 Indexing {len(files)} sample documents...")
     indexer = get_indexer()
-    success, failed = 0, 0
+    vector_store = get_vector_store()
+    success, failed, skipped = 0, 0, 0
 
     for filepath in files:
+        # Deterministic ID: same file always maps to the same doc node
+        doc_id = str(_uuid.uuid5(_uuid.NAMESPACE_URL, f"sample:{filepath.name}"))
         try:
-            result = indexer.index_document(str(filepath))
+            if vector_store.get_document_chunks(doc_id):
+                skipped += 1
+                continue
+            result = indexer.index_document(str(filepath), doc_id=doc_id)
             status = "✓" if result["status"] == "completed" else "✗"
             chunks = result.get("chunks_created", 0)
             entities = result.get("entities_extracted", 0)
@@ -117,15 +132,15 @@ def load_sample_docs():
                 success += 1
             else:
                 failed += 1
+                print(f"    error: {result.get('error')}")
         except Exception as e:
             print(f"  ✗ {filepath.name}: {e}")
             failed += 1
 
-    vector_store = get_vector_store()
     graph_store = get_graph_store()
     stats = vector_store.get_stats()
     graph_stats = graph_store.get_stats()
-    print(f"\n✓ Indexed {success}/{len(files)} docs: "
+    print(f"\n✓ Indexed {success} new, {skipped} already indexed, {failed} failed: "
           f"{stats['total_chunks']} chunks, "
           f"{graph_stats['total_nodes']} nodes, "
           f"{graph_stats['total_edges']} edges")
@@ -212,14 +227,79 @@ async def health():
 @app.get("/api/stats")
 async def stats():
     """System statistics."""
+    from backend.config import LLM_PROVIDER
+    from backend.activity import get_activity
     vector_store = get_vector_store()
     graph_store = get_graph_store()
-    
+
     return {
         "vector_store": vector_store.get_stats(),
         "graph_store": graph_store.get_stats(),
-        "llm_provider": os.getenv("LLM_PROVIDER", "mock"),
+        "llm_provider": LLM_PROVIDER,
+        "query_count": get_activity()["query_count"],
     }
+
+
+@app.get("/api/activity")
+async def activity():
+    """Real system activity feed (queries, ingests) for the dashboard."""
+    from backend.activity import get_activity
+    return get_activity()
+
+
+@app.get("/api/equipment/status")
+async def equipment_status():
+    """Equipment status derived from the knowledge graph.
+
+    critical: equipment with failure events recorded in incident reports
+    warn:     equipment with any recorded failure events
+    safe:     no failure events on record
+    """
+    graph_store = get_graph_store()
+    g = graph_store.graph
+    equipment = []
+
+    for node_id, data in g.nodes(data=True):
+        if data.get("type") != "Equipment":
+            continue
+        tag = data.get("tag", node_id.replace("equipment:", ""))
+        failure_descriptions = []
+        has_incident = False
+
+        for succ in g.successors(node_id):
+            succ_data = g.nodes[succ]
+            if succ_data.get("type") != "Event":
+                continue
+            edge = g.get_edge_data(node_id, succ) or {}
+            if edge.get("relation") != "EXPERIENCED":
+                continue
+            desc = succ_data.get("description", "")
+            if desc:
+                failure_descriptions.append(desc.replace("Failure: ", ""))
+            # Event → Document edges tell us the evidence type
+            for doc_succ in g.successors(succ):
+                if g.nodes[doc_succ].get("type") == "Document" and \
+                   g.nodes[doc_succ].get("doc_type") == "incident_report":
+                    has_incident = True
+
+        if has_incident:
+            status = "critical"
+        elif failure_descriptions:
+            status = "warn"
+        else:
+            status = "safe"
+
+        equipment.append({
+            "tag": tag,
+            "equipment_type": data.get("equipment_type", "equipment"),
+            "status": status,
+            "desc": failure_descriptions[0][:30] if failure_descriptions else "Running",
+            "failure_count": len(failure_descriptions),
+        })
+
+    order = {"critical": 0, "warn": 1, "safe": 2}
+    equipment.sort(key=lambda e: (order[e["status"]], e["tag"]))
+    return {"equipment": equipment, "total": len(equipment)}
 
 
 # ── Entry Point ────────────────────────────────────────────────────────

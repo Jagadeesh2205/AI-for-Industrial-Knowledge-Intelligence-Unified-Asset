@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ForceGraph2D from 'react-force-graph-2d';
 import { Hexagon, Activity, Database, Server, Clock } from 'lucide-react';
-
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+import { API_BASE } from '../config';
 
 
 export default function Dashboard() {
@@ -14,74 +13,76 @@ export default function Dashboard() {
   const [qqResult, setQqResult] = useState('');
   const [qqLoading, setQqLoading] = useState(false);
   const [feed, setFeed] = useState<string[]>([]);
+  const [backendDown, setBackendDown] = useState(false);
   const feedEndRef = useRef<HTMLDivElement>(null);
 
-  // Animated counters
+  // Animated counters — all driven by real backend data
   const [kpiDocs, setKpiDocs] = useState(0);
   const [kpiNodes, setKpiNodes] = useState(0);
-  const kpiQueries = 127;
-  const kpiCompliance = 72;
-
-  const equipmentStatus = [
-    { tag: 'P-101', status: 'critical', desc: 'Vibration Trip' },
-    { tag: 'V-201', status: 'warn', desc: 'CUI Found' },
-    { tag: 'M-101', status: 'warn', desc: 'Temp High' },
-    { tag: 'P-102', status: 'safe', desc: 'Running' },
-    { tag: 'C-201', status: 'safe', desc: 'Running' },
-    { tag: 'HX-301', status: 'safe', desc: 'Online' },
-    { tag: 'V-110', status: 'critical', desc: 'Expired Insp' },
-  ];
-
-  const terminalMessages = [
-    "SYS_INIT: Connecting to ChromaDB... OK",
-    "SYS_INIT: Loading Graph Store... OK",
-    "[EVENT] Operator queried P-101 maintenance history",
-    "[WARN] High vibration detected on P-101 (7.2 mm/s)",
-    "[ALERT] V-110 inspection certificate expired",
-    "[INGEST] Processed 5 new documents",
-    "[GRAPH] Extracted 47 new relationships",
-    "[EVENT] Shift handover completed",
-    "[QUERY] Compliance matrix for Unit 3 generated",
-    "[WARN] M-101 Phase W temp asymmetric",
-    "[SYSTEM] Automated DB backup completed",
-  ];
+  const [kpiQueries, setKpiQueries] = useState(0);
+  const [kpiCompliance, setKpiCompliance] = useState<number | null>(null);
+  const [equipmentStatus, setEquipmentStatus] = useState<any[]>([]);
 
   useEffect(() => {
     // Fetch stats
     fetch(`${API_BASE}/api/stats`)
-      .then(res => res.json())
+      .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
       .then(data => {
         setStats(data);
+        setBackendDown(false);
         animateValue(setKpiDocs, 0, data.graph_store?.node_types?.Document || 0, 1000);
         animateValue(setKpiNodes, 0, data.graph_store?.total_nodes || 0, 1000);
-      });
+        animateValue(setKpiQueries, 0, data.query_count || 0, 800);
+      })
+      .catch(() => setBackendDown(true));
+
+    // Compliance % — real rollup from the knowledge graph
+    fetch(`${API_BASE}/api/graph/compliance/summary`)
+      .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then(data => {
+        const regs = data.regulations || [];
+        if (regs.length === 0) return setKpiCompliance(null);
+        const green = regs.filter((r: any) => r.status === 'GREEN').length;
+        setKpiCompliance(Math.round((green / regs.length) * 100));
+      })
+      .catch(() => setKpiCompliance(null));
+
+    // Equipment status — derived from failure events in the graph
+    fetch(`${API_BASE}/api/equipment/status`)
+      .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then(data => setEquipmentStatus((data.equipment || []).slice(0, 8)))
+      .catch(() => setEquipmentStatus([]));
 
     // Fetch graph preview
     fetch(`${API_BASE}/api/graph`)
-      .then(res => res.json())
+      .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
       .then(data => {
         // Just take a subset for preview
         const previewNodes = data.graph.nodes.slice(0, 50);
         const nodeIds = new Set(previewNodes.map((n: any) => n.id));
-        const previewLinks = data.graph.links.filter((l: any) => 
+        const previewLinks = data.graph.links.filter((l: any) =>
           nodeIds.has(l.source) && nodeIds.has(l.target)
         );
         setGraphData({ nodes: previewNodes, links: previewLinks });
-      });
+      })
+      .catch(() => { /* graph preview stays empty */ });
 
-    // Terminal feed generator
-    let msgIdx = 0;
-    setFeed([terminalMessages[0], terminalMessages[1]]);
-    msgIdx = 2;
-    
-    const interval = setInterval(() => {
-      setFeed(prev => {
-        const next = [...prev, terminalMessages[msgIdx % terminalMessages.length]];
-        if (next.length > 20) return next.slice(next.length - 20);
-        return next;
-      });
-      msgIdx++;
-    }, 4000);
+    // Real activity feed — poll the backend every 5s
+    const formatEvent = (e: any) => {
+      const t = new Date(e.ts * 1000).toLocaleTimeString('en-IN', { hour12: false });
+      return `${t} [${e.kind}] ${e.message}`;
+    };
+    const loadActivity = () => {
+      fetch(`${API_BASE}/api/activity`)
+        .then(res => (res.ok ? res.json() : Promise.reject(res.status)))
+        .then(data => {
+          const events = (data.events || []).map(formatEvent);
+          setFeed(events.length > 0 ? events : ['System online. Activity will appear here as queries and uploads happen.']);
+        })
+        .catch(() => setFeed(['⏳ Waiting for backend… (free-tier server may be waking up)']));
+    };
+    loadActivity();
+    const interval = setInterval(loadActivity, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -158,12 +159,14 @@ export default function Dashboard() {
           <div className="kpi-value">{kpiNodes}</div>
         </div>
         <div className="kpi-card">
-          <div className="kpi-code">[QR: QUERIES TODAY]</div>
+          <div className="kpi-code">[QR: QUERIES]</div>
           <div className="kpi-value">{kpiQueries}</div>
         </div>
         <div className="kpi-card">
           <div className="kpi-code">[CM: COMPLIANCE]</div>
-          <div className="kpi-value" style={{ color: 'var(--status-warn)' }}>{kpiCompliance}%</div>
+          <div className="kpi-value" style={{ color: kpiCompliance !== null && kpiCompliance < 80 ? 'var(--status-warn)' : undefined }}>
+            {kpiCompliance !== null ? `${kpiCompliance}%` : '—'}
+          </div>
         </div>
       </div>
 
@@ -209,6 +212,11 @@ export default function Dashboard() {
               EQUIPMENT STATUS GRID
             </div>
             <div className="status-grid">
+              {equipmentStatus.length === 0 && (
+                <div style={{ color: 'var(--text-muted)', fontSize: '12px', fontFamily: 'var(--font-mono)' }}>
+                  {backendDown ? '⏳ Backend waking up…' : 'No equipment indexed yet'}
+                </div>
+              )}
               {equipmentStatus.map(eq => (
                 <div key={eq.tag} className={`status-chip ${eq.status}`}>
                   <div className="dot"></div>

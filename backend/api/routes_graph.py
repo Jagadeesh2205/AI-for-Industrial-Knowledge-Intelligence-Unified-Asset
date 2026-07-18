@@ -57,14 +57,28 @@ async def get_graph_stats():
 async def get_compliance_gaps(regulation: Optional[str] = None):
     """Get compliance gaps from knowledge graph."""
     from backend.main import get_graph_store
-    
+
     graph_store = get_graph_store()
     gaps = graph_store.get_compliance_gaps(regulation)
-    
+
     return {
         "regulation": regulation,
         "gaps": gaps,
         "total_gaps": len(gaps),
+    }
+
+
+@router.get("/api/graph/compliance/summary")
+async def get_compliance_summary():
+    """Per-regulation compliance rollup for the compliance matrix UI."""
+    from backend.main import get_graph_store
+
+    graph_store = get_graph_store()
+    regulations = graph_store.get_compliance_summary()
+
+    return {
+        "regulations": regulations,
+        "total": len(regulations),
     }
 
 

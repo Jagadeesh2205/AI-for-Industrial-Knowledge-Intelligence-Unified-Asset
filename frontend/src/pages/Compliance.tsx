@@ -1,17 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useChat } from '../hooks/useChat';
+import { API_BASE } from '../config';
 
-const REGULATIONS = [
-  { code: 'OISD-116', title: 'Fire Protection for Petroleum Installations', status: 'amber' },
-  { code: 'OISD-105', title: 'Work Permit System', status: 'green' },
-  { code: 'Factory Act 1948', title: 'Machinery Safety Requirements', status: 'green' },
-  { code: 'IS-2148', title: 'Flameproof Enclosures', status: 'amber' },
-];
+interface RegulationRow {
+  code: string;
+  title: string;
+  status: string;        // GREEN | AMBER | RED
+  equipment_count: number;
+  gap_count: number;
+}
 
 export default function Compliance() {
   const [selectedReg, setSelectedReg] = useState('');
   const [scope, setScope] = useState('');
+  const [regulations, setRegulations] = useState<RegulationRow[]>([]);
+  const [matrixLoading, setMatrixLoading] = useState(true);
   const { messages, currentStream, isStreaming, sendMessage } = useChat();
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/graph/compliance/summary`)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data) => setRegulations(data.regulations || []))
+      .catch(() => setRegulations([]))
+      .finally(() => setMatrixLoading(false));
+  }, []);
 
   const handleCheck = () => {
     const query = selectedReg
@@ -39,21 +51,33 @@ export default function Compliance() {
             <tr>
               <th>Regulation Code</th>
               <th>Title</th>
+              <th>Equipment</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            {REGULATIONS.map((reg) => (
+            {matrixLoading && (
+              <tr><td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)' }}>Loading compliance data from knowledge graph…</td></tr>
+            )}
+            {!matrixLoading && regulations.length === 0 && (
+              <tr><td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)' }}>No regulations found in the knowledge graph yet. Upload regulatory documents to populate this matrix.</td></tr>
+            )}
+            {regulations.map((reg) => {
+              const status = reg.status.toLowerCase();
+              return (
               <tr key={reg.code}>
                 <td style={{ fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
                   {reg.code}
                 </td>
                 <td>{reg.title}</td>
+                <td style={{ fontFamily: 'var(--font-mono)' }}>
+                  {reg.equipment_count} tracked{reg.gap_count > 0 ? ` · ${reg.gap_count} gap${reg.gap_count > 1 ? 's' : ''}` : ''}
+                </td>
                 <td>
-                  <span className={`status-badge ${reg.status}`}>
-                    {reg.status === 'green' ? '🟢 Compliant' :
-                     reg.status === 'amber' ? '🟡 Review Needed' :
+                  <span className={`status-badge ${status}`}>
+                    {status === 'green' ? '🟢 Compliant' :
+                     status === 'amber' ? '🟡 Review Needed' :
                      '🔴 Non-Compliant'}
                   </span>
                 </td>
@@ -64,7 +88,7 @@ export default function Compliance() {
                     onClick={() => {
                       setSelectedReg(reg.code);
                       sendMessage(
-                        `Detailed compliance check for ${reg.code}. Identify all gaps and required corrective actions for Unit-3 equipment.`,
+                        `Detailed compliance check for ${reg.code}. Identify all gaps and required corrective actions.`,
                         'compliance'
                       );
                     }}
@@ -73,7 +97,8 @@ export default function Compliance() {
                   </button>
                 </td>
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -83,7 +108,7 @@ export default function Compliance() {
         <h3 style={{ fontSize: '14px', fontWeight: 600, marginBottom: '12px', color: 'var(--text-secondary)' }}>
           Custom Compliance Check
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr auto', gap: '12px', alignItems: 'end' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', alignItems: 'end' }}>
           <div>
             <label style={{ display: 'block', fontSize: '12px', color: 'var(--text-muted)', marginBottom: '4px' }}>
               Regulation

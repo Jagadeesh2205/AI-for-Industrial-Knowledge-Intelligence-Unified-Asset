@@ -232,19 +232,20 @@ class HybridRetriever:
         """Convert a vector search result to a ContextChunk."""
         metadata = result.get("metadata", {})
         doc_id = metadata.get("doc_id", "")
+        doc_title = metadata.get("doc_title", "") or doc_id[:20]
         doc_category = metadata.get("doc_category", "document")
         page_num = metadata.get("page_num", 0)
         section = metadata.get("section_path", "")
-        
-        source_label = f"[SOURCE: {doc_id[:20]} | {doc_category} | Page {page_num}]"
+
+        source_label = f"[SOURCE: {doc_title} | {doc_category} | Page {page_num}]"
         if section:
-            source_label = f"[SOURCE: {doc_id[:20]} | {doc_category} | {section} | Page {page_num}]"
-        
+            source_label = f"[SOURCE: {doc_title} | {doc_category} | {section} | Page {page_num}]"
+
         return ContextChunk(
             content=result.get("content", ""),
             source_label=source_label,
             doc_id=doc_id,
-            doc_title=doc_id,
+            doc_title=doc_title,
             doc_type=doc_category,
             page_num=page_num,
             relevance_score=result.get("relevance_score", 0),

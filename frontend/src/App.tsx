@@ -6,6 +6,7 @@ import KnowledgeGraph from './pages/KnowledgeGraph';
 import Documents from './pages/Documents';
 import Maintenance from './pages/Maintenance';
 import Compliance from './pages/Compliance';
+import { API_BASE } from './config';
 import './index.css';
 
 const navItems = [
@@ -21,7 +22,7 @@ function Sidebar() {
   const [llmProvider, setLlmProvider] = useState('...');
 
   useEffect(() => {
-    fetch((import.meta.env.VITE_API_URL || 'http://localhost:8000') + '/api/stats')
+    fetch(`${API_BASE}/api/stats`)
       .then((r) => r.json())
       .then((d) => setLlmProvider(d.llm_provider || 'mock'))
       .catch(() => setLlmProvider('offline'));

@@ -45,27 +45,50 @@ class ExpertCopilot(BaseAgent):
         self.system_prompt = EXPERT_COPILOT_SYSTEM
 
     async def answer(self, query: str, chat_history: list = None,
-                     field_mode: bool = False) -> AsyncGenerator[str, None]:
+                     field_mode: bool = False,
+                     meta_out: dict = None) -> AsyncGenerator[str, None]:
         """
         Answer a query with streaming response.
-        
+
         Args:
             query: User's question
             chat_history: Previous messages in this session
             field_mode: If True, use simplified response format
+            meta_out: Optional dict populated with sources/intent metadata
+                      so streaming callers (WebSocket) can forward citations
         """
         # Retrieve context
         retrieval_result = self.retriever.retrieve(query, top_k=8)
         context = self.retriever.format_context_for_llm(retrieval_result["chunks"])
-        
+
+        if meta_out is not None:
+            meta_out["sources"] = self._chunks_to_sources(retrieval_result["chunks"])
+            meta_out["intent_type"] = retrieval_result["intent"].type
+            meta_out["total_sources"] = retrieval_result["total_sources"]
+
         # Adjust system prompt for field mode
         system_prompt = self.system_prompt
         if field_mode:
             system_prompt += "\n\nFIELD MODE ACTIVE: Keep answer under 200 words. Use numbered steps. No technical jargon. Prioritize actionable instructions."
-        
+
         # Stream response
         async for token in self.stream_response(query, context, system_prompt, chat_history):
             yield token
+
+    @staticmethod
+    def _chunks_to_sources(chunks) -> list[dict]:
+        return [
+            {
+                "doc_id": chunk.doc_id,
+                "doc_title": chunk.doc_title,
+                "doc_type": chunk.doc_type,
+                "page_num": chunk.page_num,
+                "relevance": round(chunk.relevance_score, 3),
+                "source_label": chunk.source_label,
+            }
+            for chunk in chunks
+            if chunk.doc_id != "graph"
+        ]
 
     async def answer_complete(self, query: str, chat_history: list = None,
                                field_mode: bool = False) -> dict:
@@ -88,17 +111,7 @@ class ExpertCopilot(BaseAgent):
         return {
             "answer": response,
             "citations": citations,
-            "sources": [
-                {
-                    "doc_id": chunk.doc_id,
-                    "doc_type": chunk.doc_type,
-                    "page_num": chunk.page_num,
-                    "relevance": chunk.relevance_score,
-                    "source_label": chunk.source_label,
-                }
-                for chunk in retrieval_result["chunks"]
-                if chunk.doc_id != "graph"
-            ],
+            "sources": self._chunks_to_sources(retrieval_result["chunks"]),
             "intent": {
                 "type": retrieval_result["intent"].type,
                 "entities": retrieval_result["intent"].entities,
