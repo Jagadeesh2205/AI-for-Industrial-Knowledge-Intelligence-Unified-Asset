@@ -58,7 +58,22 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
                 res = client.models.embed_content(
                     model="gemini-embedding-2", contents=batch
                 )
-                return [e.values for e in res.embeddings]
+                embeddings = [e.values for e in (res.embeddings or [])]
+                if len(embeddings) != len(batch):
+                    # Some API tiers only return one embedding per request —
+                    # fall back to embedding each text individually
+                    if len(batch) > 1:
+                        print(f"[GeminiEmbedding] batch of {len(batch)} returned "
+                              f"{len(embeddings)} embeddings — falling back to per-item requests")
+                        result = []
+                        for text in batch:
+                            result.extend(self._embed_batch_with_retry([text]))
+                            time.sleep(0.3)
+                        return result
+                    raise EmbeddingError(
+                        f"API returned {len(embeddings)} embeddings for {len(batch)} texts"
+                    )
+                return embeddings
             except Exception as e:
                 last_err = e
                 msg = str(e)
