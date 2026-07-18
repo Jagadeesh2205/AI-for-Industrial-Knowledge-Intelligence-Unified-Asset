@@ -5,6 +5,7 @@ Stores document chunks with embeddings and metadata.
 Supports filtered search by doc_id, doc_type, equipment_tag.
 """
 
+import os
 import chromadb
 from chromadb.config import Settings
 from chromadb.api.types import EmbeddingFunction, Documents, Embeddings
@@ -48,24 +49,36 @@ class VectorStore:
     """
     ChromaDB-based vector store for document chunks.
     Uses Google Gemini API for embeddings — no local model needed.
+    On Render free tier (RENDER env var set), uses EphemeralClient since
+    there is no persistent disk storage.
     """
 
     def __init__(self, persist_dir: str = None, collection_name: str = None):
         self.persist_dir = persist_dir or str(VECTOR_PERSIST_DIR)
         self.collection_name = collection_name or CHROMA_COLLECTION_NAME
+        is_render = bool(os.environ.get("RENDER"))
 
-        # Initialize ChromaDB client with persistence
-        self.client = chromadb.PersistentClient(
-            path=self.persist_dir,
-        )
+        # Render free tier has no persistent disk — use ephemeral in-memory store
+        if is_render:
+            print("[VectorStore] Render environment detected — using EphemeralClient")
+            self.client = chromadb.EphemeralClient()
+        else:
+            self.client = chromadb.PersistentClient(path=self.persist_dir)
 
-        # Get or create collection — Gemini handles embeddings via API
+        # Always delete and recreate the collection to avoid dimension mismatch
+        # from any previously stored ONNX embeddings (768-dim vs Gemini 3072-dim)
+        try:
+            self.client.delete_collection(name=self.collection_name)
+            print(f"[VectorStore] Cleared old collection '{self.collection_name}'")
+        except Exception:
+            pass  # Collection didn't exist yet — that's fine
+
         self.collection = self.client.get_or_create_collection(
             name=self.collection_name,
             embedding_function=GeminiEmbeddingFunction(),
             metadata={"hnsw:space": "cosine"},
         )
-
+        print(f"[VectorStore] Collection '{self.collection_name}' ready")
 
     def add_chunks(self, chunks: list[dict], embeddings: list[list[float]] = None):
         """

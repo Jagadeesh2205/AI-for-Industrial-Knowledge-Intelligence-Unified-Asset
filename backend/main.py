@@ -89,38 +89,49 @@ def get_agents():
 
 
 def load_sample_docs():
-    """Load sample documents if they exist and haven't been indexed."""
+    """Index sample documents on every startup (required for Render ephemeral storage)."""
     sample_dir = SAMPLE_DOCS_DIR
     if not sample_dir.exists():
+        print(f"⚠ Sample docs dir not found: {sample_dir}")
         return
-    
-    # Check if already indexed
-    vector_store = get_vector_store()
-    if vector_store.get_stats().get("total_chunks", 0) > 0:
-        print(f"✓ Knowledge base already contains {vector_store.get_stats()['total_chunks']} chunks")
-        return
-    
-    # Index sample documents
+
     supported = {'.pdf', '.txt', '.docx', '.xlsx', '.xls', '.csv'}
     files = [f for f in sample_dir.iterdir() if f.suffix.lower() in supported]
-    
-    if files:
-        print(f"📄 Indexing {len(files)} sample documents...")
-        indexer = get_indexer()
-        for filepath in files:
-            try:
-                result = indexer.index_document(str(filepath))
-                status = "✓" if result["status"] == "completed" else "✗"
-                print(f"  {status} {filepath.name}: {result['chunks_created']} chunks, "
-                      f"{result['entities_extracted']} entities")
-            except Exception as e:
-                print(f"  ✗ {filepath.name}: {e}")
-        
-        stats = vector_store.get_stats()
-        graph_stats = get_graph_store().get_stats()
-        print(f"\n✓ Indexing complete: {stats['total_chunks']} chunks, "
-              f"{graph_stats['total_nodes']} graph nodes, "
-              f"{graph_stats['total_edges']} graph edges")
+
+    if not files:
+        print("⚠ No sample documents found.")
+        return
+
+    print(f"📄 Indexing {len(files)} sample documents...")
+    indexer = get_indexer()
+    success, failed = 0, 0
+
+    for filepath in files:
+        try:
+            result = indexer.index_document(str(filepath))
+            status = "✓" if result["status"] == "completed" else "✗"
+            chunks = result.get("chunks_created", 0)
+            entities = result.get("entities_extracted", 0)
+            print(f"  {status} {filepath.name}: {chunks} chunks, {entities} entities")
+            if result["status"] == "completed":
+                success += 1
+            else:
+                failed += 1
+        except Exception as e:
+            print(f"  ✗ {filepath.name}: {e}")
+            failed += 1
+
+    vector_store = get_vector_store()
+    graph_store = get_graph_store()
+    stats = vector_store.get_stats()
+    graph_stats = graph_store.get_stats()
+    print(f"\n✓ Indexed {success}/{len(files)} docs: "
+          f"{stats['total_chunks']} chunks, "
+          f"{graph_stats['total_nodes']} nodes, "
+          f"{graph_stats['total_edges']} edges")
+    if failed:
+        print(f"⚠ {failed} documents failed to index — check logs above")
+
 
 
 # ── App Lifecycle ──────────────────────────────────────────────────────
