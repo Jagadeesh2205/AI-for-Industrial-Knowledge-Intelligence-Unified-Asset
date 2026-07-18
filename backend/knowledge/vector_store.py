@@ -7,31 +7,65 @@ Supports filtered search by doc_id, doc_type, equipment_tag.
 
 import chromadb
 from chromadb.config import Settings
+from chromadb.api.types import EmbeddingFunction, Documents, Embeddings
 from pathlib import Path
 from typing import Optional
 from backend.config import CHROMA_COLLECTION_NAME, VECTOR_PERSIST_DIR, VECTOR_SEARCH_TOP_K
 
 
+class GeminiEmbeddingFunction(EmbeddingFunction):
+    """Use Gemini API for embeddings instead of local ONNX models to save RAM."""
+
+    def __call__(self, input: Documents) -> Embeddings:
+        import os
+        from google import genai
+
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            # Return zero vectors as fallback (won't match anything well)
+            return [[0.0] * 768 for _ in input]
+
+        client = genai.Client(api_key=api_key)
+        all_embeddings = []
+
+        # Batch in groups of 100 (API limit)
+        batch_size = 100
+        for i in range(0, len(input), batch_size):
+            batch = input[i : i + batch_size]
+            try:
+                res = client.models.embed_content(
+                    model="gemini-embedding-2", contents=batch
+                )
+                all_embeddings.extend([e.values for e in res.embeddings])
+            except Exception as e:
+                print(f"Embedding error: {e}")
+                all_embeddings.extend([[0.0] * 768 for _ in batch])
+
+        return all_embeddings
+
+
 class VectorStore:
     """
     ChromaDB-based vector store for document chunks.
-    Uses ChromaDB's built-in embedding function or external embeddings.
+    Uses Google Gemini API for embeddings — no local model needed.
     """
 
     def __init__(self, persist_dir: str = None, collection_name: str = None):
         self.persist_dir = persist_dir or str(VECTOR_PERSIST_DIR)
         self.collection_name = collection_name or CHROMA_COLLECTION_NAME
-        
+
         # Initialize ChromaDB client with persistence
         self.client = chromadb.PersistentClient(
             path=self.persist_dir,
         )
-        
-        # Get or create collection
+
+        # Get or create collection — Gemini handles embeddings via API
         self.collection = self.client.get_or_create_collection(
             name=self.collection_name,
+            embedding_function=GeminiEmbeddingFunction(),
             metadata={"hnsw:space": "cosine"},
         )
+
 
     def add_chunks(self, chunks: list[dict], embeddings: list[list[float]] = None):
         """

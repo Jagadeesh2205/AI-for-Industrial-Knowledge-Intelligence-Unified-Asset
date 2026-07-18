@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ForceGraph2D from 'react-force-graph-2d';
 import { Hexagon, Activity, Database, Server, Clock } from 'lucide-react';
 
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -46,7 +48,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     // Fetch stats
-    fetch('http://localhost:8000/api/stats')
+    fetch(`${API_BASE}/api/stats`)
       .then(res => res.json())
       .then(data => {
         setStats(data);
@@ -55,7 +57,7 @@ export default function Dashboard() {
       });
 
     // Fetch graph preview
-    fetch('http://localhost:8000/api/graph')
+    fetch(`${API_BASE}/api/graph`)
       .then(res => res.json())
       .then(data => {
         // Just take a subset for preview
@@ -111,7 +113,7 @@ export default function Dashboard() {
     setQqLoading(true);
     setQqResult("Processing query...");
     try {
-      const res = await fetch('http://localhost:8000/api/query', {
+      const res = await fetch(`${API_BASE}/api/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: qqText, agent: 'copilot' })

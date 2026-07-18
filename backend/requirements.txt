@@ -15,8 +15,7 @@ spacy>=3.7,<4
 # Vector Store
 chromadb==0.6.3
 
-# Embeddings
-sentence-transformers==3.4.1
+# Embeddings — using Gemini API via google-genai (no local models needed)
 
 # Knowledge Graph
 networkx==3.4.2
