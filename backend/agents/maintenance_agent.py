@@ -97,4 +97,9 @@ class MaintenanceAgent(BaseAgent):
             "symptoms": symptoms,
             "citations": citations,
             "sources": ExpertCopilot._chunks_to_sources(retrieval_result["chunks"]),
+            "intent": {
+                "type": retrieval_result["intent"].type,
+                "entities": retrieval_result["intent"].entities,
+            },
+            "total_sources": retrieval_result.get("total_sources", 0),
         }
