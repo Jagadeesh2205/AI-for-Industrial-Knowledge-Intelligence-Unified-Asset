@@ -1,0 +1,10 @@
+venv/
+frontend/
+**/__pycache__/
+*.pyc
+.env
+*.db
+data/vector_db/
+data/graph_db/
+data/uploads/
+.git/
