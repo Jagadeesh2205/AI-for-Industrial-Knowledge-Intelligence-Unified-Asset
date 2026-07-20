@@ -156,13 +156,19 @@ Remember to cite sources for every factual claim using the format shown in the c
 
             def run_stream():
                 import time
+                # Primary model first; fall back when it's overloaded (503s can
+                # persist for a while on a specific model) or being deprecated
+                models_to_try = [LLM_MODELS["gemini"], "gemini-flash-latest", "gemini-2.5-flash"]
                 MAX_ATTEMPTS = 4
-                for attempt in range(MAX_ATTEMPTS):
+                attempt = 0
+                model_idx = 0
+                while attempt < MAX_ATTEMPTS:
+                    model = models_to_try[min(model_idx, len(models_to_try) - 1)]
                     emitted = False
                     try:
                         client = genai.Client(api_key=api_key)
                         chat = client.chats.create(
-                            model=LLM_MODELS["gemini"],
+                            model=model,
                             history=history,
                             config=types.GenerateContentConfig(
                                 system_instruction=system_prompt,
@@ -178,13 +184,14 @@ Remember to cite sources for every factual claim using the format shown in the c
                         break
                     except Exception as exc:
                         msg = str(exc)
-                        retryable = any(s in msg for s in ("503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "500", "DEADLINE"))
+                        retryable = any(s in msg for s in ("503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "500", "DEADLINE", "404", "NOT_FOUND"))
                         # Only retry if nothing was streamed yet — otherwise the
                         # user would see the answer restart mid-response
                         if retryable and not emitted and attempt < MAX_ATTEMPTS - 1:
-                            delay = 3 * (2 ** attempt)
-                            print(f"[Agent] LLM attempt {attempt + 1}/{MAX_ATTEMPTS} failed ({msg[:100]}) — retrying in {delay}s")
-                            time.sleep(delay)
+                            print(f"[Agent] {model} attempt {attempt + 1}/{MAX_ATTEMPTS} failed ({msg[:100]})")
+                            model_idx += 1  # next attempt uses the fallback model
+                            attempt += 1
+                            time.sleep(2)
                             continue
                         token_queue.put(f"\n\n⚠️ LLM Error: {exc}\n\nPlease try again in a moment.")
                         break
