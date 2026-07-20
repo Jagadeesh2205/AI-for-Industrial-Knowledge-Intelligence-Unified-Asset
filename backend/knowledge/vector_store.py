@@ -110,11 +110,12 @@ class VectorStore:
     def __init__(self, persist_dir: str = None, collection_name: str = None):
         self.persist_dir = persist_dir or str(VECTOR_PERSIST_DIR)
         self.collection_name = collection_name or CHROMA_COLLECTION_NAME
-        is_render = bool(os.environ.get("RENDER"))
 
-        # Render free tier has no persistent disk — use ephemeral in-memory store
-        if is_render:
-            print("[VectorStore] Render environment detected — using EphemeralClient")
+        # Render / HF Spaces free tiers have no persistent disk — use
+        # ephemeral in-memory store (docs re-index on startup)
+        is_ephemeral_host = bool(os.environ.get("RENDER") or os.environ.get("SPACE_ID"))
+        if is_ephemeral_host:
+            print("[VectorStore] Ephemeral host detected (Render/HF Spaces) — using EphemeralClient")
             self.client = chromadb.EphemeralClient()
         else:
             self.client = chromadb.PersistentClient(path=self.persist_dir)
