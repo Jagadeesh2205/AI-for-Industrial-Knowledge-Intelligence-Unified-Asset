@@ -155,25 +155,40 @@ Remember to cite sources for every factual claim using the format shown in the c
             SENTINEL = object()
 
             def run_stream():
-                try:
-                    client = genai.Client(api_key=api_key)
-                    chat = client.chats.create(
-                        model=LLM_MODELS["gemini"],
-                        history=history,
-                        config=types.GenerateContentConfig(
-                            system_instruction=system_prompt,
-                            max_output_tokens=8192,
-                            temperature=0.3,
-                        ),
-                    )
-                    stream = chat.send_message_stream(last_msg)
-                    for chunk in stream:
-                        if chunk.text:
-                            token_queue.put(chunk.text)
-                except Exception as exc:
-                    token_queue.put(f"\n\n⚠️ LLM Error: {exc}\n\nPlease check your API key.")
-                finally:
-                    token_queue.put(SENTINEL)
+                import time
+                MAX_ATTEMPTS = 4
+                for attempt in range(MAX_ATTEMPTS):
+                    emitted = False
+                    try:
+                        client = genai.Client(api_key=api_key)
+                        chat = client.chats.create(
+                            model=LLM_MODELS["gemini"],
+                            history=history,
+                            config=types.GenerateContentConfig(
+                                system_instruction=system_prompt,
+                                max_output_tokens=8192,
+                                temperature=0.3,
+                            ),
+                        )
+                        stream = chat.send_message_stream(last_msg)
+                        for chunk in stream:
+                            if chunk.text:
+                                emitted = True
+                                token_queue.put(chunk.text)
+                        break
+                    except Exception as exc:
+                        msg = str(exc)
+                        retryable = any(s in msg for s in ("503", "UNAVAILABLE", "429", "RESOURCE_EXHAUSTED", "500", "DEADLINE"))
+                        # Only retry if nothing was streamed yet — otherwise the
+                        # user would see the answer restart mid-response
+                        if retryable and not emitted and attempt < MAX_ATTEMPTS - 1:
+                            delay = 3 * (2 ** attempt)
+                            print(f"[Agent] LLM attempt {attempt + 1}/{MAX_ATTEMPTS} failed ({msg[:100]}) — retrying in {delay}s")
+                            time.sleep(delay)
+                            continue
+                        token_queue.put(f"\n\n⚠️ LLM Error: {exc}\n\nPlease try again in a moment.")
+                        break
+                token_queue.put(SENTINEL)
 
             thread = threading.Thread(target=run_stream, daemon=True)
             thread.start()
