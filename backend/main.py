@@ -154,20 +154,33 @@ def load_sample_docs():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown events."""
+    import threading
+
     print("\n🧠 Plant Brain — Industrial Knowledge Intelligence Platform")
     print("=" * 60)
-    
+
     # Initialize stores
     print("⚡ Initializing stores...")
     get_vector_store()
     get_graph_store()
     get_retriever()
     get_agents()
-    
-    # Load sample documents
-    load_sample_docs()
-    
-    print(f"\n🚀 Server ready at http://localhost:{API_PORT}")
+
+    # Index sample docs in the background so the server binds its port
+    # immediately — platform health checks (DigitalOcean/Render) fail the
+    # deploy if the port isn't open within ~2 min, and embedding all docs
+    # takes longer than that.
+    def _index_in_background():
+        try:
+            load_sample_docs()
+            app.state.indexing_complete = True
+        except Exception as e:
+            print(f"⚠ Background indexing failed: {e}")
+
+    app.state.indexing_complete = False
+    threading.Thread(target=_index_in_background, daemon=True).start()
+
+    print(f"\n🚀 Server ready at http://localhost:{API_PORT} (indexing continues in background)")
     print(f"📚 API docs at http://localhost:{API_PORT}/docs")
     print("=" * 60 + "\n")
     
@@ -221,6 +234,7 @@ async def health():
         "service": "plant-brain",
         "llm_provider": LLM_PROVIDER,
         "llm_model": LLM_MODELS.get(LLM_PROVIDER, "unknown"),
+        "indexing_complete": getattr(app.state, "indexing_complete", True),
     }
 
 
