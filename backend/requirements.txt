@@ -27,6 +27,7 @@ aiosqlite==0.20.0
 
 # LLM Providers
 google-genai>=1.0.0
+openai>=1.0.0
 
 # Utilities
 python-dotenv==1.0.1
