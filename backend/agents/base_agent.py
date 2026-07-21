@@ -157,7 +157,7 @@ Remember to cite sources for every factual claim using the format shown in the c
             def run_stream():
                 import time
                 # Primary model first; fall back when it's overloaded
-                models_to_try = [LLM_MODELS["gemini"], "gemini-1.5-flash", "gemini-1.5-flash-8b"]
+                models_to_try = [LLM_MODELS["gemini"], "gemini-1.5-flash-latest", "gemini-1.5-pro"]
                 MAX_ATTEMPTS = 4
                 attempt = 0
                 model_idx = 0
