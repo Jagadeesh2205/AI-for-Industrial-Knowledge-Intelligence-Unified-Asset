@@ -41,7 +41,6 @@ class BaseAgent:
         if self.provider == "gemini":
             try:
                 from google import genai
-                import os
                 api_key = os.getenv("GEMINI_API_KEY", "")
                 if not api_key:
                     raise ValueError("GEMINI_API_KEY environment variable is not set")
@@ -167,7 +166,6 @@ Remember to cite sources for every factual claim using the format shown in the c
     async def _stream_gemini(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
         """Stream response from Gemini using new google-genai SDK."""
         import asyncio
-        import os
         import queue
         import threading
         try:
