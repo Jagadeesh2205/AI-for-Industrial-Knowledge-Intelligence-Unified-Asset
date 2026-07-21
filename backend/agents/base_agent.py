@@ -83,18 +83,21 @@ class BaseAgent:
         elif self.provider == "azure_foundry":
             try:
                 from openai import OpenAI
-                endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT", AZURE_FOUNDRY_ENDPOINT)
+                endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT", AZURE_FOUNDRY_ENDPOINT) or "https://inteligentapi.services.ai.azure.com/api/projects/proj-default/openai/v1"
                 if endpoint.endswith("/responses"):
                     endpoint = endpoint[:-len("/responses")]
                 api_key = os.getenv("AZURE_FOUNDRY_KEY", AZURE_FOUNDRY_KEY)
+                if not api_key:
+                    print("[Agent] AZURE_FOUNDRY_KEY is missing.")
+                    return None
                 self._client = OpenAI(
                     base_url=endpoint,
                     api_key=api_key
                 )
                 print(f"[Agent] Azure Foundry ready (model={LLM_MODELS['azure_foundry']})")
             except Exception as e:
-                print(f"Azure Foundry init error: {e}. Falling back to mock.")
-                self.provider = "mock"
+                print(f"Azure Foundry init error: {e}.")
+                return None
 
         return self._client
 
@@ -400,10 +403,16 @@ Remember to cite sources for every factual claim using the format shown in the c
     async def _stream_azure_foundry(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
         """Stream response from Azure AI Foundry."""
         try:
+            api_key = os.getenv("AZURE_FOUNDRY_KEY", AZURE_FOUNDRY_KEY)
+            if not api_key:
+                yield ("⚠️ **Azure Foundry API key not configured.**\n\n"
+                       "Please add `AZURE_FOUNDRY_KEY` to your Azure App Service environment variables and restart.")
+                return
+
             client = self._get_client()
             if not client:
-                async for token in self._stream_mock(messages[-1]["content"], ""):
-                    yield token
+                yield ("⚠️ **Azure Foundry connection failed.**\n\n"
+                       "Please check `AZURE_FOUNDRY_ENDPOINT` and `AZURE_FOUNDRY_KEY` in Azure portal.")
                 return
 
             all_messages = [{"role": "system", "content": system_prompt}] + messages
