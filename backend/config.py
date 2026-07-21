@@ -31,9 +31,9 @@ ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
 # Model names per provider
 LLM_MODELS = {
-    "gemini": "gemini-3.5-flash",
+    "gemini": "gemini-2.0-flash",
     "openai": "gpt-4o-mini",
-    "anthropic": "claude-sonnet-4-20250514",
+    "anthropic": "claude-3-5-sonnet-latest",
 }
 
 # ── Embedding Configuration ───────────────────────────────────────────────

@@ -156,9 +156,8 @@ Remember to cite sources for every factual claim using the format shown in the c
 
             def run_stream():
                 import time
-                # Primary model first; fall back when it's overloaded (503s can
-                # persist for a while on a specific model) or being deprecated
-                models_to_try = [LLM_MODELS["gemini"], "gemini-flash-latest", "gemini-2.5-flash"]
+                # Primary model first; fall back when it's overloaded
+                models_to_try = [LLM_MODELS["gemini"], "gemini-1.5-flash", "gemini-1.5-flash-8b"]
                 MAX_ATTEMPTS = 4
                 attempt = 0
                 model_idx = 0
