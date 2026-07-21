@@ -24,20 +24,22 @@ for d in [DATA_DIR, SAMPLE_DOCS_DIR, UPLOAD_DIR, VECTOR_PERSIST_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ── LLM Configuration ─────────────────────────────────────────────────────
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "gemini")  # gemini | openai | anthropic | mock
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openrouter")  # gemini | openai | anthropic | openrouter | mock
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
 # Model names per provider
 LLM_MODELS = {
     "gemini": "gemini-1.5-flash",
     "openai": "gpt-4o-mini",
     "anthropic": "claude-3-5-sonnet-latest",
+    "openrouter": "openai/gpt-oss-20b:free",
 }
 
 # ── Embedding Configuration ───────────────────────────────────────────────
-EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
+EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "nvidia/nemotron-3-embed-1b:free")
 
 # ── Chunking Configuration ────────────────────────────────────────────────
 CHUNK_SIZE = 512          # tokens

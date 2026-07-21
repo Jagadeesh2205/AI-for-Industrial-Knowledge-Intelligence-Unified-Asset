@@ -99,6 +99,63 @@ class GeminiEmbeddingFunction(EmbeddingFunction):
         return all_embeddings
 
 
+class OpenRouterEmbeddingFunction(EmbeddingFunction):
+    """Use OpenRouter API for embeddings via OpenAI SDK format."""
+
+    _client = None
+
+    BATCH_SIZE = 25
+    MAX_RETRIES = 6
+    BASE_DELAY = 2.0
+
+    @classmethod
+    def _get_client(cls):
+        if cls._client is None:
+            from openai import OpenAI
+            from backend.config import OPENROUTER_API_KEY
+            api_key = OPENROUTER_API_KEY or os.getenv("OPENROUTER_API_KEY", "")
+            if not api_key:
+                raise EmbeddingError("OPENROUTER_API_KEY is not set.")
+            cls._client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+        return cls._client
+
+    def _embed_batch_with_retry(self, batch: list[str]) -> list[list[float]]:
+        client = self._get_client()
+        last_err = None
+        from backend.config import EMBEDDING_MODEL
+        for attempt in range(self.MAX_RETRIES):
+            try:
+                res = client.embeddings.create(
+                    model=EMBEDDING_MODEL,
+                    input=batch
+                )
+                embeddings = [e.embedding for e in res.data]
+                if len(embeddings) != len(batch):
+                    raise EmbeddingError(f"API returned {len(embeddings)} embeddings for {len(batch)} texts")
+                return embeddings
+            except Exception as e:
+                last_err = e
+                msg = str(e)
+                retryable = any(s in msg for s in ("429", "500", "503", "502"))
+                if not retryable and attempt >= 1:
+                    break
+                delay = self.BASE_DELAY * (2 ** attempt)
+                print(f"[OpenRouterEmbedding] attempt {attempt + 1}/{self.MAX_RETRIES} failed ({msg[:120]}) — retrying in {delay:.0f}s")
+                time.sleep(delay)
+        raise EmbeddingError(f"Embedding failed after {self.MAX_RETRIES} attempts: {last_err}")
+
+    def __call__(self, input: Documents) -> Embeddings:
+        all_embeddings = []
+        for i in range(0, len(input), self.BATCH_SIZE):
+            batch = list(input[i : i + self.BATCH_SIZE])
+            embeddings = self._embed_batch_with_retry(batch)
+            all_embeddings.extend(embeddings)
+            print(f"[OpenRouterEmbedding] OK: {len(batch)} texts embedded (dim={len(embeddings[0])})")
+            if i + self.BATCH_SIZE < len(input):
+                time.sleep(0.5)
+        return all_embeddings
+
+
 class VectorStore:
     """
     ChromaDB-based vector store for document chunks.
@@ -126,15 +183,27 @@ class VectorStore:
             peek = existing.peek(limit=1)
             embs = peek.get("embeddings")
             has_embeddings = embs is not None and len(embs) > 0
-            if has_embeddings and len(embs[0]) != 3072:
-                self.client.delete_collection(name=self.collection_name)
-                print(f"[VectorStore] Dimension mismatch ({len(embs[0])} != 3072) — recreated collection")
+            if has_embeddings:
+                from backend.config import LLM_PROVIDER
+                dim = len(embs[0])
+                if LLM_PROVIDER != "gemini" and dim == 3072:
+                    self.client.delete_collection(name=self.collection_name)
+                    print(f"[VectorStore] Dimension mismatch (switching from Gemini) — recreated collection")
+                elif LLM_PROVIDER == "gemini" and dim != 3072:
+                    self.client.delete_collection(name=self.collection_name)
+                    print(f"[VectorStore] Dimension mismatch ({dim} != 3072) — recreated collection")
         except Exception:
             pass  # Collection didn't exist yet — that's fine
 
+        from backend.config import LLM_PROVIDER
+        if LLM_PROVIDER == "openrouter":
+            emb_fn = OpenRouterEmbeddingFunction()
+        else:
+            emb_fn = GeminiEmbeddingFunction()
+
         self.collection = self.client.get_or_create_collection(
             name=self.collection_name,
-            embedding_function=GeminiEmbeddingFunction(),
+            embedding_function=emb_fn,
             metadata={"hnsw:space": "cosine"},
         )
         print(f"[VectorStore] Collection '{self.collection_name}' ready")

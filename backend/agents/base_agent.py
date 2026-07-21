@@ -8,7 +8,7 @@ Provides streaming response generation and citation formatting.
 import json
 import os
 from typing import AsyncGenerator, Optional
-from backend.config import LLM_PROVIDER, GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY, LLM_MODELS
+from backend.config import LLM_PROVIDER, GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, LLM_MODELS
 
 
 class BaseAgent:
@@ -65,6 +65,17 @@ class BaseAgent:
             except Exception as e:
                 print(f"Anthropic init error: {e}. Falling back to mock.")
                 self.provider = "mock"
+                
+        elif self.provider == "openrouter":
+            try:
+                from openai import OpenAI
+                self._client = OpenAI(
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=OPENROUTER_API_KEY
+                )
+            except Exception as e:
+                print(f"OpenRouter init error: {e}. Falling back to mock.")
+                self.provider = "mock"
 
         return self._client
 
@@ -95,6 +106,9 @@ class BaseAgent:
                 yield token
         elif self.provider == "anthropic":
             async for token in self._stream_anthropic(messages, system_prompt):
+                yield token
+        elif self.provider == "openrouter":
+            async for token in self._stream_openrouter(messages, system_prompt):
                 yield token
         else:
             # Mock provider — generate a helpful demo response
@@ -334,3 +348,29 @@ Remember to cite sources for every factual claim using the format shown in the c
         )
         
         return "".join(response_parts)
+
+    async def _stream_openrouter(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
+        """Stream response from OpenRouter."""
+        try:
+            client = self._get_client()
+            if not client:
+                async for token in self._stream_mock(messages[-1]["content"], ""):
+                    yield token
+                return
+
+            all_messages = [{"role": "system", "content": system_prompt}] + messages
+            
+            stream = client.chat.completions.create(
+                model=LLM_MODELS["openrouter"],
+                messages=all_messages,
+                stream=True,
+                max_tokens=2048,
+                temperature=0.3,
+            )
+            
+            for chunk in stream:
+                if chunk.choices and chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+                    
+        except Exception as e:
+            yield f"\n\n⚠️ LLM Error: {str(e)}"
