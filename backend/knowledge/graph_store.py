@@ -446,4 +446,5 @@ class GraphStore:
         with open(filepath, 'r') as f:
             data = json.load(f)
         
-        self.graph = nx.node_link_graph(data, directed=True)
+        edges_key = "edges" if "edges" in data else "links"
+        self.graph = nx.node_link_graph(data, directed=True, edges=edges_key)
