@@ -8,7 +8,10 @@ Provides streaming response generation and citation formatting.
 import json
 import os
 from typing import AsyncGenerator, Optional
-from backend.config import LLM_PROVIDER, GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY, LLM_MODELS
+from backend.config import (
+    LLM_PROVIDER, GEMINI_API_KEY, OPENAI_API_KEY, ANTHROPIC_API_KEY, OPENROUTER_API_KEY,
+    AZURE_FOUNDRY_ENDPOINT, AZURE_FOUNDRY_KEY, AZURE_FOUNDRY_MODEL, LLM_MODELS
+)
 
 
 class BaseAgent:
@@ -77,6 +80,22 @@ class BaseAgent:
                 print(f"OpenRouter init error: {e}. Falling back to mock.")
                 self.provider = "mock"
 
+        elif self.provider == "azure_foundry":
+            try:
+                from openai import OpenAI
+                endpoint = os.getenv("AZURE_FOUNDRY_ENDPOINT", AZURE_FOUNDRY_ENDPOINT)
+                if endpoint.endswith("/responses"):
+                    endpoint = endpoint[:-len("/responses")]
+                api_key = os.getenv("AZURE_FOUNDRY_KEY", AZURE_FOUNDRY_KEY)
+                self._client = OpenAI(
+                    base_url=endpoint,
+                    api_key=api_key
+                )
+                print(f"[Agent] Azure Foundry ready (model={LLM_MODELS['azure_foundry']})")
+            except Exception as e:
+                print(f"Azure Foundry init error: {e}. Falling back to mock.")
+                self.provider = "mock"
+
         return self._client
 
     async def generate_response(self, query: str, context: str, 
@@ -109,6 +128,9 @@ class BaseAgent:
                 yield token
         elif self.provider == "openrouter":
             async for token in self._stream_openrouter(messages, system_prompt):
+                yield token
+        elif self.provider == "azure_foundry":
+            async for token in self._stream_azure_foundry(messages, system_prompt):
                 yield token
         else:
             # Mock provider — generate a helpful demo response
@@ -362,6 +384,32 @@ Remember to cite sources for every factual claim using the format shown in the c
             
             stream = client.chat.completions.create(
                 model=LLM_MODELS["openrouter"],
+                messages=all_messages,
+                stream=True,
+                max_tokens=2048,
+                temperature=0.3,
+            )
+            
+            for chunk in stream:
+                if chunk.choices and chunk.choices[0].delta.content:
+                    yield chunk.choices[0].delta.content
+                    
+        except Exception as e:
+            yield f"\n\n⚠️ LLM Error: {str(e)}"
+
+    async def _stream_azure_foundry(self, messages: list, system_prompt: str) -> AsyncGenerator[str, None]:
+        """Stream response from Azure AI Foundry."""
+        try:
+            client = self._get_client()
+            if not client:
+                async for token in self._stream_mock(messages[-1]["content"], ""):
+                    yield token
+                return
+
+            all_messages = [{"role": "system", "content": system_prompt}] + messages
+            
+            stream = client.chat.completions.create(
+                model=LLM_MODELS["azure_foundry"],
                 messages=all_messages,
                 stream=True,
                 max_tokens=2048,

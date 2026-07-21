@@ -24,11 +24,15 @@ for d in [DATA_DIR, SAMPLE_DOCS_DIR, UPLOAD_DIR, VECTOR_PERSIST_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # ── LLM Configuration ─────────────────────────────────────────────────────
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openrouter")  # gemini | openai | anthropic | openrouter | mock
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", "azure_foundry")  # gemini | openai | anthropic | openrouter | azure_foundry | mock
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+
+AZURE_FOUNDRY_ENDPOINT = os.getenv("AZURE_FOUNDRY_ENDPOINT", "")
+AZURE_FOUNDRY_KEY = os.getenv("AZURE_FOUNDRY_KEY", "")
+AZURE_FOUNDRY_MODEL = os.getenv("AZURE_FOUNDRY_MODEL", "gpt-5-mini")
 
 # Model names per provider
 LLM_MODELS = {
@@ -36,6 +40,7 @@ LLM_MODELS = {
     "openai": "gpt-4o-mini",
     "anthropic": "claude-3-5-sonnet-latest",
     "openrouter": "openai/gpt-oss-20b:free",
+    "azure_foundry": AZURE_FOUNDRY_MODEL,
 }
 
 # ── Embedding Configuration ───────────────────────────────────────────────
