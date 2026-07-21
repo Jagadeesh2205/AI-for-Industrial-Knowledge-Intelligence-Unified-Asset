@@ -1,0 +1,4 @@
+# Azure App Service (Oryx) build entrypoint — pulls in the backend deps and
+# the spaCy model as a wheel (no post-install download step available here).
+-r backend/requirements.txt
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
