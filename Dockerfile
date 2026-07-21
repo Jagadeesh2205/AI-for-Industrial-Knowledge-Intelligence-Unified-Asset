@@ -8,6 +8,8 @@ RUN pip install --no-cache-dir -r /app/backend/requirements.txt && \
 
 COPY backend /app/backend
 COPY data/sample_docs /app/data/sample_docs
+COPY data/chroma_db /app/data/chroma_db
+COPY data/graph_store.json /app/data/graph_store.json
 
 ENV LLM_PROVIDER=gemini \
     PORT=8080

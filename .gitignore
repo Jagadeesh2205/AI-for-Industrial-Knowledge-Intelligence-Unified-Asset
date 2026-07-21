@@ -14,10 +14,8 @@ dist/
 # Environment
 .env
 
-# Data (keep sample_docs, ignore uploads and generated)
+# Data (keep sample_docs + prebuilt chroma_db/graph_store, ignore uploads)
 data/uploads/
-data/chroma_db/
-data/graph_store.json
 data/plant_brain.db
 
 # IDE
@@ -29,3 +27,5 @@ data/plant_brain.db
 # OS
 .DS_Store
 Thumbs.db
+
+.vercel

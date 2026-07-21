@@ -1,0 +1,3974 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "5cf75ac3-006d-5394-b3f5-f6b40c34c8dc",
+      "title": "annual_audit_findings_2024",
+      "doc_type": "regulatory",
+      "filename": "annual_audit_findings_2024.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-101",
+      "equipment_type": "pump",
+      "id": "equipment:P-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-201",
+      "equipment_type": "valve",
+      "id": "equipment:V-201"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "M-101",
+      "equipment_type": "motor",
+      "id": "equipment:M-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "CT-101",
+      "equipment_type": "cooling_tower",
+      "id": "equipment:CT-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-102",
+      "equipment_type": "pump",
+      "id": "equipment:P-102"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "OISD-GDN-206",
+      "title": "OISD-GDN-206",
+      "id": "regulation:oisd-gdn-206"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "OISD-116",
+      "title": "OISD-116",
+      "id": "regulation:oisd-116"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "IS-2190",
+      "title": "IS-2190",
+      "id": "regulation:is-2190"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "FACTORY-ACT-1948",
+      "title": "FACTORY-ACT-1948",
+      "id": "regulation:factory-act-1948"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "API-570",
+      "title": "API-570",
+      "id": "regulation:api-570"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "ANSI-Z358.1-2014",
+      "title": "ANSI-Z358.1-2014",
+      "id": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "vibration",
+      "id": "failure_mode:vibration"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:vibration"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "corrosion",
+      "id": "failure_mode:corrosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:corrosion"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "Dr. M. Anand",
+      "id": "person:dr._m._anand"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "S. Krishnamurthy",
+      "id": "person:s._krishnamurthy"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "R. Sharma",
+      "id": "person:r._sharma"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "L. Fernandez",
+      "id": "person:l._fernandez"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "b4ba5069-3ace-570a-a2eb-411cf5d0c7ee",
+      "title": "compressor_c201_incident",
+      "doc_type": "incident_report",
+      "filename": "compressor_c201_incident.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "C-201",
+      "equipment_type": "compressor",
+      "id": "equipment:C-201"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "bearing failure",
+      "id": "failure_mode:bearing_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing failure",
+      "id": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:bearing_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:vibration"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "Suresh Patel",
+      "id": "person:suresh_patel"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "7d04a285-190e-578b-92c5-6af7792eca44",
+      "title": "heat_exchanger_hx301_log",
+      "doc_type": "maintenance_record",
+      "filename": "heat_exchanger_hx301_log.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:7d04a285-190e-578b-92c5-6af7792eca44"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "HX-301",
+      "equipment_type": "heat_exchanger",
+      "id": "equipment:HX-301"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "Amit Singh",
+      "id": "person:amit_singh"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "1ab43333-72b7-572e-9036-a1e42f2a95b2",
+      "title": "incident_report_ir_2022_047",
+      "doc_type": "incident_report",
+      "filename": "incident_report_ir_2022_047.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing failure",
+      "id": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:bearing_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:vibration"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "seal failure",
+      "id": "failure_mode:seal_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: seal failure",
+      "id": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:seal_failure"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "Dr. Priya Sharma",
+      "id": "person:dr._priya_sharma"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "K. Venkataraman",
+      "id": "person:k._venkataraman"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "9120835e-3843-5e8e-8bea-0faff3f04da5",
+      "title": "inspection_report_2024_q1",
+      "doc_type": "inspection_report",
+      "filename": "inspection_report_2024_q1.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "temperature",
+      "value": "58\u00b0C",
+      "id": "parameter:9120835e:temperature"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "erosion",
+      "id": "failure_mode:erosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: erosion",
+      "id": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing failure",
+      "id": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "M. Krishnamurthy",
+      "id": "person:m._krishnamurthy"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "S. Raghunathan",
+      "id": "person:s._raghunathan"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b",
+      "title": "lessons_learned_bulletin_2023",
+      "doc_type": "incident_report",
+      "filename": "lessons_learned_bulletin_2023.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-201",
+      "equipment_type": "pump",
+      "id": "equipment:P-201"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-104",
+      "equipment_type": "pump",
+      "id": "equipment:P-104"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-303",
+      "equipment_type": "pump",
+      "id": "equipment:P-303"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-202",
+      "equipment_type": "pump",
+      "id": "equipment:P-202"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "CWP-01",
+      "equipment_type": "pump",
+      "id": "equipment:CWP-01"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "CWP-02",
+      "equipment_type": "pump",
+      "id": "equipment:CWP-02"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "dry running",
+      "id": "failure_mode:dry_running"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: dry running",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: seal failure",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "cavitation",
+      "id": "failure_mode:cavitation"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: cavitation",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: erosion",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "bearing damage",
+      "id": "failure_mode:bearing_damage"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing damage",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "A. Venkatesh",
+      "id": "person:a._venkatesh"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "a2f403b7-8591-50b8-a3b1-4cd18ae5abcf",
+      "title": "motor_electrical_log",
+      "doc_type": "maintenance_record",
+      "filename": "motor_electrical_log.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "M-102",
+      "equipment_type": "motor",
+      "id": "equipment:M-102"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "M-201",
+      "equipment_type": "motor",
+      "id": "equipment:M-201"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "current draw",
+      "value": "112A",
+      "id": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "imbalance",
+      "id": "failure_mode:imbalance"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: imbalance",
+      "id": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "V. Subramaniam",
+      "id": "person:v._subramaniam"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "3611fca3-97bd-5859-bc45-d1737d87ba95",
+      "title": "oem_manual_grundfos_cr95",
+      "doc_type": "oem_manual",
+      "filename": "oem_manual_grundfos_cr95.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "flow rate",
+      "value": "95 m\u00b3/hr",
+      "id": "parameter:3611fca3:flow_rate"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "speed",
+      "value": "2950 RPM",
+      "id": "parameter:3611fca3:speed"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "discharge pressure",
+      "value": "4.0",
+      "id": "parameter:3611fca3:discharge_pressure"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "pressure",
+      "value": "16 bar",
+      "id": "parameter:3611fca3:pressure"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "temperature",
+      "value": "120\u00b0C",
+      "id": "parameter:3611fca3:temperature"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:vibration"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: erosion",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:erosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:corrosion"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "bearing wear",
+      "id": "failure_mode:bearing_wear"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing wear",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_wear"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "misalignment",
+      "id": "failure_mode:misalignment"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: misalignment",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:misalignment"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: imbalance",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:imbalance"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: cavitation",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:cavitation"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing failure",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: seal failure",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:seal_failure"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: dry running",
+      "id": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:dry_running"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "90d6a69a-a0b8-5676-8b07-1c9ead6fca12",
+      "title": "operator_round_log_june2024",
+      "doc_type": "maintenance_record",
+      "filename": "operator_round_log_june2024.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "S. Jenkins",
+      "id": "person:s._jenkins"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "T. Vance",
+      "id": "person:t._vance"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "L. Chang",
+      "id": "person:l._chang"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "2e0301b7-8360-5375-a441-230b4e0d7f9a",
+      "title": "pump_p101_maintenance_log",
+      "doc_type": "maintenance_record",
+      "filename": "pump_p101_maintenance_log.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "current draw",
+      "value": "18.5A",
+      "id": "parameter:2e0301b7:current_draw"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "level",
+      "value": "5.8 mm/s",
+      "id": "parameter:2e0301b7:level"
+    },
+    {
+      "type": "Parameter",
+      "color": "#06B6D4",
+      "icon": "\ud83d\udcca",
+      "name": "temperature",
+      "value": "78\u00b0C",
+      "id": "parameter:2e0301b7:temperature"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "API-510",
+      "title": "API-510",
+      "id": "regulation:api-510"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:vibration"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: imbalance",
+      "id": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:imbalance"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: misalignment",
+      "id": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:misalignment"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "Rajesh Kumar",
+      "id": "person:rajesh_kumar"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "c93f5c53-f8d8-515a-9d99-a41b45d23795",
+      "title": "pump_p102_maintenance_log",
+      "doc_type": "maintenance_record",
+      "filename": "pump_p102_maintenance_log.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:c93f5c53-f8d8-515a-9d99-a41b45d23795"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:vibration"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: bearing damage",
+      "id": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:bearing_damage"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "90353793-c235-5eef-ac7d-90449f7f1a3f",
+      "title": "regulatory_iso_10816",
+      "doc_type": "incident_report",
+      "filename": "regulatory_iso_10816.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:90353793-c235-5eef-ac7d-90449f7f1a3f"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:90353793-c235-5eef-ac7d-90449f7f1a3f:vibration"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "556f12b1-da5f-5f2d-82d3-65a9f44d346a",
+      "title": "regulatory_oisd_116_extract",
+      "doc_type": "inspection_report",
+      "filename": "regulatory_oisd_116_extract.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:556f12b1-da5f-5f2d-82d3-65a9f44d346a"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:corrosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:vibration"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9",
+      "title": "root_cause_analysis_template",
+      "doc_type": "incident_report",
+      "filename": "root_cause_analysis_template.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9:vibration"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5",
+      "title": "safety_procedure_sp_045",
+      "doc_type": "safety_procedure",
+      "filename": "safety_procedure_sp_045.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "P-103",
+      "equipment_type": "pump",
+      "id": "equipment:P-103"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "C-202",
+      "equipment_type": "compressor",
+      "id": "equipment:C-202"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "B-101",
+      "equipment_type": "blower",
+      "id": "equipment:B-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "B-102",
+      "equipment_type": "blower",
+      "id": "equipment:B-102"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "AG-101",
+      "equipment_type": "agitator",
+      "id": "equipment:AG-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "AG-201",
+      "equipment_type": "agitator",
+      "id": "equipment:AG-201"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-101",
+      "equipment_type": "valve",
+      "id": "equipment:V-101"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "DV-101",
+      "equipment_type": "valve",
+      "id": "equipment:DV-101"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "OISD-105",
+      "title": "OISD-105",
+      "id": "regulation:oisd-105"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "IS-3646",
+      "title": "IS-3646",
+      "id": "regulation:is-3646"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: vibration",
+      "id": "event:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5:vibration"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "9218d5a5-4d5d-5e64-9d54-c7df6998b448",
+      "title": "valve_register_unit3",
+      "doc_type": "regulatory",
+      "filename": "valve_register_unit3.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-102",
+      "equipment_type": "valve",
+      "id": "equipment:V-102"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-103",
+      "equipment_type": "valve",
+      "id": "equipment:V-103"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-104",
+      "equipment_type": "valve",
+      "id": "equipment:V-104"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-105",
+      "equipment_type": "valve",
+      "id": "equipment:V-105"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-106",
+      "equipment_type": "valve",
+      "id": "equipment:V-106"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-107",
+      "equipment_type": "valve",
+      "id": "equipment:V-107"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-108",
+      "equipment_type": "valve",
+      "id": "equipment:V-108"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-109",
+      "equipment_type": "valve",
+      "id": "equipment:V-109"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-110",
+      "equipment_type": "valve",
+      "id": "equipment:V-110"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-111",
+      "equipment_type": "valve",
+      "id": "equipment:V-111"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "V-112",
+      "equipment_type": "valve",
+      "id": "equipment:V-112"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: erosion",
+      "id": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:erosion"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:corrosion"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "K. Patel",
+      "id": "person:k._patel"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "83548aad-51e6-5d29-9cda-a37f43685f25",
+      "title": "valve_v201_inspection_cui",
+      "doc_type": "inspection_report",
+      "filename": "valve_v201_inspection_cui.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:83548aad-51e6-5d29-9cda-a37f43685f25"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:83548aad-51e6-5d29-9cda-a37f43685f25:corrosion"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "R. Davies",
+      "id": "person:r._davies"
+    },
+    {
+      "type": "Document",
+      "color": "#10B981",
+      "icon": "\ud83d\udcc4",
+      "doc_id": "ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040",
+      "title": "water_treatment_procedure",
+      "doc_type": "operating_procedure",
+      "filename": "water_treatment_procedure.txt",
+      "page_count": 1,
+      "date": "",
+      "id": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "type": "Equipment",
+      "color": "#3B82F6",
+      "icon": "\u2699\ufe0f",
+      "tag": "HX-302",
+      "equipment_type": "heat_exchanger",
+      "id": "equipment:HX-302"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "IS-6153",
+      "title": "IS-6153",
+      "id": "regulation:is-6153"
+    },
+    {
+      "type": "Regulation",
+      "color": "#EF4444",
+      "icon": "\ud83d\udccb",
+      "code": "IS-10221",
+      "title": "IS-10221",
+      "id": "regulation:is-10221"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: corrosion",
+      "id": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "type": "FailureMode",
+      "color": "#DC2626",
+      "icon": "\u26a0\ufe0f",
+      "description": "blockage",
+      "id": "failure_mode:blockage"
+    },
+    {
+      "type": "Event",
+      "color": "#F59E0B",
+      "icon": "\ud83d\udcc5",
+      "event_type": "failure",
+      "date": "",
+      "description": "Failure: blockage",
+      "id": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "type": "Person",
+      "color": "#8B5CF6",
+      "icon": "\ud83d\udc64",
+      "name": "P. Raghavan",
+      "id": "person:p._raghavan"
+    }
+  ],
+  "edges": [
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc",
+      "target": "person:dr._m._anand"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc",
+      "target": "person:s._krishnamurthy"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc",
+      "target": "person:r._sharma"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc",
+      "target": "person:l._fernandez"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:P-101",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-101",
+      "target": "regulation:oisd-gdn-206"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-101",
+      "target": "regulation:is-2190"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-101",
+      "target": "regulation:api-570"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-101",
+      "target": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-101",
+      "target": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:bearing_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-101",
+      "target": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:bearing_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:seal_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "inspection_report",
+      "source": "equipment:P-101",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:9120835e:temperature"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-101",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-101",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "oem_manual",
+      "source": "equipment:P-101",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:3611fca3:flow_rate"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:3611fca3:speed"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:3611fca3:discharge_pressure"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:3611fca3:pressure"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:3611fca3:temperature"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-101",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-101",
+      "target": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:2e0301b7:current_draw"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:2e0301b7:level"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-101",
+      "target": "parameter:2e0301b7:temperature"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "GREEN",
+      "evidence_doc": "pump_p101_maintenance_log.txt",
+      "evidence_type": "maintenance_record",
+      "source": "equipment:P-101",
+      "target": "regulation:api-510"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:imbalance"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:misalignment"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-101",
+      "target": "document:c93f5c53-f8d8-515a-9d99-a41b45d23795"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:bearing_damage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-101",
+      "target": "document:90353793-c235-5eef-ac7d-90449f7f1a3f"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:90353793-c235-5eef-ac7d-90449f7f1a3f:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:P-101",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:P-101",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:P-101",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-101",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-101",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-201",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-201",
+      "target": "regulation:oisd-gdn-206"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "valve_v201_inspection_cui.txt",
+      "evidence_type": "inspection_report",
+      "source": "equipment:V-201",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-201",
+      "target": "regulation:is-2190"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-201",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "valve_v201_inspection_cui.txt",
+      "evidence_type": "inspection_report",
+      "source": "equipment:V-201",
+      "target": "regulation:api-570"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-201",
+      "target": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "inspection_report",
+      "source": "equipment:V-201",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:V-201",
+      "target": "parameter:9120835e:temperature"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:V-201",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-201",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "inspection_report",
+      "source": "equipment:V-201",
+      "target": "document:83548aad-51e6-5d29-9cda-a37f43685f25"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-201",
+      "target": "event:83548aad-51e6-5d29-9cda-a37f43685f25:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:M-101",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:oisd-gdn-206"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:is-2190"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:api-570"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:M-101",
+      "target": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:M-101",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:M-101",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-101",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-101",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "regulation:oisd-gdn-206"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CT-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "regulation:is-2190"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "regulation:api-570"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:CT-101",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:CT-101",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CT-101",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CT-101",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CT-101",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CT-101",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:P-102",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-102",
+      "target": "regulation:oisd-gdn-206"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-102",
+      "target": "regulation:is-2190"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-102",
+      "target": "regulation:api-570"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "annual_audit_findings_2024.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:P-102",
+      "target": "regulation:ansi-z358.1-2014"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-102",
+      "target": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:bearing_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:seal_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-102",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-102",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-102",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-102",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-102",
+      "target": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-102",
+      "target": "parameter:2e0301b7:current_draw"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-102",
+      "target": "parameter:2e0301b7:level"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:P-102",
+      "target": "parameter:2e0301b7:temperature"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "GREEN",
+      "evidence_doc": "pump_p101_maintenance_log.txt",
+      "evidence_type": "maintenance_record",
+      "source": "equipment:P-102",
+      "target": "regulation:api-510"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:imbalance"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:misalignment"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:P-102",
+      "target": "document:c93f5c53-f8d8-515a-9d99-a41b45d23795"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:bearing_damage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-102",
+      "target": "document:90353793-c235-5eef-ac7d-90449f7f1a3f"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:90353793-c235-5eef-ac7d-90449f7f1a3f:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:P-102",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:P-102",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:P-102",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:P-102",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-102",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:vibration",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc:corrosion",
+      "target": "document:5cf75ac3-006d-5394-b3f5-f6b40c34c8dc"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee",
+      "target": "person:suresh_patel"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:C-201",
+      "target": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:bearing_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "inspection_report",
+      "source": "equipment:C-201",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:C-201",
+      "target": "parameter:9120835e:temperature"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:C-201",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:C-201",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:C-201",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:C-201",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:C-201",
+      "target": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:C-201",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-201",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-201",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-201",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:C-201",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:bearing_failure",
+      "target": "failure_mode:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:bearing_failure",
+      "target": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee:vibration",
+      "target": "document:b4ba5069-3ace-570a-a2eb-411cf5d0c7ee"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:7d04a285-190e-578b-92c5-6af7792eca44",
+      "target": "person:suresh_patel"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:7d04a285-190e-578b-92c5-6af7792eca44",
+      "target": "person:amit_singh"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:HX-301",
+      "target": "document:7d04a285-190e-578b-92c5-6af7792eca44"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "inspection_report",
+      "source": "equipment:HX-301",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:HX-301",
+      "target": "parameter:9120835e:temperature"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-301",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:HX-301",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:HX-301",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:HX-301",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-301",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-301",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-301",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2",
+      "target": "person:dr._priya_sharma"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2",
+      "target": "person:k._venkataraman"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:bearing_failure",
+      "target": "failure_mode:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:bearing_failure",
+      "target": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:vibration",
+      "target": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:seal_failure",
+      "target": "failure_mode:seal_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:1ab43333-72b7-572e-9036-a1e42f2a95b2:seal_failure",
+      "target": "document:1ab43333-72b7-572e-9036-a1e42f2a95b2"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9120835e-3843-5e8e-8bea-0faff3f04da5",
+      "target": "person:m._krishnamurthy"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9120835e-3843-5e8e-8bea-0faff3f04da5",
+      "target": "person:dr._priya_sharma"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9120835e-3843-5e8e-8bea-0faff3f04da5",
+      "target": "person:s._raghunathan"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:corrosion",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion",
+      "target": "failure_mode:erosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:erosion",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:vibration",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure",
+      "target": "failure_mode:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9120835e-3843-5e8e-8bea-0faff3f04da5:bearing_failure",
+      "target": "document:9120835e-3843-5e8e-8bea-0faff3f04da5"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b",
+      "target": "person:l._fernandez"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b",
+      "target": "person:a._venkatesh"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-201",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-201",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-201",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:P-201",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-201",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-201",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-201",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-104",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "lessons_learned_bulletin_2023.txt",
+      "evidence_type": "incident_report",
+      "source": "equipment:P-104",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-104",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-303",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "lessons_learned_bulletin_2023.txt",
+      "evidence_type": "incident_report",
+      "source": "equipment:P-303",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-303",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:P-202",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-202",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:P-202",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:P-202",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-202",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-202",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-202",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:CWP-01",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-01",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:CWP-01",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-01",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-01",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-01",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "incident_report",
+      "source": "equipment:CWP-02",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "RED",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-02",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:CWP-02",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-02",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:CWP-02",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:CWP-02",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running",
+      "target": "failure_mode:dry_running"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:dry_running",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure",
+      "target": "failure_mode:seal_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:seal_failure",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation",
+      "target": "failure_mode:cavitation"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:cavitation",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion",
+      "target": "failure_mode:erosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:erosion",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage",
+      "target": "failure_mode:bearing_damage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:bearing_damage",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b:vibration",
+      "target": "document:f98daf8a-06ef-53ad-b0a6-c8a8d3ee442b"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf",
+      "target": "person:v._subramaniam"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf",
+      "target": "person:a._venkatesh"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:M-102",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:M-102",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-102",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-102",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "maintenance_record",
+      "source": "equipment:M-201",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "HAS_PARAMETER",
+      "source": "equipment:M-201",
+      "target": "parameter:a2f403b7:current_draw"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-201",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:M-201",
+      "target": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:vibration",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance",
+      "target": "failure_mode:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf:imbalance",
+      "target": "document:a2f403b7-8591-50b8-a3b1-4cd18ae5abcf"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:vibration",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:erosion",
+      "target": "failure_mode:erosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:erosion",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:corrosion",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_wear",
+      "target": "failure_mode:bearing_wear"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_wear",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:misalignment",
+      "target": "failure_mode:misalignment"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:misalignment",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:imbalance",
+      "target": "failure_mode:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:imbalance",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:cavitation",
+      "target": "failure_mode:cavitation"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:cavitation",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_failure",
+      "target": "failure_mode:bearing_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:bearing_failure",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:seal_failure",
+      "target": "failure_mode:seal_failure"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:seal_failure",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:dry_running",
+      "target": "failure_mode:dry_running"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:3611fca3-97bd-5859-bc45-d1737d87ba95:dry_running",
+      "target": "document:3611fca3-97bd-5859-bc45-d1737d87ba95"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12",
+      "target": "person:s._jenkins"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12",
+      "target": "person:t._vance"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12",
+      "target": "person:l._chang"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:90d6a69a-a0b8-5676-8b07-1c9ead6fca12:vibration",
+      "target": "document:90d6a69a-a0b8-5676-8b07-1c9ead6fca12"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a",
+      "target": "person:rajesh_kumar"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a",
+      "target": "person:suresh_patel"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a",
+      "target": "person:amit_singh"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:vibration",
+      "target": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:imbalance",
+      "target": "failure_mode:imbalance"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:imbalance",
+      "target": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:misalignment",
+      "target": "failure_mode:misalignment"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:2e0301b7-8360-5375-a441-230b4e0d7f9a:misalignment",
+      "target": "document:2e0301b7-8360-5375-a441-230b4e0d7f9a"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:vibration",
+      "target": "document:c93f5c53-f8d8-515a-9d99-a41b45d23795"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:bearing_damage",
+      "target": "failure_mode:bearing_damage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:c93f5c53-f8d8-515a-9d99-a41b45d23795:bearing_damage",
+      "target": "document:c93f5c53-f8d8-515a-9d99-a41b45d23795"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:90353793-c235-5eef-ac7d-90449f7f1a3f:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:90353793-c235-5eef-ac7d-90449f7f1a3f:vibration",
+      "target": "document:90353793-c235-5eef-ac7d-90449f7f1a3f"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:corrosion",
+      "target": "document:556f12b1-da5f-5f2d-82d3-65a9f44d346a"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:556f12b1-da5f-5f2d-82d3-65a9f44d346a:vibration",
+      "target": "document:556f12b1-da5f-5f2d-82d3-65a9f44d346a"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9:vibration",
+      "target": "document:e46a1b88-b6dc-53ce-af6b-3f8f9bbf53b9"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5",
+      "target": "person:k._venkataraman"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:P-103",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-103",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-103",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-103",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:P-103",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:C-202",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-202",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-202",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-202",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:C-202",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:B-101",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-101",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-101",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:B-102",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-102",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-102",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-102",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:B-102",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:AG-101",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-101",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-101",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:AG-201",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-201",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-201",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-201",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:AG-201",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:V-101",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:V-101",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:V-101",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:V-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-101",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "safety_procedure",
+      "source": "equipment:DV-101",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:DV-101",
+      "target": "regulation:oisd-105"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:DV-101",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:DV-101",
+      "target": "regulation:is-3646"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "safety_procedure_sp_045.txt",
+      "evidence_type": "safety_procedure",
+      "source": "equipment:DV-101",
+      "target": "regulation:factory-act-1948"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5:vibration",
+      "target": "failure_mode:vibration"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5:vibration",
+      "target": "document:c02f27bb-63f5-55dc-ab28-ed48bd2dd4f5"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448",
+      "target": "person:r._sharma"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448",
+      "target": "person:s._krishnamurthy"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448",
+      "target": "person:k._patel"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-102",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-102",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-103",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-103",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-104",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-104",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-105",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-105",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-106",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-106",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-107",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-107",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-108",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:V-108",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:V-108",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:V-108",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:V-108",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-108",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:V-108",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-109",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-109",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-110",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-110",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-111",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-111",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "regulatory",
+      "source": "equipment:V-112",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "valve_register_unit3.txt",
+      "evidence_type": "regulatory",
+      "source": "equipment:V-112",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:erosion",
+      "target": "failure_mode:erosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:erosion",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:9218d5a5-4d5d-5e64-9d54-c7df6998b448:corrosion",
+      "target": "document:9218d5a5-4d5d-5e64-9d54-c7df6998b448"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:83548aad-51e6-5d29-9cda-a37f43685f25",
+      "target": "person:r._davies"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:83548aad-51e6-5d29-9cda-a37f43685f25:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:83548aad-51e6-5d29-9cda-a37f43685f25:corrosion",
+      "target": "document:83548aad-51e6-5d29-9cda-a37f43685f25"
+    },
+    {
+      "relation": "AUTHORED_BY",
+      "source": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040",
+      "target": "person:p._raghavan"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "doc_category": "operating_procedure",
+      "source": "equipment:HX-302",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-302",
+      "target": "regulation:oisd-116"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-302",
+      "target": "regulation:is-6153"
+    },
+    {
+      "relation": "SUBJECT_TO",
+      "compliance_status": "AMBER",
+      "evidence_doc": "water_treatment_procedure.txt",
+      "evidence_type": "operating_procedure",
+      "source": "equipment:HX-302",
+      "target": "regulation:is-10221"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-302",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion"
+    },
+    {
+      "relation": "EXPERIENCED",
+      "source": "equipment:HX-302",
+      "target": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion",
+      "target": "failure_mode:corrosion"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:corrosion",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    },
+    {
+      "relation": "CAUSED_BY",
+      "source": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage",
+      "target": "failure_mode:blockage"
+    },
+    {
+      "relation": "DOCUMENTED_IN",
+      "source": "event:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040:blockage",
+      "target": "document:ae7c3d15-7dcd-5e80-8f4c-fa186ac8c040"
+    }
+  ]
+}

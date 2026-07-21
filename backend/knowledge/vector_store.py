@@ -111,18 +111,12 @@ class VectorStore:
         self.persist_dir = persist_dir or str(VECTOR_PERSIST_DIR)
         self.collection_name = collection_name or CHROMA_COLLECTION_NAME
 
-        # Render / HF Spaces / Cloud Run have no persistent disk — use
-        # ephemeral in-memory store (docs re-index on startup)
-        is_ephemeral_host = bool(
-            os.environ.get("RENDER")
-            or os.environ.get("SPACE_ID")
-            or os.environ.get("K_SERVICE")
-        )
-        if is_ephemeral_host:
-            print("[VectorStore] Ephemeral host detected (Render/HF/Cloud Run) — using EphemeralClient")
-            self.client = chromadb.EphemeralClient()
-        else:
-            self.client = chromadb.PersistentClient(path=self.persist_dir)
+        # The repo ships a prebuilt chroma_db (data/chroma_db) with Gemini
+        # embeddings already computed — PersistentClient reads it directly,
+        # so startup makes ZERO embedding API calls even on ephemeral hosts
+        # (Render/Cloud Run). Writes work too (container fs is writable);
+        # they just don't survive restarts, same as before.
+        self.client = chromadb.PersistentClient(path=self.persist_dir)
 
         # Only clear the collection if its embedding dimension doesn't match
         # Gemini's 3072-dim output (e.g. leftover 768-dim ONNX embeddings).
