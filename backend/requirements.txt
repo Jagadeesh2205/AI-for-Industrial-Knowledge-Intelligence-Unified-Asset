@@ -14,6 +14,7 @@ spacy>=3.7,<4
 
 # Vector Store — must match the version that built data/chroma_db
 chromadb==1.5.9
+pysqlite3-binary==0.5.4
 
 # Embeddings — using Gemini API via google-genai (no local models needed)
 

@@ -9,6 +9,14 @@ import os
 import io
 import sys
 
+# --- AZURE APPSERVICE CHROMADB FIX ---
+# ChromaDB requires SQLite > 3.35.0. Azure Linux Web Apps use an older version.
+# We override the built-in sqlite3 with pysqlite3-binary.
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# -------------------------------------
+
+
 # Fix Windows console encoding for emoji/unicode
 if sys.platform == 'win32':
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
