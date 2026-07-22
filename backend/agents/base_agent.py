@@ -419,7 +419,6 @@ Remember to cite sources for every factual claim using the format shown in the c
                 messages=all_messages,
                 stream=True,
                 max_completion_tokens=2048,
-                temperature=0.3,
             )
             
             for chunk in stream:

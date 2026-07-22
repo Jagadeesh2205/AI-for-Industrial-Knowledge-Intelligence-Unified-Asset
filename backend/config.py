@@ -30,7 +30,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
-AZURE_FOUNDRY_ENDPOINT = os.getenv("AZURE_FOUNDRY_ENDPOINT", "https://inteligentapi.services.ai.azure.com/api/projects/proj-default/openai/v1")
+AZURE_FOUNDRY_ENDPOINT = os.getenv("AZURE_FOUNDRY_ENDPOINT", "https://inteligentapi.services.ai.azure.com/openai/v1")
 AZURE_FOUNDRY_KEY = os.getenv("AZURE_FOUNDRY_KEY", "")
 AZURE_FOUNDRY_MODEL = os.getenv("AZURE_FOUNDRY_MODEL", "gpt-5-mini")
 
