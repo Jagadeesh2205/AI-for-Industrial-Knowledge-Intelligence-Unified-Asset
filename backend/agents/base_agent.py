@@ -419,7 +419,7 @@ Remember to cite sources for every factual claim using the format shown in the c
                 model=LLM_MODELS["azure_foundry"],
                 messages=all_messages,
                 stream=True,
-                max_tokens=2048,
+                max_completion_tokens=2048,
                 temperature=0.3,
             )
             
