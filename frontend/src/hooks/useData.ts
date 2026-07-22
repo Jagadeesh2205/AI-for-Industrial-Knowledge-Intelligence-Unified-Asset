@@ -47,6 +47,9 @@ export function useGraph() {
 
   useEffect(() => {
     fetchGraph();
+    const handleRefresh = () => fetchGraph();
+    window.addEventListener('data-updated', handleRefresh);
+    return () => window.removeEventListener('data-updated', handleRefresh);
   }, [fetchGraph]);
 
   return {
@@ -108,7 +111,7 @@ export function useDocuments() {
           setUploadProgress(
             `✓ ${status.processed_files}/${status.total_files} documents processed`
           );
-          await fetchDocuments();
+          window.dispatchEvent(new Event('data-updated'));
           break;
         }
 
@@ -125,19 +128,22 @@ export function useDocuments() {
       setUploading(false);
       setUploadProgress('');
     }, 3000);
-  }, [fetchDocuments]);
+  }, []);
 
   const deleteDocument = useCallback(async (docId: string) => {
     try {
       await fetch(`${API_BASE}/api/documents/${docId}`, { method: 'DELETE' });
-      await fetchDocuments();
+      window.dispatchEvent(new Event('data-updated'));
     } catch (err) {
       console.log('Delete failed:', err);
     }
-  }, [fetchDocuments]);
+  }, []);
 
   useEffect(() => {
     fetchDocuments();
+    const handleRefresh = () => fetchDocuments();
+    window.addEventListener('data-updated', handleRefresh);
+    return () => window.removeEventListener('data-updated', handleRefresh);
   }, [fetchDocuments]);
 
   return {
@@ -166,8 +172,13 @@ export function useStats() {
 
   useEffect(() => {
     fetchStats();
-    const interval = setInterval(fetchStats, 30000); // Refresh every 30s
-    return () => clearInterval(interval);
+    const handleRefresh = () => fetchStats();
+    window.addEventListener('data-updated', handleRefresh);
+    const interval = setInterval(fetchStats, 10000); // Refresh every 10s
+    return () => {
+      window.removeEventListener('data-updated', handleRefresh);
+      clearInterval(interval);
+    };
   }, [fetchStats]);
 
   return { stats, fetchStats };
