@@ -12,8 +12,15 @@ load_dotenv()
 # ── Paths ──────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BASE_DIR.parent
-DATA_DIR = PROJECT_ROOT / "data"
-SAMPLE_DOCS_DIR = DATA_DIR / "sample_docs"
+
+# On Azure App Service Linux, only /home survives container restarts.
+# Detect Azure via WEBSITE_SITE_NAME env var and store persistent data there.
+if os.getenv("WEBSITE_SITE_NAME"):
+    DATA_DIR = Path("/home/data")
+else:
+    DATA_DIR = PROJECT_ROOT / "data"
+
+SAMPLE_DOCS_DIR = PROJECT_ROOT / "data" / "sample_docs"  # always read from repo
 UPLOAD_DIR = DATA_DIR / "uploads"
 GRAPH_PERSIST_PATH = DATA_DIR / "graph_store.json"
 VECTOR_PERSIST_DIR = DATA_DIR / "chroma_db"

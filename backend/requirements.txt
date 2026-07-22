@@ -17,6 +17,9 @@ chromadb==1.5.9
 pysqlite3-binary==0.5.4
 
 # Embeddings — using Gemini API via google-genai (no local models needed)
+# Local ONNX embeddings for non-Gemini providers (azure_foundry, openrouter)
+onnxruntime>=1.15.0
+tokenizers>=0.13.0
 
 # Knowledge Graph
 networkx==3.4.2

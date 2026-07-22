@@ -124,7 +124,7 @@ class VectorStore:
         # Gemini's 3072-dim output (e.g. leftover 768-dim ONNX embeddings).
         # Unconditional wiping destroyed user-uploaded documents on every boot.
         from backend.config import LLM_PROVIDER
-        if LLM_PROVIDER == "openrouter":
+        if LLM_PROVIDER in ("openrouter", "azure_foundry"):
             from chromadb.utils.embedding_functions import DefaultEmbeddingFunction
             emb_fn = DefaultEmbeddingFunction()
             expected_dim = 384

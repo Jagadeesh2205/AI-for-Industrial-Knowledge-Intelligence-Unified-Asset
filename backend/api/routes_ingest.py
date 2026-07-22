@@ -109,15 +109,19 @@ async def process_documents(job_id: str, file_paths: list[str]):
             result = indexer.index_document(filepath, doc_id)
             job["results"].append(result)
             job["processed_files"] += 1
-            log_event("INGEST", f"Indexed {Path(filepath).name}: "
-                      f"{result.get('chunks_created', 0)} chunks, "
-                      f"{result.get('entities_extracted', 0)} entities")
+            if result.get("status") == "completed":
+                log_event("INGEST", f"Indexed {Path(filepath).name}: "
+                          f"{result.get('chunks_created', 0)} chunks, "
+                          f"{result.get('entities_extracted', 0)} entities")
+            else:
+                log_event("ERROR", f"Failed to index {Path(filepath).name}: "
+                          f"{result.get('error', 'unknown error')}")
         except Exception as e:
             job["errors"].append({
                 "file": Path(filepath).name,
                 "error": str(e),
             })
             job["processed_files"] += 1
-            log_event("ERROR", f"Failed to index {Path(filepath).name}")
+            log_event("ERROR", f"Failed to index {Path(filepath).name}: {e}")
 
     job["status"] = "completed" if not job["errors"] else "completed_with_errors"
