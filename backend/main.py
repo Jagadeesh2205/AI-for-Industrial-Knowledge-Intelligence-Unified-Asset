@@ -186,8 +186,7 @@ async def lifespan(app: FastAPI):
             print(f"⚠ Background indexing failed: {e}")
 
     app.state.indexing_complete = False
-    # threading.Thread(target=_index_in_background, daemon=True).start()
-    app.state.indexing_complete = True # Mark as complete since we skipped it
+    threading.Thread(target=_index_in_background, daemon=True).start()
 
     print(f"\n🚀 Server ready at http://localhost:{API_PORT} (indexing continues in background)")
     print(f"📚 API docs at http://localhost:{API_PORT}/docs")
