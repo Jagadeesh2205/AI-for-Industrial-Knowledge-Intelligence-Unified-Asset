@@ -262,7 +262,7 @@ Remember to cite sources for every factual claim using the format shown in the c
                 model=LLM_MODELS["openai"],
                 messages=all_messages,
                 stream=True,
-                max_tokens=2048,
+                max_completion_tokens=2048,
                 temperature=0.3,
             )
             
@@ -387,7 +387,7 @@ Remember to cite sources for every factual claim using the format shown in the c
                 model=LLM_MODELS["openrouter"],
                 messages=all_messages,
                 stream=True,
-                max_tokens=2048,
+                max_completion_tokens=2048,
                 temperature=0.3,
             )
             
